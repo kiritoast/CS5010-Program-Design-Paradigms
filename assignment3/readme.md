@@ -1,6 +1,28 @@
-1. This project is supposed to take a CSV file and generate files based on email or letter templates.
+# Assignment 3
 
-2. To run this program, open the main class and modify the configuration. An example configuration is shown below:
+1. Introduction
+2. Usage
+3. Example Configuration
+4. Note
+
+## 1. Introduction
+This project is designed to take a CSV file containing customer information and generate email or letter files based on provided templates.
+![UML](HW3_PROBLEM1.png)
+
+
+## 2. Usage
+To run this program, follow these steps:
+- Open the main class and modify the configuration.
+- Configure the following options:
+  - --email or --letter: Specify whether to generate email or letter files.
+  - --email-template <file>: Provide the path to the email template file.
+  - --letter-template <file>: Provide the path to the letter template file.
+  - --output-dir <path>: Specify the output directory where generated files will be saved.
+  - --csv-file <path>: Specify the path to the CSV file containing customer information.
+
+## 3. Example Configuration
+An example configuration is shown below:
+
 <code>
    --letter
    --letter-template
@@ -9,7 +31,15 @@
    test_output/dr
    --csv-file
    src/main/resources/insurance-company-members.csv</code>
-<br>
-3. This configuration will take the CSV file from the root directory, use the letter template from the root directory, and output the files to the folder "example" under the root directory. The name of each file will be formatted as the first name + last name inside the "example" folder.
+
+This configuration will use the letter template from the specified path, take the CSV file from the specified path, and output the generated files to the specified directory.
+
+## 4. Note
+- Ensure to replace placeholders with actual file paths and filenames in the configuration.
+- Verify that the paths provided are correct and accessible.
+- The name of each generated file will be formatted as the first name + last name inside the specified output directory.
+
+
+
 
 
