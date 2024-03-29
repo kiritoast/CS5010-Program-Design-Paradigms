@@ -1,4 +1,4 @@
-# Assignment 1 Readme
+# Assignment 1
 
 1. [Objective](#objective)
 2. [Tasks](#tasks)
