@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Runner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab3</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Runner.java</span></div><h1>Runner.java</h1><pre class="source lang-java linenums">import java.util.Objects;
+
+public class Runner extends Athlete{
+  private double best5KTime;
+  private double halfMarathon;
+  private String favEvent;
+
+  public Runner(Name athletesName, Double height, Double weight, String league, double best5KTime,
+      double halfMarathon, String favEvent) {
+<span class="nc" id="L10">    super(athletesName, height, weight, league);</span>
+<span class="nc" id="L11">    this.best5KTime = best5KTime;</span>
+<span class="nc" id="L12">    this.halfMarathon = halfMarathon;</span>
+<span class="nc" id="L13">    this.favEvent = favEvent;</span>
+<span class="nc" id="L14">  }</span>
+
+  public Runner(Name athletesName, Double height, Double weight, double best5KTime,
+      double halfMarathon, String favEvent) {
+<span class="nc" id="L18">    super(athletesName, height, weight);</span>
+<span class="nc" id="L19">    this.best5KTime = best5KTime;</span>
+<span class="nc" id="L20">    this.halfMarathon = halfMarathon;</span>
+<span class="nc" id="L21">    this.favEvent = favEvent;</span>
+<span class="nc" id="L22">  }</span>
+
+  public double getBest5KTime() {
+<span class="nc" id="L25">    return best5KTime;</span>
+  }
+
+  public double getHalfMarathon() {
+<span class="nc" id="L29">    return halfMarathon;</span>
+  }
+
+  public String getFavEvent() {
+<span class="nc" id="L33">    return favEvent;</span>
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L38" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L39">      return true;</span>
+    }
+<span class="nc bnc" id="L41" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L42">      return false;</span>
+    }
+<span class="nc" id="L44">    Runner runner = (Runner) o;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">    return Double.compare(runner.best5KTime, best5KTime) == 0</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        &amp;&amp; Double.compare(runner.halfMarathon, halfMarathon) == 0</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        &amp;&amp; Objects.equals(favEvent, runner.favEvent);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L52">    return Objects.hash(best5KTime, halfMarathon, favEvent);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L57">    return &quot;Runner{&quot; +</span>
+        &quot;best5KTime=&quot; + best5KTime +
+        &quot;, halfMarathon=&quot; + halfMarathon +
+        &quot;, favEvent='&quot; + favEvent + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="lab4.problem1.QueueTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-03T18:21:58" hostname="Jinmings-MacBook-Pro.local" time="0.014">
+  <properties/>
+  <testcase name="enqueue()" classname="lab4.problem1.QueueTest" time="0.012"/>
+  <testcase name="front()" classname="lab4.problem1.QueueTest" time="0.001"/>
+  <testcase name="dequeue()" classname="lab4.problem1.QueueTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

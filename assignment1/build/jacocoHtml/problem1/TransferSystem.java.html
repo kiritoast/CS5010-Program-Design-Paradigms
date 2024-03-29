@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TransferSystem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">TransferSystem.java</span></div><h1>TransferSystem.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.HashMap;
+
+public class TransferSystem {
+  private HashMap &lt;String, FrequentFlyer&gt; map;
+
+<span class="fc" id="L8">  public TransferSystem(HashMap&lt;String, FrequentFlyer&gt; map) {</span>
+<span class="fc" id="L9">    this.map = map;</span>
+<span class="fc" id="L10">  }</span>
+  public boolean checkFlyerExist(String accountID, FrequentFlyer frequentFlyer){
+<span class="fc bfc" id="L12" title="All 2 branches covered.">    if(map.containsKey(accountID)){</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">      return map.get(accountID).getFirstName().equals(frequentFlyer.getFirstName())</span>
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">          &amp;&amp; map.get(accountID).getMiddleName().equals(frequentFlyer.getMiddleName())</span>
+<span class="pc bpc" id="L15" title="1 of 2 branches missed.">          &amp;&amp; map.get(accountID).getLastName().equals(frequentFlyer.getLastName());</span>
+    }else{
+<span class="fc" id="L17">      return false;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

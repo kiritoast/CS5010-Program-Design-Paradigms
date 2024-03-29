@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AuthorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-01-24T02:52:56" hostname="Jinmings-MacBook-Pro.local" time="0.014">
+  <properties/>
+  <testcase name="getAddress()" classname="AuthorTest" time="0.012"/>
+  <testcase name="getName()" classname="AuthorTest" time="0.0"/>
+  <testcase name="getEmail()" classname="AuthorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

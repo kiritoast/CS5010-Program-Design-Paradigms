@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Deposit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">Deposit.java</span></div><h1>Deposit.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+/**
+ * Deposit that allow transfer between account
+ */
+public class Deposit{
+  private int amount;
+  private FrequentFlyer user;
+  private static final int LOWER_LIMIT = 1000;
+  private static final int UPPER_LIMIT = 10000;
+
+  /**
+   *
+   * @param amount Deposit amount that is in the range [1000 – 10000] miles
+   * @param user information about the recipient
+   * @throws Exception amount range between 1000 – 10000
+   */
+<span class="fc" id="L20">  public Deposit(int amount, FrequentFlyer user) throws Exception {</span>
+<span class="fc bfc" id="L21" title="All 4 branches covered.">    if(amount &gt; UPPER_LIMIT || amount &lt; LOWER_LIMIT){</span>
+<span class="fc" id="L22">       throw new Exception(&quot;The mile should between 1000 and 10000 &quot;);</span>
+    }
+<span class="fc" id="L24">    this.amount = amount;</span>
+<span class="fc" id="L25">    this.user = user;</span>
+<span class="fc" id="L26">  }</span>
+
+  /**
+   *
+   * @return amount that transfer between class
+   */
+  public int getAmount() {
+<span class="fc" id="L33">    return amount;</span>
+  }
+
+  /**
+   *
+   * @return user who get the deposit
+   */
+  public FrequentFlyer getUser() {
+<span class="fc" id="L41">    return user;</span>
+  }
+
+  /**
+   *
+   * @param o object that see if eqauls
+   * @return true if the same, false if not
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L52">      return true;</span>
+    }
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L55">      return false;</span>
+    }
+<span class="fc" id="L57">    Deposit deposit = (Deposit) o;</span>
+<span class="pc bpc" id="L58" title="1 of 4 branches missed.">    return amount == deposit.amount &amp;&amp; Objects.equals(user, deposit.user);</span>
+  }
+
+  /**
+   *
+   * @return hashcode of the object
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L67">    return Objects.hash(amount, user);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

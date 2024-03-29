@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Vehicle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Vehicle.java</span></div><h1>Vehicle.java</h1><pre class="source lang-java linenums">package problem2;
+
+/**
+ * abstract vehicle
+ *
+ */
+public abstract class Vehicle {
+
+  /**
+   * string that store unique Vehicle id
+   */
+  protected String ID;
+  /**
+   * manufacturingYear year vehicle was manufactured
+   */
+  protected String manufacturingYear;
+  /**
+   * makeModel represented as custom class MakeModel
+   */
+  protected MakeModel makeModel;
+  /**
+   * MSRP Manufacturer Suggested Retail Price
+   */
+  protected double MSRP;
+
+  /**
+   *
+   * @param ID unique identifier of a vehicle
+   * @param manufacturingYear year vehicle was manufactured
+   * @param makeModel represented as custom class MakeModel
+   * @param MSRP Manufacturer Suggested Retail Price
+   */
+<span class="fc" id="L33">  public Vehicle(String ID, String manufacturingYear, MakeModel makeModel, double MSRP) {</span>
+<span class="fc" id="L34">    this.ID = ID;</span>
+<span class="fc" id="L35">    this.manufacturingYear = manufacturingYear;</span>
+<span class="fc" id="L36">    this.makeModel = makeModel;</span>
+<span class="fc" id="L37">    this.MSRP = MSRP;</span>
+<span class="fc" id="L38">  }</span>
+
+  /**
+   *
+   * @return unique id of vehicle
+   */
+  public String getID() {
+<span class="fc" id="L45">    return ID;</span>
+  }
+
+  /**
+   *
+   * @return year vehicle was manufactured
+   */
+  public String getManufacturingYear() {
+<span class="fc" id="L53">    return manufacturingYear;</span>
+  }
+
+  /**
+   *
+   * @return class MakeModel
+   */
+  public MakeModel getMakeModel() {
+<span class="fc" id="L61">    return makeModel;</span>
+  }
+
+  /**
+   *
+   * @return Manufacturer Suggested Retail Price
+   */
+  public double getMSRP() {
+<span class="fc" id="L69">    return MSRP;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

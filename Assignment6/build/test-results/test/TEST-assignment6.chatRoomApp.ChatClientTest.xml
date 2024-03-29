@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment6.chatRoomApp.ChatClientTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-04-23T20:42:36" hostname="Jinmings-MacBook-Pro.local" time="0.055">
+  <properties/>
+  <testcase name="testEqualsDiffArg()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.028"/>
+  <testcase name="startDisconnect()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.006"/>
+  <testcase name="testToString()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.008"/>
+  <testcase name="testEqualsDiff()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.001"/>
+  <testcase name="testEqualsNull()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.001"/>
+  <testcase name="startConnect()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.004"/>
+  <testcase name="testHashCode()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.001"/>
+  <testcase name="testEquals()" classname="assignment6.chatRoomApp.ChatClientTest" time="0.001"/>
+  <system-out><![CDATA[
+Welcome to the chatroom
+Please enter your username: 
+Connection could not be established
+
+Welcome to the chatroom
+Please enter your username: 
+There are 0 other connected clients
+You are no longer connected
+
+Welcome to the chatroom, here are the list of available commands:
+• ?: show the menu options
+• logoff: sends a DISCONNECT_MESSAGE to the server
+• who: sends a QUERY_CONNECTED_USERS to the server
+• @user <message>: sends a DIRECT_MESSAGE to the specified user to the server
+• @all <message>: sends a BROADCAST_MESSAGE to the server, to be sent to all users connected
+• !user: sends a SEND_INSULT message to the server, to be sent to the specified user
+
+]]></system-out>
+  <system-err><![CDATA[Exception in thread "Thread-5" java.lang.RuntimeException: java.util.NoSuchElementException: No line found
+	at assignment6.chatRoomApp.UiHandler.run(UiHandler.java:53)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at assignment6.chatRoomApp.UiHandler.run(UiHandler.java:47)
+	... 1 more
+]]></system-err>
+</testsuite>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IndividualFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">IndividualFilter.java</span></div><h1>IndividualFilter.java</h1><pre class="source lang-java linenums">package problem3;
+
+/**
+ * class individual filter that extends from tax filer
+ */
+public class IndividualFilter extends TaxFiler{
+
+  /**
+   *
+   * @param taxID unique tax filer’s identifier
+   * @param contactInfo class contact info that store tax filer information
+   * @param lastYearEarning Last year’s earnings
+   * @param paidIncomeTax Total income tax already paid
+   * @param paidMortgageInterest Mortgage interest paid
+   * @param paidPropertyTax Property taxes
+   * @param paidStudentLoanTuition Student loan and tuition paid
+   * @param contributionsRetirementSaving Contributions made to a retirement savings account
+   * @param contributionHealthSaving Contributions made to a health savings account
+   * @param charitableDonationContribution Charitable donations and contributions
+   */
+  public IndividualFilter(String taxID, ContactInfo contactInfo, double lastYearEarning,
+      double paidIncomeTax, double paidMortgageInterest, double paidPropertyTax,
+      double paidStudentLoanTuition, double contributionsRetirementSaving,
+      double contributionHealthSaving, double charitableDonationContribution) {
+<span class="fc" id="L25">    super(taxID, contactInfo, lastYearEarning, paidIncomeTax, paidMortgageInterest, paidPropertyTax,</span>
+        paidStudentLoanTuition, contributionsRetirementSaving, contributionHealthSaving,
+        charitableDonationContribution);
+<span class="fc" id="L28">  }</span>
+
+  /**
+   *
+   * @return calculate the Retirement and health savings deduction
+   */
+  @Override
+  protected Double calculateRetirementAndHealthSavingsDeduction() {
+<span class="fc" id="L36">    double deduction = (contributionsRetirementSaving + contributionHealthSaving) * 0.7;</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">    if (deduction &lt; calculateBasicTaxableIncome()){</span>
+<span class="fc" id="L38">      return deduction;</span>
+    }else{
+<span class="nc" id="L40">      return calculateBasicTaxableIncome();</span>
+    }
+  }
+
+  /**
+   *
+   * @return the tax amount is calculated by taking the resulting taxable income
+   */
+  @Override
+  public Double calculateTaxes() {
+<span class="fc" id="L50">    double taxableIncome = calculateBasicTaxableIncome() - calculateRetirementAndHealthSavingsDeduction() -</span>
+<span class="fc" id="L51">        calculateMortgageInterestAndPropertyDeduction();</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">    if(taxableIncome &lt; 55000){</span>
+<span class="nc" id="L53">      return taxableIncome * 0.15;</span>
+    } else{
+<span class="fc" id="L55">      return taxableIncome * 0.19;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

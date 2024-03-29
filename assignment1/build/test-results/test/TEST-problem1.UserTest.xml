@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.UserTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-02T06:27:24" hostname="Jinmings-MacBook-Pro.local" time="0.004">
+  <properties/>
+  <testcase name="getAccountID()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getMiddleName()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getFirstName()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getLastName()" classname="problem1.UserTest" time="0.001"/>
+  <testcase name="testHashCode()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="testEquals()" classname="problem1.UserTest" time="0.0"/>
+  <testcase name="getEmail()" classname="problem1.UserTest" time="0.001"/>
+  <system-out><![CDATA[Id Length must be 12
+Id Length must be 12
+Id Length must be 12
+Id Length must be 12
+Id Length must be 12
+Id Length must be 12
+Id Length must be 12
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

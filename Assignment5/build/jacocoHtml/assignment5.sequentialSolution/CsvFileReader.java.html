@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CsvFileReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.sequentialSolution</a> &gt; <span class="el_source">CsvFileReader.java</span></div><h1>CsvFileReader.java</h1><pre class="source lang-java linenums">package assignment5.sequentialSolution;
+
+import com.opencsv.exceptions.CsvValidationException;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import com.opencsv.CSVReader;
+import java.util.Objects;
+
+/**
+ * Represent the customized CSV reader with the information of the source file path.
+ */
+public class CsvFileReader {
+
+  private FileReader fileReader;
+  private CSVReader csvReader;
+
+  /**
+   * Creates a customized CSV reader given the source file path
+   *
+   * @param filePath the source file path
+   */
+<span class="fc" id="L23">  public CsvFileReader(String filePath) {</span>
+    try {
+<span class="fc" id="L25">      this.fileReader = new FileReader(filePath);</span>
+<span class="fc" id="L26">    } catch (FileNotFoundException e) {</span>
+<span class="fc" id="L27">      throw new RuntimeException(e);</span>
+<span class="fc" id="L28">    }</span>
+<span class="fc" id="L29">    this.csvReader = new CSVReader(this.fileReader);</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * Read and return the next line
+   *
+   * @return the string array which contains the content of next line
+   */
+  public String[] readData() {
+    try {
+<span class="fc" id="L39">      return (this.csvReader.readNext());</span>
+<span class="nc" id="L40">    } catch (IOException | CsvValidationException e) {</span>
+<span class="nc" id="L41">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * Close all the helper csv reader and helper file reader
+   */
+  public void closeFile() {
+    try {
+<span class="fc" id="L50">      this.csvReader.close();</span>
+<span class="fc" id="L51">      this.fileReader.close();</span>
+<span class="nc" id="L52">    } catch (IOException e) {</span>
+<span class="nc" id="L53">      throw new RuntimeException(e);</span>
+<span class="fc" id="L54">    }</span>
+<span class="fc" id="L55">  }</span>
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L66">      return true;</span>
+    }
+<span class="nc bnc" id="L68" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L69">      return false;</span>
+    }
+<span class="nc" id="L71">    CsvFileReader that = (CsvFileReader) o;</span>
+<span class="nc" id="L72">    return csvReader.equals(that.csvReader);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L82">    return Objects.hash(csvReader);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L92">    return &quot;CsvFileReader{&quot; +</span>
+        &quot;csvReader=&quot; + csvReader +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

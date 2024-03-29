@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChatClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ChatClient.java</span></div><h1>ChatClient.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.Objects;
+import java.util.Scanner;
+
+/**
+ * The ChatClient class represents a client in the chatroom application. It connects to the server,
+ * initializes a connection by getting the username from the user, and then runs the client message
+ * handler and user input handler on separate thread
+ */
+public class ChatClient {
+
+  private final Socket serverSocket;
+  private final DataInputStream dataInputStream;
+  private final DataOutputStream dataOutputStream;
+  private UiInputHandler uiInputHandler;
+  private final ClientMessageHandler clientMessageHandler;
+  private String username;
+  private Scanner scanner;
+
+  private static final String WELCOME_MSG = &quot;\nWelcome to the chatroom\n&quot;;
+  private static final String ASK_USERNAME_MSG = &quot;Please enter your username: &quot;;
+
+  /**
+   * Constructs a ChatClient object with a socket connection to the server, input and output
+   * streams, and a client message handler with a protocol handler.
+   *
+   * @param socket a socket connection to the server
+   */
+<span class="fc" id="L34">  public ChatClient(Socket socket) {</span>
+    try {
+<span class="fc" id="L36">      this.dataOutputStream = new DataOutputStream(socket.getOutputStream());</span>
+<span class="fc" id="L37">      this.dataInputStream = new DataInputStream(socket.getInputStream());</span>
+<span class="fc" id="L38">      this.serverSocket = socket;</span>
+<span class="fc" id="L39">      clientMessageHandler = new ClientMessageHandler(new ProtocolHandler());</span>
+<span class="nc" id="L40">    } catch (IOException e) {</span>
+<span class="nc" id="L41">      throw new RuntimeException(e);</span>
+<span class="fc" id="L42">    }</span>
+<span class="fc" id="L43">  }</span>
+
+  /**
+   * request to connect to the server, and initialize the input and server message handler
+   */
+  public void start() {
+    try {
+<span class="fc" id="L50">      boolean isConnected = initializeConnection();</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">      if (isConnected) {</span>
+<span class="fc" id="L52">        invokeUiServerHandlers();</span>
+      }
+<span class="nc" id="L54">    } catch (InterruptedException | IOException e) {</span>
+<span class="nc" id="L55">      throw new RuntimeException(e);</span>
+    } finally {
+<span class="fc" id="L57">      closeConnection();</span>
+    }
+<span class="fc" id="L59">  }</span>
+
+  /**
+   * Initializes the connection by prompting the user to enter their username
+   *
+   * @return boolean if the connection is successful to the server
+   * @throws IOException if there is an error in the input/output streams
+   */
+  private boolean initializeConnection() throws IOException {
+<span class="fc" id="L68">    populateClientName();</span>
+<span class="fc" id="L69">    return requestConnection();</span>
+  }
+
+  /**
+   * prompt user to enter username and save it
+   */
+  private void populateClientName() {
+<span class="fc" id="L76">    logMessage(WELCOME_MSG + ASK_USERNAME_MSG);</span>
+<span class="fc" id="L77">    scanner = new Scanner(System.in);</span>
+<span class="fc" id="L78">    this.username = scanner.next();</span>
+<span class="fc" id="L79">  }</span>
+
+  /**
+   * initialize ui input handler instance send connection request to server
+   *
+   * @return if the connection is successful to server
+   * @throws IOException if there is an error in the input/output streams
+   */
+  private boolean requestConnection() throws IOException {
+<span class="fc" id="L88">    uiInputHandler = new UiInputHandler(username);</span>
+<span class="fc" id="L89">    uiInputHandler.initialize(dataOutputStream);</span>
+<span class="fc" id="L90">    int messageIdentifier = dataInputStream.readInt();</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">    return (!clientMessageHandler.process(messageIdentifier, dataInputStream));</span>
+  }
+
+  /**
+   * Initializes the client message handler and user input handler on separate threads. Waits for
+   * both threads to complete before closing the connection
+   *
+   * @throws InterruptedException thread is interrupted while waiting for completion
+   */
+  private void invokeUiServerHandlers() throws InterruptedException {
+<span class="fc" id="L101">    Thread serverHandler = new Thread(new ServerHandler(clientMessageHandler, dataInputStream));</span>
+<span class="fc" id="L102">    serverHandler.start();</span>
+<span class="fc" id="L103">    Thread uiHandler = new Thread(new UiHandler(scanner, uiInputHandler, dataOutputStream));</span>
+<span class="fc" id="L104">    uiHandler.start();</span>
+<span class="fc" id="L105">    serverHandler.join();</span>
+<span class="fc" id="L106">    uiHandler.join();</span>
+<span class="fc" id="L107">  }</span>
+
+  /**
+   * Closes the connection by closing the input and output streams, socket connection, and scanner
+   */
+  private void closeConnection() {
+    try {
+<span class="fc" id="L114">      dataInputStream.close();</span>
+<span class="fc" id="L115">      dataOutputStream.close();</span>
+<span class="fc" id="L116">      serverSocket.close();</span>
+<span class="fc" id="L117">      scanner.close();</span>
+<span class="nc" id="L118">    } catch (IOException e) {</span>
+<span class="nc" id="L119">      throw new RuntimeException(e);</span>
+<span class="fc" id="L120">    }</span>
+<span class="fc" id="L121">  }</span>
+
+  /**
+   * log string message to the console
+   *
+   * @param message string which need to be logged
+   */
+  private static void logMessage(String message) {
+<span class="fc" id="L129">    System.out.println(message);</span>
+<span class="fc" id="L130">  }</span>
+
+  /**
+   * This method is used to generate the string representation of chat client class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L139">    return &quot;ChatClient{&quot; +</span>
+        &quot;serverSocket=&quot; + serverSocket +
+        &quot;, dataInputStream=&quot; + dataInputStream +
+        &quot;, dataOutputStream=&quot; + dataOutputStream +
+        &quot;, uiInputHandler=&quot; + uiInputHandler +
+        &quot;, clientMessageHandler=&quot; + clientMessageHandler +
+        &quot;, username='&quot; + username + '\'' +
+        &quot;, scanner=&quot; + scanner +
+        '}';
+  }
+
+  /**
+   * This method is used to compare two instances of chat client class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L158" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L159">      return true;</span>
+    }
+<span class="fc bfc" id="L161" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L162">      return false;</span>
+    }
+<span class="fc" id="L164">    ChatClient that = (ChatClient) o;</span>
+<span class="pc bpc" id="L165" title="3 of 4 branches missed.">    return Objects.equals(serverSocket, that.serverSocket) &amp;&amp; Objects.equals(</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">        dataInputStream, that.dataInputStream) &amp;&amp; Objects.equals(dataOutputStream,</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        that.dataOutputStream) &amp;&amp; Objects.equals(uiInputHandler, that.uiInputHandler)</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        &amp;&amp; Objects.equals(clientMessageHandler, that.clientMessageHandler)</span>
+<span class="pc bnc" id="L169" title="All 4 branches missed.">        &amp;&amp; Objects.equals(username, that.username) &amp;&amp; Objects.equals(scanner,</span>
+        that.scanner);
+  }
+
+  /**
+   * This method is used to generate the hash code of chat client class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L180">    return Objects.hash(serverSocket, dataInputStream, dataOutputStream, uiInputHandler,</span>
+        clientMessageHandler, username, scanner);
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

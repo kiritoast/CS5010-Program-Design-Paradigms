@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReaderProducer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">ReaderProducer.java</span></div><h1>ReaderProducer.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import assignment5.sequentialSolution.CsvFileReader;
+import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
+
+/**
+ * Represents the CSV reader producer with the information of the source file path, the buffer
+ * queue, and the helper latch.
+ */
+public class ReaderProducer implements Runnable {
+
+  private String filePath;
+  private BlockingQueue&lt;String[]&gt; readQueue;
+  private CountDownLatch latch;
+  private static final int INITIAL_INDEX = 0;
+
+  /**
+   * Creates a CSV reader producer given the source file path, the buffer queue, and the helper
+   * latch
+   *
+   * @param filePath  the source file path
+   * @param readQueue the buffer queue
+   * @param latch     the helper latch
+   */
+<span class="fc" id="L27">  public ReaderProducer(String filePath, BlockingQueue&lt;String[]&gt; readQueue, CountDownLatch latch) {</span>
+<span class="fc" id="L28">    this.filePath = filePath;</span>
+<span class="fc" id="L29">    this.readQueue = readQueue;</span>
+<span class="fc" id="L30">    this.latch = latch;</span>
+<span class="fc" id="L31">  }</span>
+
+  /**
+   * This method is invoked to read the course information from the source file path and then store
+   * it to the buffer queue.
+   */
+  @Override
+  public void run() {
+<span class="fc" id="L39">    CsvFileReader csvFileReader = new CsvFileReader(this.filePath);</span>
+<span class="fc" id="L40">    csvFileReader.readData();</span>
+    String[] line;
+    try {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">      while ((line = csvFileReader.readData()) != null) {</span>
+<span class="fc" id="L44">        this.readQueue.put(line);</span>
+      }
+<span class="fc" id="L46">      csvFileReader.closeFile();</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">      for (int i = INITIAL_INDEX; i &lt; CSVConcurrentReader.READER_CONSUMER_NUMBER; i++) {</span>
+<span class="fc" id="L48">        this.readQueue.put(new String[]{});</span>
+      }
+<span class="nc" id="L50">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L51">      throw new RuntimeException(e);</span>
+    } finally {
+<span class="fc" id="L53">      this.latch.countDown();</span>
+    }
+<span class="fc" id="L55">  }</span>
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L66">      return true;</span>
+    }
+<span class="fc bfc" id="L68" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L69">      return false;</span>
+    }
+<span class="fc" id="L71">    ReaderProducer that = (ReaderProducer) o;</span>
+<span class="fc" id="L72">    return filePath.equals(that.filePath);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L82">    return Objects.hash(filePath);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L92">    return &quot;ReaderProducer{&quot; +</span>
+        &quot;filePath='&quot; + filePath + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

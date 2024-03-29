@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InputProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment4</a> &gt; <a href="index.source.html" class="el_package">assignment4.problem1</a> &gt; <span class="el_source">InputProcessor.java</span></div><h1>InputProcessor.java</h1><pre class="source lang-java linenums">package assignment4.problem1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * Class InputProcessor contains information about the input directory path, the list of grammar
+ * titles, the list of file paths, previous option, sentence generator, and continue flag.
+ */
+public class InputProcessor {
+
+  private File fileDirectory;
+  private List&lt;String&gt; grammarTitles;
+  private List&lt;String&gt; filePaths;
+  private String previousOption;
+  private SentenceGenerator sentenceGenerator;
+  private boolean continueFlag;
+  private BufferedReader reader;
+
+  private static final int ZERO = 0;
+  private static final int ONE = 1;
+  private static final char SUFFIX_SEPARATOR = '.';
+  private static final String BLANK = &quot;&quot;;
+  private static final String INDEX_TITLE_SEPARATOR = &quot;. &quot;;
+  private static final int NEGATIVE_ONE = -1;
+  private static final String NUMBER_MATCHER = &quot;[0-9]+&quot;;
+
+  private static final String QUIT_FLAG = &quot;q&quot;;
+  private static final String REUSE_TRUE_FLAG = &quot;y&quot;;
+  private static final String REUSE_FALSE_FLAG = &quot;n&quot;;
+  private static final String SUFFIX_JSON = &quot;json&quot;;
+  private static final String KEY_GRAMMAR_TITLE = &quot;grammarTitle&quot;;
+
+  private static final String LOADING_MSG = &quot;\nLoading grammars...&quot;;
+  private static final String APP_CLOSED_MSG = &quot;\nSentence Generator App Closed.&quot;;
+  private static final String DISPLAY_MSG = &quot;\nThe following grammars are available:&quot;;
+  private static final String REUSE_GRAMMAR_MSG = &quot;\nWhich would you like to use?  (q to quit)&quot;;
+  private static final String INVALID_GRAMMAR_IDX_MSG = &quot;\nInvalid Index. Please input again:  (q to quit)&quot;;
+  private static final String REPEAT_GRAMMAR_MSG = &quot;\nWould you like another? (y/n)&quot;;
+  private static final String INVALID_REPEAT_MSG = &quot;\nInvalid Input. Please input again:  (q to quit)&quot;;
+  private static final String NEW_LINE = &quot;\n&quot;;
+
+  /**
+   * Constructs a new input processor, based upon all of provided input parameters; the input
+   * directory path is converted as File object, the list of grammar titles and the list of file
+   * paths set as Empty list, previous option set as empty string, sentence generator set as empty
+   * object, and continue flag set as true.
+   *
+   * @param fileDirectory the input directory path as File type
+   */
+<span class="nc" id="L56">  public InputProcessor(File fileDirectory) {</span>
+<span class="nc" id="L57">    this.fileDirectory = fileDirectory;</span>
+<span class="nc" id="L58">    this.grammarTitles = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L59">    this.filePaths = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L60">    this.previousOption = BLANK;</span>
+<span class="nc" id="L61">    this.continueFlag = true;</span>
+<span class="nc" id="L62">  }</span>
+
+  /**
+   * Start the process of input process.
+   *
+   * @throws IOException thrown if the input directory or the input option is not correct
+   */
+  public void process() throws IOException {
+<span class="nc" id="L70">    initialize();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">    while (this.continueFlag) {</span>
+<span class="nc" id="L72">      displayAndProcess();</span>
+    }
+<span class="nc" id="L74">  }</span>
+
+  /**
+   * Show loading message, and read file information from input directory.
+   */
+  private void initialize() {
+<span class="nc" id="L80">    logMessage(LOADING_MSG);</span>
+<span class="nc" id="L81">    reader = new BufferedReader(new InputStreamReader(System.in));</span>
+<span class="nc" id="L82">    populateOptions();</span>
+<span class="nc" id="L83">  }</span>
+
+  /**
+   * Read file information from input directory, and store them in the grammarTitles and filePaths
+   * fields
+   */
+  private void populateOptions() {
+<span class="nc" id="L90">    File[] files = this.fileDirectory.listFiles();</span>
+
+<span class="nc bnc" id="L92" title="All 2 branches missed.">    for (File file : files) {</span>
+<span class="nc" id="L93">      String filePath = file.getAbsolutePath();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">      if (getFileExtension(filePath).equals(SUFFIX_JSON)) {</span>
+<span class="nc" id="L95">        JsonReader jsonReader = new JsonReader(filePath);</span>
+<span class="nc" id="L96">        String grammarTitle = jsonReader.readValue(KEY_GRAMMAR_TITLE);</span>
+<span class="nc" id="L97">        this.grammarTitles.add(grammarTitle);</span>
+<span class="nc" id="L98">        this.filePaths.add(filePath);</span>
+      }
+    }
+<span class="nc" id="L101">  }</span>
+
+  /**
+   * Display all the grammar files with index, and process based on user's input option.
+   *
+   * @throws IOException thrown if the input option is not valid.
+   */
+  private void displayAndProcess() throws IOException {
+<span class="nc" id="L109">    displayOptions();</span>
+<span class="nc" id="L110">    String option = readOption();</span>
+
+<span class="nc bnc" id="L112" title="All 2 branches missed.">    if (option.equals(QUIT_FLAG)) {</span>
+<span class="nc" id="L113">      this.continueFlag = false;</span>
+<span class="nc" id="L114">      logMessage(APP_CLOSED_MSG);</span>
+    } else {
+<span class="nc" id="L116">      processOption(option);</span>
+    }
+<span class="nc" id="L118">  }</span>
+
+  /**
+   * Display all the grammar files with index.
+   */
+  private void displayOptions() {
+<span class="nc" id="L124">    logMessage(DISPLAY_MSG);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">    for (int i = ZERO; i &lt; this.grammarTitles.size(); i++) {</span>
+<span class="nc" id="L126">      logMessage((i + ONE) + INDEX_TITLE_SEPARATOR + this.grammarTitles.get(i));</span>
+    }
+<span class="nc" id="L128">    logMessage(REUSE_GRAMMAR_MSG);</span>
+<span class="nc" id="L129">  }</span>
+
+  /**
+   * Return the option that are given by user's input.
+   *
+   * @return the user's input option
+   * @throws IOException thrown if the input option is not valid.
+   */
+  private String readOption() throws IOException {
+<span class="nc" id="L138">    return reader.readLine();</span>
+  }
+
+  /**
+   * Generate a sentence based on user's input option which is an index of grammar file, and ask the
+   * user to repeat or not.
+   *
+   * @param option the user's input option
+   * @throws IOException thrown if the input index or repeat option is not valid.
+   */
+  private void processOption(String option) throws IOException {
+<span class="nc" id="L149">    String checkedOption = checkIndexOption(option);</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">    if (!checkedOption.equals(QUIT_FLAG)) {</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">      if (!this.previousOption.equals(checkedOption)) {</span>
+<span class="nc" id="L152">        this.sentenceGenerator = new SentenceGenerator(</span>
+<span class="nc" id="L153">            this.filePaths.get(Integer.parseInt(checkedOption) - ONE));</span>
+      }
+<span class="nc" id="L155">      String sentence = this.sentenceGenerator.generate();</span>
+<span class="nc" id="L156">      logMessage(NEW_LINE + sentence);</span>
+<span class="nc" id="L157">      repeatCurrentGrammar();</span>
+    }
+<span class="nc" id="L159">  }</span>
+
+  /**
+   * Check the input index option is valid; if not, the user will be asked to input a correct index
+   * or input 'q' to quit.
+   *
+   * @param originOption the original input index
+   * @return the valid input index
+   * @throws IOException thrown if the input index option is not valid.
+   */
+  private String checkIndexOption(String originOption) throws IOException {
+<span class="nc" id="L170">    String option = originOption;</span>
+<span class="nc bnc" id="L171" title="All 4 branches missed.">    while (!option.matches(NUMBER_MATCHER) || Integer.parseInt(option) &lt; ONE</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">        || Integer.parseInt(option) &gt; this.grammarTitles.size()) {</span>
+<span class="nc" id="L173">      logMessage(INVALID_GRAMMAR_IDX_MSG);</span>
+<span class="nc" id="L174">      option = readOption();</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">      if (option.equals(QUIT_FLAG)) {</span>
+<span class="nc" id="L176">        break;</span>
+      }
+    }
+<span class="nc" id="L179">    return option;</span>
+  }
+
+  /**
+   * Ask user to re-generate a sentence from the previous chosen grammar file.
+   *
+   * @throws IOException thrown if the input repeat option is not valid.
+   */
+  private void repeatCurrentGrammar() throws IOException {
+<span class="nc" id="L188">    boolean repeatFlag = true;</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">    while (repeatFlag) {</span>
+<span class="nc" id="L190">      logMessage(REPEAT_GRAMMAR_MSG);</span>
+<span class="nc" id="L191">      String option = readOption();</span>
+<span class="nc" id="L192">      String checkedOption = checkBooleanOption(option);</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">      if (checkedOption.equals(QUIT_FLAG)) {</span>
+<span class="nc" id="L194">        break;</span>
+      }
+<span class="nc bnc" id="L196" title="All 2 branches missed.">      if (checkedOption.equals(REUSE_TRUE_FLAG)) {</span>
+<span class="nc" id="L197">        String sentence = this.sentenceGenerator.generate();</span>
+<span class="nc" id="L198">        logMessage(NEW_LINE + sentence);</span>
+<span class="nc" id="L199">      } else {</span>
+<span class="nc" id="L200">        repeatFlag = false;</span>
+      }
+<span class="nc" id="L202">    }</span>
+<span class="nc" id="L203">  }</span>
+
+  /**
+   * Check the input repeat option is valid; if not, the user will be asked to input a correct
+   * repeat option or input 'q' to quit.
+   *
+   * @param originOption the original repeat index
+   * @return the valid input repeat option
+   * @throws IOException thrown if the input repeat option is not valid.
+   */
+  private String checkBooleanOption(String originOption) throws IOException {
+<span class="nc" id="L214">    String option = originOption;</span>
+<span class="nc bnc" id="L215" title="All 4 branches missed.">    while (!option.equals(REUSE_TRUE_FLAG) &amp;&amp; !option.equals(REUSE_FALSE_FLAG)) {</span>
+<span class="nc" id="L216">      logMessage(INVALID_REPEAT_MSG);</span>
+<span class="nc" id="L217">      option = readOption();</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">      if (option.equals(QUIT_FLAG)) {</span>
+<span class="nc" id="L219">        break;</span>
+      }
+    }
+<span class="nc" id="L222">    return option;</span>
+  }
+
+  /**
+   * Get the suffix of the given file path; If the path is not valid, an empty string will be
+   * returned.
+   *
+   * @param fullName the given file path
+   * @return the suffix of the given file path
+   */
+  private static String getFileExtension(String fullName) {
+<span class="nc bnc" id="L233" title="All 2 branches missed.">    if (fullName != null) {</span>
+<span class="nc" id="L234">      String fileName = new File(fullName).getName();</span>
+<span class="nc" id="L235">      int dotIndex = fileName.lastIndexOf(SUFFIX_SEPARATOR);</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">      return (dotIndex == NEGATIVE_ONE) ? BLANK : fileName.substring(dotIndex + ONE);</span>
+    }
+<span class="nc" id="L238">    return BLANK;</span>
+  }
+
+  /**
+   * display the message according to the given string
+   *
+   * @param message the message which needs to be displayed
+   */
+  private void logMessage(String message) {
+<span class="nc" id="L247">    System.out.println(message);</span>
+<span class="nc" id="L248">  }</span>
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one. *
+   *
+   * @param o the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L258" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L259">      return true;</span>
+    }
+<span class="nc bnc" id="L261" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L262">      return false;</span>
+    }
+<span class="nc" id="L264">    InputProcessor that = (InputProcessor) o;</span>
+<span class="nc bnc" id="L265" title="All 4 branches missed.">    return this.continueFlag == that.continueFlag &amp;&amp; this.fileDirectory.equals(that.fileDirectory)</span>
+<span class="nc bnc" id="L266" title="All 4 branches missed.">        &amp;&amp; this.grammarTitles.equals(that.grammarTitles) &amp;&amp; this.filePaths.equals(that.filePaths)</span>
+<span class="nc bnc" id="L267" title="All 4 branches missed.">        &amp;&amp; this.previousOption.equals(that.previousOption) &amp;&amp; this.sentenceGenerator.equals(</span>
+        that.sentenceGenerator);
+  }
+
+  /**
+   * Returns a hash code value for the object. *
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L278">    return Objects.hash(this.fileDirectory, this.grammarTitles, this.filePaths, this.previousOption,</span>
+        this.sentenceGenerator,
+<span class="nc" id="L280">        this.continueFlag);</span>
+  }
+
+  /**
+   * Returns a string representation of the object. In general, the toString method returns a string
+   * that &quot;textually represents&quot; this object. *
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L291">    return &quot;InputProcessor{&quot; +</span>
+        &quot;fileDirectory=&quot; + this.fileDirectory +
+        &quot;, grammarTitles=&quot; + this.grammarTitles +
+        &quot;, filePaths=&quot; + this.filePaths +
+        &quot;, previousOption='&quot; + this.previousOption + '\'' +
+        &quot;, sentenceGenerator=&quot; + this.sentenceGenerator +
+        &quot;, continueFlag=&quot; + this.continueFlag +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WriterProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">WriterProcessor.java</span></div><h1>WriterProcessor.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import assignment5.sequentialSolution.CsvFileWriter;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CountDownLatch;
+
+/**
+ * Represents the writer class which helps to create a summary file and write the content
+ */
+public class WriterProcessor implements Runnable {
+
+  private String outputFilePath;
+  private ConcurrentMap&lt;String, Integer&gt; dateAndSumClick;
+  private CountDownLatch latch;
+  private static final String DATE_HEADER = &quot;date&quot;;
+  private static final String SUM_CLICK_HEADER = &quot;sum_click&quot;;
+
+  /**
+   * Creates a new instance of writer processor class given the output file path, map of sum click
+   * information and countdown latch handle
+   *
+   * @param outputFilePath  path of output file
+   * @param dateAndSumClick map of date and sum click information
+   * @param latch           handle to count down latch
+   */
+  public WriterProcessor(String outputFilePath, ConcurrentMap&lt;String, Integer&gt; dateAndSumClick,
+<span class="fc" id="L29">      CountDownLatch latch) {</span>
+<span class="fc" id="L30">    this.outputFilePath = outputFilePath;</span>
+<span class="fc" id="L31">    this.dateAndSumClick = dateAndSumClick;</span>
+<span class="fc" id="L32">    this.latch = latch;</span>
+<span class="fc" id="L33">  }</span>
+
+  /**
+   * This method will be invoked by each writer thread to create the output file and write its
+   * content
+   */
+  @Override
+  public void run() {
+<span class="fc" id="L41">    CsvFileWriter csvFileWriter = new CsvFileWriter(this.outputFilePath);</span>
+
+<span class="fc" id="L43">    csvFileWriter.writeData(new String[]{DATE_HEADER, SUM_CLICK_HEADER});</span>
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    for (Map.Entry&lt;String, Integer&gt; dateClick : this.dateAndSumClick.entrySet()) {</span>
+<span class="fc" id="L46">      csvFileWriter.writeData(new String[]{dateClick.getKey(), dateClick.getValue().toString()});</span>
+<span class="fc" id="L47">    }</span>
+
+<span class="fc" id="L49">    csvFileWriter.closeFile();</span>
+<span class="fc" id="L50">    this.latch.countDown();</span>
+<span class="fc" id="L51">  }</span>
+
+  /**
+   * Compares if the given instance of writer processor is same as the current one
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L62">      return true;</span>
+    }
+<span class="fc bfc" id="L64" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L65">      return false;</span>
+    }
+<span class="fc" id="L67">    WriterProcessor that = (WriterProcessor) o;</span>
+<span class="pc bpc" id="L68" title="2 of 4 branches missed.">    return Objects.equals(outputFilePath, that.outputFilePath) &amp;&amp; Objects.equals(</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        dateAndSumClick, that.dateAndSumClick) &amp;&amp; Objects.equals(latch, that.latch);</span>
+  }
+
+  /**
+   * Generates a hashcode for the current instance of writer processor
+   *
+   * @return hashcode
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L79">    return Objects.hash(outputFilePath, dateAndSumClick, latch);</span>
+  }
+
+  /**
+   * Generates the string representation of writer processor instance
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L89">    return &quot;WriterProcessor{&quot; +</span>
+        &quot;outputFilePath='&quot; + outputFilePath + '\'' +
+        &quot;, dateAndSumClick=&quot; + dateAndSumClick +
+        &quot;, latch=&quot; + latch +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

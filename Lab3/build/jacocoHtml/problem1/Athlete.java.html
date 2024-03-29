@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Athlete.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">Athlete.java</span></div><h1>Athlete.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+
+
+/**
+ * Class problem1.Athlete contains information about an athlete, including athlete's name, their height, weight and league
+ */
+public class Athlete {
+  private Name athletesName;
+  private Double height;
+  private Double weight;
+  private String league;
+
+  /**
+   *
+   * Constructs a new athlete, based upon all of the provided input parameters.
+   * @param athletesName - object problem1.Name, containing athlete's first, middle and last name
+   * @param height - athlete's height, expressed as a Double in cm (e.g., 6'2'' is recorded as 187.96cm)
+   * @param weight - athlete's weigh, expressed as a Double in pounds (e.g. 125, 155, 200 pounds)
+   * @param league - athelete's league, expressed as String
+   */
+<span class="fc" id="L24">  public Athlete(Name athletesName, Double height, Double weight, String league) { this.athletesName = athletesName;</span>
+<span class="fc" id="L25">    this.height = height;</span>
+<span class="fc" id="L26">    this.weight = weight;</span>
+<span class="fc" id="L27">    this.league = league; }</span>
+
+  /**
+   *
+   * Constructs a new athlete, based upon all of the provided input parameters.
+   * @param athletesName - object problem1.Name, containing athlete's first, middle and last name
+   * @param height - athlete's height, expressed as a Double in cm (e.g., 6'2'' is recorded as 187.96cm)
+   * @param weight - athlete's weigh, expressed as a Double in pounds (e.g. 125, 155, 200 pounds)
+   */
+<span class="fc" id="L36">  public Athlete(Name athletesName, Double height, Double weight) { this.athletesName = athletesName;</span>
+<span class="fc" id="L37">    this.height = height; this.weight = weight; this.league = null;</span>
+<span class="fc" id="L38">  }</span>
+  /**
+   * @return   * Returns athlete's name as an object problem1.Name
+   */
+<span class="fc" id="L42">  public Name getAthletesName() { return athletesName;</span>
+  }
+  /**
+   * @return Returns athlete's height as a Double
+   */
+<span class="fc" id="L47">  public Double getHeight() { return height;</span>
+  }
+  /**
+   * @return Returns athlete's weight as a Double
+   */
+<span class="fc" id="L52">  public Double getWeight() { return weight;</span>
+  }
+  /**
+   * @return Returns athlete's league as a String
+   */
+<span class="fc" id="L57">  public String getLeague() { return league;</span>
+  }
+
+  /**
+   *
+   * @param o object
+   * @return true if same
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L68">      return true;</span>
+    }
+<span class="fc bfc" id="L70" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L71">      return false;</span>
+    }
+<span class="fc" id="L73">    Athlete athlete = (Athlete) o;</span>
+<span class="pc bpc" id="L74" title="2 of 4 branches missed.">    return Objects.equals(athletesName, athlete.athletesName) &amp;&amp; Objects.equals(</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">        height, athlete.height) &amp;&amp; Objects.equals(weight, athlete.weight)</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(league, athlete.league);</span>
+  }
+
+  /**
+   *
+   * @return hashcode
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L85">    return Objects.hash(athletesName, height, weight, league);</span>
+  }
+
+  /**
+   *
+   * @return string of class
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L94">    return &quot;problem1.Athlete{&quot; +</span>
+        &quot;athletesName=&quot; + athletesName +
+        &quot;, height=&quot; + height +
+        &quot;, weight=&quot; + weight +
+        &quot;, league='&quot; + league + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

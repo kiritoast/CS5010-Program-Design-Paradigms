@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.UsedCarTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-02-02T06:27:24" hostname="Jinmings-MacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="getNumberOfPreviousOwner()" classname="problem2.UsedCarTest" time="0.001"/>
+  <testcase name="getNumberOfPreviousAccident()" classname="problem2.UsedCarTest" time="0.0"/>
+  <testcase name="getMileage()" classname="problem2.UsedCarTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

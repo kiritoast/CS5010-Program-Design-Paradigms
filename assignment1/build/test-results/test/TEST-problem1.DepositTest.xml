@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.DepositTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-02T06:27:24" hostname="Jinmings-MacBook-Pro.local" time="0.02">
+  <properties/>
+  <testcase name="equals()" classname="problem1.DepositTest" time="0.015"/>
+  <testcase name="getUser()" classname="problem1.DepositTest" time="0.002"/>
+  <testcase name="getAmount()" classname="problem1.DepositTest" time="0.001"/>
+  <testcase name="testHashCode()" classname="problem1.DepositTest" time="0.001"/>
+  <system-out><![CDATA[The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+The mile should between 1000 and 10000 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

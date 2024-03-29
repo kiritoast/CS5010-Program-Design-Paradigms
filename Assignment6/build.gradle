@@ -1,0 +1,110 @@
+plugins {
+// Build Java: https://docs.gradle.org/current/userguide/building_java_projects.html
+    id 'java'
+// https://docs.gradle.org/current/userguide/pmd_plugin.html#header
+    id 'pmd'
+// https://docs.gradle.org/current/userguide/jacoco_plugin.html
+    id 'jacoco'
+}
+group 'CS5010F21'
+version '1.0-SNAPSHOT'
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation fileTree(dir: 'externalLibrary', include: '*.jar')
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    compileOnly fileTree(dir: 'externalLibrary', include: '*.jar')
+}
+
+pmd {
+    ignoreFailures=true
+    pmdTest.enabled=false
+    ruleSets = [
+            "category/java/bestpractices.xml",
+            "category/java/errorprone.xml",
+            "category/java/codestyle.xml"
+            //"java-basic",
+            //"java-braces",
+            //"java-strings",
+    ]
+}
+javadoc {
+    doLast {
+        String fixedBuildDir = buildDir.toString().replace('\\', '/')
+        println "file:///$fixedBuildDir/docs/javadoc/index.html"
+    }
+}
+jacoco {
+    toolVersion = "0.8.7"
+}
+jacocoTestReport {
+    reports {
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+    doLast {
+        String fixedBuildDir = buildDir.toString().replace('\\', '/')
+        println "file:///$fixedBuildDir/jacocoHtml/index.html"
+    }
+}
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                // minimum percentage of code coverage
+                minimum = 0.7
+            }
+        }
+        rule  {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs "Grammar"
+        }
+    }
+}
+
+task(runServer, dependsOn: 'classes', type: JavaExec) {
+    main = 'assignment6.chatRoomApp.ChatServerApp'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task(runClient, dependsOn: 'classes', type: JavaExec) {
+    main = 'assignment6.chatRoomApp.ChatClientApp'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
+
+// Fail the build if code coverage isn't high enough
+check.dependsOn jacocoTestCoverageVerification
+// Run code coverage after tests run
+jacocoTestReport.mustRunAfter test
+task doAll {
+    // Runs a java build. Imported from the java plugin
+    dependsOn build
+    // Runs all the tests. Imported from the java plugin.
+    dependsOn test
+    // Runs pmd. Imported by pmd plugin
+    dependsOn check
+    // Runs java doc. Imported from the java plugin
+    dependsOn javadoc
+    println 'all done!'
+}
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29c350e1-51eb-42c7-a0c1-387653a588e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/7.5.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/file-system.probe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/classes/java/main/Author.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/classes/java/test/AuthorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/Author.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/index-all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/jquery-ui.overrides.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/legal/COPYRIGHT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/script-dir/jquery-3.6.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/docs/javadoc/type-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacoco/test.exec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/default/Author.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/default/Author.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/default/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/default/index.source.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/branchfc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/branchnc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/branchpc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/bundle.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/class.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/down.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/greenbar.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/group.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/method.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/package.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/prettify.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/prettify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/redbar.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/report.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/report.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/session.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/sort.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/sort.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/source.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-resources/up.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/jacocoHtml/jacoco-sessions.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/libs/Lab1-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/pmd/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/pmd/main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/tests/test/classes/AuthorTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/tests/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/test-results/test/TEST-AuthorTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/expandedArchives/org.jacoco.agent-0.8.7.jar_3a83c50b4a016f281c4e9f3500d16b55/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/expandedArchives/org.jacoco.agent-0.8.7.jar_3a83c50b4a016f281c4e9f3500d16b55/META-INF/maven/org.jacoco/org.jacoco.agent/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/expandedArchives/org.jacoco.agent-0.8.7.jar_3a83c50b4a016f281c4e9f3500d16b55/META-INF/maven/org.jacoco/org.jacoco.agent/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/expandedArchives/org.jacoco.agent-0.8.7.jar_3a83c50b4a016f281c4e9f3500d16b55/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/expandedArchives/org.jacoco.agent-0.8.7.jar_3a83c50b4a016f281c4e9f3500d16b55/jacocoagent.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/expandedArchives/org.jacoco.agent-0.8.7.jar_3a83c50b4a016f281c4e9f3500d16b55/org/jacoco/agent/AgentJar.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/jacocoTestCoverageVerification/success.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/javadoc/javadoc.options" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/build/tmp/pmdMain/incremental.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/Author.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/jquery-ui.overrides.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/legal/COPYRIGHT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/script-dir/jquery-3.6.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/javadoc/type-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/src/main/groovy/Main.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/src/main/java/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Lab1/src/test/java/AuthorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem1/Deposit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem1/FrequentFlyer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem1/MileBalance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem1/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/Boat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/MakeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/NewCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/PropulsionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/UsedCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem2/Vessel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/ContactInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/GroupFiler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/HouseHoldHead.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/IndividualFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/MarriedJointly.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/MarriedSeparately.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/Name.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../homeworks/hm1/src/main/java/problem3/TaxFiler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sandbox" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KvGubvqIdn9UVSQBqJG6wQW5OY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/jijim/Documents/5010/Student_jijiming/hm1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="problem3" />
+      <recent name="problem1" />
+      <recent name="problem2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.hm1 [doAll]">
+    <configuration name="FlyerCheckerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;problem1.FlyerCheckerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'hm1.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;problem1.UserTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="hm1 [doAll]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="doAll" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="hm1 [jacocoTestReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jacocoTestReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.hm1 [doAll]" />
+        <item itemvalue="Gradle.hm1 [jacocoTestReport]" />
+        <item itemvalue="Gradle.Tests in 'hm1.test'" />
+        <item itemvalue="Gradle.UserTest" />
+        <item itemvalue="Gradle.FlyerCheckerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29c350e1-51eb-42c7-a0c1-387653a588e1" name="Changes" comment="" />
+      <created>1674847868647</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674847868647</updated>
+      <workItem from="1674847869843" duration="11090000" />
+      <workItem from="1675131036227" duration="20913000" />
+      <workItem from="1675290980182" duration="7043000" />
+      <workItem from="1675298313689" duration="1776000" />
+      <workItem from="1675300102294" duration="172000" />
+      <workItem from="1675300277993" duration="887000" />
+      <workItem from="1675301172789" duration="3441000" />
+      <workItem from="1675306178854" duration="8079000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

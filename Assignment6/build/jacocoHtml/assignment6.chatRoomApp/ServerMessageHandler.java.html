@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServerMessageHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ServerMessageHandler.java</span></div><h1>ServerMessageHandler.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import static assignment6.chatRoomApp.ChatRoomProtocol.*;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Optional;
+
+/**
+ * Represents the message handler in server side containing the protocol handler and the map of
+ * current active clients.
+ */
+public class ServerMessageHandler {
+
+  private final ProtocolHandler protocolHandler;
+  private final Map&lt;String, DataOutputStream&gt; activeClientMap;
+  private static final String NO_SEAT_MSG = &quot;There is no available seat in this chat room.&quot;;
+  private static final String DUPLICATE_USERNAME_MSG = &quot;Duplicate username.&quot;;
+  private static final String CONNECTED_RETURN_MSG = &quot;There are %s other connected clients.&quot;;
+  private static final String DISCONNECTED_RETURN_MSG = &quot;You are no longer connected.&quot;;
+  private static final String NONE_RECIPIENT_FAIL_MSG = &quot;Recipient not found.&quot;;
+  private static final String SENDER_RECIPIENT_SAME_FAIL_MSG = &quot;Cannot send message to yourself.&quot;;
+  private static final String NO_OTHERS_FAIL_MSG = &quot;Failed to send message, because there are no other clients.&quot;;
+  private static final int VALID_MEMBER_NUM_TO_SEND = 1;
+  private static final int VALID_MAX_MEMBER = 10;
+  private static final String BROADCAST_FLAG = &quot;broadcast&quot;;
+  private static final String DIRECT_FLAG = &quot;direct&quot;;
+
+  /**
+   * Create a server message handler, and initialize the protocol handler and the map of current
+   * active clients
+   */
+<span class="nc" id="L39">  public ServerMessageHandler() {</span>
+<span class="nc" id="L40">    this.protocolHandler = new ProtocolHandler();</span>
+<span class="nc" id="L41">    this.activeClientMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L42">  }</span>
+
+  /**
+   * Process the message frame data from the client side based on the message type. After
+   * processing, return the result message frame data to specified clients
+   *
+   * @param messageIdentifier the message type
+   * @param dataInputStream   the data input stream
+   * @param dataOutputStream  the data output stream
+   * @return true if the connection is alive
+   */
+  public boolean process(int messageIdentifier, DataInputStream dataInputStream,
+      DataOutputStream dataOutputStream) {
+<span class="nc bnc" id="L55" title="All 7 branches missed.">    switch (messageIdentifier) {</span>
+      case CONNECT_MESSAGE -&gt; {
+<span class="nc" id="L57">        MessageFormat messageFormat = protocolHandler.readConnectRequest(dataInputStream);</span>
+<span class="nc" id="L58">        validateClientConnection(messageFormat, dataOutputStream);</span>
+<span class="nc" id="L59">        protocolHandler.writeConnectResponse(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L60">        return messageFormat.isSuccess();//return if connection is successful</span>
+      }
+      case DISCONNECT_MESSAGE -&gt; {
+<span class="nc" id="L63">        MessageFormat messageFormat = protocolHandler.readDisconnectRequest(dataInputStream);</span>
+<span class="nc" id="L64">        removeClientConnection(messageFormat);</span>
+<span class="nc" id="L65">        protocolHandler.writeDisconnectResponse(dataOutputStream, messageFormat);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        return !messageFormat.isSuccess();//return if disconnecting</span>
+      }
+      case QUERY_CONNECTED_USERS -&gt; {
+<span class="nc" id="L69">        MessageFormat messageFormat = protocolHandler.readQueryUsersRequest(dataInputStream);</span>
+<span class="nc" id="L70">        populateActiveClients(messageFormat);</span>
+<span class="nc" id="L71">        protocolHandler.writeQueryUsersResponse(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L72">        return true;//return if connection is alive</span>
+      }
+      case BROADCAST_MESSAGE -&gt; {
+<span class="nc" id="L75">        MessageFormat messageFormat = protocolHandler.readBroadcastMessage(dataInputStream);</span>
+<span class="nc" id="L76">        return sendMessageToAllUsers(messageFormat, BROADCAST_FLAG);</span>
+      }
+      case DIRECT_MESSAGE -&gt; {
+<span class="nc" id="L79">        MessageFormat messageFormat = protocolHandler.readDirectMessage(dataInputStream);</span>
+<span class="nc" id="L80">        sendMessageToSpecificClient(messageFormat);</span>
+<span class="nc" id="L81">        return true;//return if connection is alive</span>
+      }
+      case SEND_INSULT -&gt; {
+<span class="nc" id="L84">        MessageFormat messageFormat = protocolHandler.readInsultMessage(dataInputStream);</span>
+<span class="nc" id="L85">        return sendMessageToAllUsers(messageFormat, DIRECT_FLAG);</span>
+      }
+    }
+<span class="nc" id="L88">    return true;</span>
+  }
+
+  /**
+   * This method helps to remove the client related information from server side, if client
+   * terminates without properly communicating with server
+   *
+   * @param dataOutputStream data output stream
+   */
+  public void removeClientInformation(DataOutputStream dataOutputStream) {
+<span class="nc" id="L98">    Optional&lt;Entry&lt;String, DataOutputStream&gt;&gt; clientEntry = activeClientMap.entrySet().stream()</span>
+<span class="nc" id="L99">        .filter(entry -&gt; entry.getValue().equals(dataOutputStream)).findFirst();</span>
+<span class="nc" id="L100">    clientEntry.ifPresent(clientInfo -&gt; activeClientMap.remove(</span>
+<span class="nc" id="L101">        clientInfo.getKey()));</span>
+<span class="nc" id="L102">  }</span>
+
+  /**
+   * Get the map of current active clients
+   *
+   * @return the map of current active clients
+   */
+  public Map&lt;String, DataOutputStream&gt; getActiveClientMap() {
+<span class="nc" id="L110">    return activeClientMap;</span>
+  }
+
+  /**
+   * Send the message frame data to the data output stream of specific clients. If failed, send a
+   * fail message instead.
+   *
+   * @param messageFormat the message frame data
+   */
+  private void sendMessageToSpecificClient(MessageFormat messageFormat) {
+<span class="nc" id="L120">    String sender = messageFormat.getSender();</span>
+<span class="nc" id="L121">    String recipient = messageFormat.getRecipient();</span>
+<span class="nc" id="L122">    DataOutputStream senderOutputStream = activeClientMap.get(sender);</span>
+<span class="nc" id="L123">    DataOutputStream otherClientOutputStream = activeClientMap.get(recipient);</span>
+<span class="nc bnc" id="L124" title="All 4 branches missed.">    if (recipient == null || otherClientOutputStream == null) {</span>
+<span class="nc" id="L125">      MessageFormat failMessage = new MessageFormat(null, NONE_RECIPIENT_FAIL_MSG, null, null,</span>
+          null);
+<span class="nc" id="L127">      protocolHandler.writeFailedMessage(senderOutputStream, failMessage);</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">    } else if (recipient.equals(sender)) {</span>
+<span class="nc" id="L129">      MessageFormat failMessage = new MessageFormat(null, SENDER_RECIPIENT_SAME_FAIL_MSG, null,</span>
+          null, null);
+<span class="nc" id="L131">      protocolHandler.writeFailedMessage(senderOutputStream, failMessage);</span>
+<span class="nc" id="L132">    } else {</span>
+<span class="nc" id="L133">      protocolHandler.writeDirectMessage(otherClientOutputStream, messageFormat);</span>
+    }
+<span class="nc" id="L135">  }</span>
+
+  /**
+   * Send the message frame data to the data output stream of all other clients. If failed, send a
+   * fail message instead.
+   *
+   * @param messageFormat the message frame data
+   * @param flag          the indicator to determine to send a broadcast message or a direct
+   *                      message
+   * @return true if the connection is alive; otherwise, false.
+   */
+  private boolean sendMessageToAllUsers(MessageFormat messageFormat, String flag) {
+<span class="nc" id="L147">    String sender = messageFormat.getSender();</span>
+<span class="nc" id="L148">    String recipient = messageFormat.getRecipient();</span>
+<span class="nc" id="L149">    DataOutputStream senderOutputStream = activeClientMap.get(sender);</span>
+<span class="nc" id="L150">    DataOutputStream otherClientOutputStream = activeClientMap.get(recipient);</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">    if (BROADCAST_FLAG.equals(flag)) {</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">      if (activeClientMap.keySet().size() == VALID_MEMBER_NUM_TO_SEND</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">          &amp;&amp; activeClientMap.containsKey(messageFormat.getSender())) {</span>
+<span class="nc" id="L154">        MessageFormat failMessage = new MessageFormat(null, NO_OTHERS_FAIL_MSG, null, null,</span>
+            null);
+<span class="nc" id="L156">        protocolHandler.writeFailedMessage(senderOutputStream, failMessage);</span>
+<span class="nc" id="L157">        return true;</span>
+      }
+<span class="nc bnc" id="L159" title="All 2 branches missed.">    } else if (DIRECT_FLAG.equals(flag)) {</span>
+<span class="nc bnc" id="L160" title="All 4 branches missed.">      if (recipient == null || otherClientOutputStream == null) {</span>
+<span class="nc" id="L161">        MessageFormat failMessage = new MessageFormat(null, NONE_RECIPIENT_FAIL_MSG, null, null,</span>
+            null);
+<span class="nc" id="L163">        protocolHandler.writeFailedMessage(senderOutputStream, failMessage);</span>
+<span class="nc" id="L164">        return true;</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">      } else if (recipient.equals(sender)) {</span>
+<span class="nc" id="L166">        MessageFormat failMessage = new MessageFormat(null, SENDER_RECIPIENT_SAME_FAIL_MSG, null,</span>
+            null, null);
+<span class="nc" id="L168">        protocolHandler.writeFailedMessage(senderOutputStream, failMessage);</span>
+<span class="nc" id="L169">        return true;</span>
+      }
+    }
+<span class="nc bnc" id="L172" title="All 2 branches missed.">    for (Map.Entry&lt;String, DataOutputStream&gt; otherClientEntry : activeClientMap.entrySet()) {</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">      if (!otherClientEntry.getKey().equals(messageFormat.getSender())) {</span>
+<span class="nc" id="L174">        DataOutputStream recipientClientOutputStream = otherClientEntry.getValue();</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        if (flag != null) {</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">          if (flag.equals(BROADCAST_FLAG)) {</span>
+<span class="nc" id="L177">            protocolHandler.writeBroadcastMessage(recipientClientOutputStream, messageFormat);</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">          } else if (flag.equals(DIRECT_FLAG)) {</span>
+<span class="nc" id="L179">            protocolHandler.writeDirectMessage(recipientClientOutputStream, messageFormat);</span>
+          }
+        }
+      }
+<span class="nc" id="L183">    }</span>
+<span class="nc" id="L184">    return true;</span>
+  }
+
+  /**
+   * Validate whether a new client is connecting to the chat room
+   *
+   * @param messageFormat    the message frame data of connect request
+   * @param dataOutputStream the new client's data output stream
+   */
+  private void validateClientConnection(MessageFormat messageFormat,
+      DataOutputStream dataOutputStream) {
+<span class="nc" id="L195">    boolean responseFlag = false;</span>
+    String message;
+
+<span class="nc bnc" id="L198" title="All 2 branches missed.">    if (activeClientMap.size() &gt;= VALID_MAX_MEMBER) {</span>
+<span class="nc" id="L199">      message = NO_SEAT_MSG;</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">    } else if (activeClientMap.containsKey(messageFormat.getSender())) {</span>
+<span class="nc" id="L201">      message = DUPLICATE_USERNAME_MSG;</span>
+    } else {
+<span class="nc" id="L203">      message = String.format(CONNECTED_RETURN_MSG, activeClientMap.size());</span>
+<span class="nc" id="L204">      activeClientMap.put(messageFormat.getSender(), dataOutputStream);</span>
+<span class="nc" id="L205">      responseFlag = true;</span>
+    }
+
+<span class="nc" id="L208">    messageFormat.setSuccess(responseFlag);</span>
+<span class="nc" id="L209">    messageFormat.setMessage(message);</span>
+<span class="nc" id="L210">  }</span>
+
+  /**
+   * Remove the sender of frame data from the map of active clients
+   *
+   * @param messageFormat the sender of frame data
+   */
+  private void removeClientConnection(MessageFormat messageFormat) {
+<span class="nc" id="L218">    activeClientMap.remove(messageFormat.getSender());</span>
+<span class="nc" id="L219">    messageFormat.setSuccess(true);</span>
+<span class="nc" id="L220">    messageFormat.setMessage(DISCONNECTED_RETURN_MSG);</span>
+<span class="nc" id="L221">  }</span>
+
+  /**
+   * Set the list of the current active clients except the sender into the message frame data
+   *
+   * @param messageFormat the input message frame data
+   */
+  private void populateActiveClients(MessageFormat messageFormat) {
+<span class="nc" id="L229">    List&lt;String&gt; activeClients = activeClientMap.keySet().stream()</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        .filter(client -&gt; !client.equals(messageFormat.getSender()))</span>
+<span class="nc" id="L231">        .toList();</span>
+<span class="nc" id="L232">    messageFormat.setClients(activeClients);</span>
+<span class="nc" id="L233">  }</span>
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one. *
+   *
+   * @param o the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L243" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L244">      return true;</span>
+    }
+<span class="nc bnc" id="L246" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L247">      return false;</span>
+    }
+<span class="nc" id="L249">    ServerMessageHandler that = (ServerMessageHandler) o;</span>
+<span class="nc bnc" id="L250" title="All 4 branches missed.">    return protocolHandler.equals(that.protocolHandler) &amp;&amp; activeClientMap.equals(</span>
+        that.activeClientMap);
+  }
+
+  /**
+   * Returns a hash code value for the object. *
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L261">    return Objects.hash(protocolHandler, activeClientMap);</span>
+  }
+
+  /**
+   * Returns a string representation of the object. In general, the toString method returns a string
+   * that &quot;textually represents&quot; this object. *
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L272">    return &quot;ServerMessageHandler{&quot; +</span>
+        &quot;protocolHandler=&quot; + protocolHandler +
+        &quot;, activeClientMap=&quot; + activeClientMap +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

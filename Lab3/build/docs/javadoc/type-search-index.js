@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"problem2","l":"Address"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"problem1","l":"Athlete"},{"p":"problem1","l":"BaseballPlayer"},{"p":"problem2","l":"Menu"},{"p":"problem1","l":"Name"},{"p":"problem3","l":"Posn"},{"p":"problem2","l":"Restaurant"},{"p":"problem1","l":"Runner"}];updateSearchResults();

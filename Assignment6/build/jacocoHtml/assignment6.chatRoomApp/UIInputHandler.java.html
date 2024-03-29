@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UiInputHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">UiInputHandler.java</span></div><h1>UiInputHandler.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.DataOutputStream;
+import java.util.Objects;
+
+/**
+ * class that represents the input message handler in client side. it will take user input and save
+ * it in class MessageFormat and pass it to the server.
+ */
+public class UiInputHandler {
+
+  private final ProtocolHandler protocolHandler;
+  private final String clientName;
+  private static final int SPACE_INDEX_AFTER_MSG_HEADER = 1;
+  private static final int MSG_HEADER_INDEX = 0;
+  private static final String BLANK_SPACE_STR = &quot; &quot;;
+  private static final String HELP_MSG_HEADER = &quot;?&quot;;
+  /**
+   * String message that shows up after user enter &quot;?&quot;
+   */
+  private static final String HELP_MSG = &quot;&quot;&quot;
+      • logoff: sends a DISCONNECT_MESSAGE to the server
+      • who: sends a QUERY_CONNECTED_USERS to the server
+      • @user &lt;message&gt;: sends a DIRECT_MESSAGE to the specified user to the server
+      • @all &lt;message&gt;: sends a BROADCAST_MESSAGE to the server, to be sent to all users connected
+      • !user: sends a SEND_INSULT message to the server, to be sent to the specified user              
+      &quot;&quot;&quot;;
+  private static final String LOGOFF_MSG_HEADER = &quot;logoff&quot;;
+  private static final String USER_QUERY_MSG_HEADER = &quot;who&quot;;
+  private static final String MSG_STARTER_CHAR = &quot;@&quot;;
+  private static final int VALID_MSG_SIZE = 2;
+  /**
+   * error message when user pass the message but not the content
+   */
+  private static final String INVALID_MSG_SIZE_EXCEPTION = &quot;User is expected to pass the message content as well.&quot;;
+  private static final String BROADCAST_MSG_HEADER = &quot;@all&quot;;
+  private static final int MSG_START_OFFSET = 1;
+  private static final int RECIPIENT_START_OFFSET = 1;
+  private static final String INSULT_MSG_HEADER = &quot;!&quot;;
+  /**
+   * error message when user input the wrong command
+   */
+  private static final String INVALID_MSG_EXCEPTION = &quot;You have given an unknown command, press '?' to list all available commands.&quot;;
+  private static final int FIRST_SUBSTR_INDEX = 0;
+  private static final int NON_SUBSTR_INDEX = -1;
+  private static final int NEXT_SUBSTR_OFFSET = 1;
+
+  /**
+   * Constructs a UiInputHandler object with a protocol handler and a client name
+   *
+   * @param clientName the name of the client
+   */
+
+<span class="fc" id="L54">  public UiInputHandler(String clientName) {</span>
+<span class="fc" id="L55">    protocolHandler = new ProtocolHandler();</span>
+<span class="fc" id="L56">    this.clientName = clientName;</span>
+<span class="fc" id="L57">  }</span>
+
+  /**
+   * Initializes the UiInputHandler by sending the client name to the server
+   *
+   * @param dataOutputStream the data output stream to send the message to the server
+   */
+  public void initialize(DataOutputStream dataOutputStream) {
+<span class="fc" id="L65">    MessageFormat messageFormat = new MessageFormat(null, null, null, clientName, null);</span>
+<span class="fc" id="L66">    protocolHandler.writeConnectRequest(dataOutputStream, messageFormat);</span>
+<span class="fc" id="L67">  }</span>
+
+  /**
+   * Reads user input from the console and sends the message to the server in the correct format.
+   *
+   * @param input            the string input from console
+   * @param dataOutputStream the data output stream to send the message to the server
+   * @return boolean if the client is connected
+   */
+  public boolean process(String input, DataOutputStream dataOutputStream) {
+<span class="nc" id="L77">    input = input.trim();</span>
+<span class="nc" id="L78">    int firstSpace = ordinalIndexOf(input, BLANK_SPACE_STR, SPACE_INDEX_AFTER_MSG_HEADER);</span>
+<span class="nc" id="L79">    String identifier = input.split(BLANK_SPACE_STR)[MSG_HEADER_INDEX];</span>
+
+<span class="nc bnc" id="L81" title="All 2 branches missed.">    if (input.equals(HELP_MSG_HEADER)) {// list all commands</span>
+<span class="nc" id="L82">      logMessage(HELP_MSG);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">    } else if (input.equals(LOGOFF_MSG_HEADER)) {// sends a DISCONNECT_MESSAGE to the server</span>
+<span class="nc" id="L84">      MessageFormat messageFormat = new MessageFormat(null, null, null, clientName, null);</span>
+<span class="nc" id="L85">      protocolHandler.writeDisconnectRequest(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L86">      return false;//close connection</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">    } else if (input.equals(USER_QUERY_MSG_HEADER)) {// sends a QUERY_CONNECTED_USERS to the server</span>
+<span class="nc" id="L88">      MessageFormat messageFormat = new MessageFormat(null, null, null, clientName, null);</span>
+<span class="nc" id="L89">      protocolHandler.writeQueryUsersRequest(dataOutputStream, messageFormat);</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">    } else if (input.startsWith(MSG_STARTER_CHAR)) {// send message</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">      if (input.split(BLANK_SPACE_STR).length &lt; VALID_MSG_SIZE) {// test if there is a valid message</span>
+<span class="nc" id="L92">        System.out.println(INVALID_MSG_SIZE_EXCEPTION);</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">      } else if (identifier.equals(BROADCAST_MSG_HEADER)) {// send BROADCAST_MESSAGE</span>
+<span class="nc" id="L94">        String message = input.substring(firstSpace + MSG_START_OFFSET);</span>
+<span class="nc" id="L95">        MessageFormat messageFormat = new MessageFormat(null, message, null, clientName, null);</span>
+<span class="nc" id="L96">        protocolHandler.writeBroadcastMessage(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L97">      } else {// sends a DIRECT_MESSAGE</span>
+<span class="nc" id="L98">        String message = input.substring(firstSpace + MSG_START_OFFSET);</span>
+<span class="nc" id="L99">        String recipient = input.substring(RECIPIENT_START_OFFSET, firstSpace);</span>
+<span class="nc" id="L100">        MessageFormat messageFormat = new MessageFormat(null, message, null, clientName,</span>
+            recipient);
+<span class="nc" id="L102">        protocolHandler.writeDirectMessage(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L103">      }</span>
+<span class="nc bnc" id="L104" title="All 4 branches missed.">    } else if (input.startsWith(INSULT_MSG_HEADER) &amp;&amp; !input.contains(</span>
+        BLANK_SPACE_STR)) {// sends a SEND_INSULT
+<span class="nc" id="L106">      String recipient = input.substring(RECIPIENT_START_OFFSET);</span>
+<span class="nc" id="L107">      MessageFormat messageFormat = new MessageFormat(null, null, null, clientName, recipient);</span>
+<span class="nc" id="L108">      protocolHandler.writeInsultMessage(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L109">    } else {// Error message to user</span>
+<span class="nc" id="L110">      logMessage(INVALID_MSG_EXCEPTION);</span>
+    }
+<span class="nc" id="L112">    return true;//connection is active</span>
+  }
+
+  /**
+   * log message to console
+   *
+   * @param message message that needs to be displayed
+   */
+  private static void logMessage(String message) {
+<span class="nc" id="L121">    System.out.println(message);</span>
+<span class="nc" id="L122">  }</span>
+
+  /**
+   * Returns the position of the nth occurrence of a substring within a string
+   *
+   * @param str    string to search within
+   * @param substr substr the substring to search for
+   * @param n      occurrence of the substring to find
+   * @return the position of the nth occurrence of the substring within the string, or -1 if not
+   * found
+   */
+  private static int ordinalIndexOf(String str, String substr, int n) {
+<span class="nc" id="L134">    int pos = str.indexOf(substr);</span>
+<span class="nc bnc" id="L135" title="All 4 branches missed.">    while (--n &gt; FIRST_SUBSTR_INDEX &amp;&amp; pos != NON_SUBSTR_INDEX) {</span>
+<span class="nc" id="L136">      pos = str.indexOf(substr, pos + NEXT_SUBSTR_OFFSET);</span>
+    }
+<span class="nc" id="L138">    return pos;</span>
+  }
+
+  /**
+   * This method is used to compare two instances of UiInputHandler
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L149" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L150">      return true;</span>
+    }
+<span class="nc bnc" id="L152" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L153">      return false;</span>
+    }
+<span class="nc" id="L155">    UiInputHandler that = (UiInputHandler) o;</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">    return Objects.equals(protocolHandler, that.protocolHandler)</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">        &amp;&amp; Objects.equals(clientName, that.clientName);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of UiInputHandler
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L167">    return Objects.hash(protocolHandler, clientName);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of chat client class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L177">    return &quot;UiInputHandler{&quot; +</span>
+        &quot;protocolHandler=&quot; + protocolHandler +
+        &quot;, clientName='&quot; + clientName + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

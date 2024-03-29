@@ -1,0 +1,7 @@
+-classpath '/Users/jijim/Documents/5010/Lab1/build/classes/java/main:/Users/jijim/Documents/5010/Lab1/build/resources/main'
+-d '/Users/jijim/Documents/5010/Lab1/build/docs/javadoc'
+-doctitle 'Lab1 1.0 API'
+-notimestamp 
+-quiet 
+-windowtitle 'Lab1 1.0 API'
+'/Users/jijim/Documents/5010/Lab1/src/main/java/Author.java'

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ThresholdProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">ThresholdProcessor.java</span></div><h1>ThresholdProcessor.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+
+/**
+ * Represents the threshold processor to filter the valid course date and click pair by using
+ * multiple parallel threads.
+ */
+public class ThresholdProcessor {
+
+  private BlockingQueue&lt;String[]&gt; thresholdQueue;
+  /**
+   * The helper executor pool for the threshold processor
+   */
+  protected transient ExecutorService thresholdExecutor;
+  private String currentFolderOfSummaryFile;
+  private Integer threshold;
+  private String thresholdOutputPath;
+  private static final int EXTENSION_OFFSET = 1;
+  private static final char SUFFIX_SEPARATOR = '.';
+  private static final String DEFAULT_INVALID_FOLDER = &quot;&quot;;
+  private static final int INVALID_SEPARATOR_INDEX = -1;
+  private static final String VALID_EXTENSION = &quot;csv&quot;;
+  private static final int THRESHOLD_PRODUCER_NUMBER = 32;
+  private static final int THRESHOLD_CONSUMER_NUMBER = 1;
+  private static final String DEFAULT_FILE_PREFIX = &quot;activity-&quot;;
+
+  /**
+   * Create a threshold processor given the summary output folder, the threshold output folder, and
+   * the threshold.
+   *
+   * @param currentFolderOfSummaryFile the summary output folder
+   * @param thresholdOutputPath        the threshold output folder
+   * @param threshold                  the threshold used to filter the sum of click
+   */
+  public ThresholdProcessor(String currentFolderOfSummaryFile, String thresholdOutputPath,
+<span class="fc" id="L45">      String threshold) {</span>
+<span class="fc" id="L46">    this.currentFolderOfSummaryFile = currentFolderOfSummaryFile;</span>
+<span class="fc" id="L47">    this.thresholdOutputPath = thresholdOutputPath;</span>
+<span class="fc" id="L48">    this.thresholdQueue = new LinkedBlockingQueue&lt;&gt;();</span>
+<span class="fc" id="L49">    this.threshold = Integer.parseInt(threshold);</span>
+<span class="fc" id="L50">    this.thresholdExecutor = Executors.newFixedThreadPool(</span>
+        THRESHOLD_PRODUCER_NUMBER + THRESHOLD_CONSUMER_NUMBER);
+<span class="fc" id="L52">  }</span>
+
+  /**
+   * Read and filter summary files by using multiple producer threads, and output the result by
+   * using one consumer thread. All the threads are running inn parallel.
+   */
+  public void filterBasedOnThreshold() {
+<span class="fc" id="L59">    File folder = new File(this.currentFolderOfSummaryFile);</span>
+<span class="fc" id="L60">    List&lt;String&gt; summaryFileList = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">    if (folder.listFiles() != null) {</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">      for (File file : folder.listFiles()) {</span>
+<span class="fc" id="L63">        String filePath = file.getAbsolutePath();</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (getFileExtension(filePath).equals(VALID_EXTENSION)) {</span>
+<span class="fc" id="L65">          summaryFileList.add(filePath);</span>
+        }
+      }
+
+<span class="fc" id="L69">      CountDownLatch producerLatch = new CountDownLatch(summaryFileList.size());</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">      for (String file : summaryFileList) {</span>
+<span class="fc" id="L71">        this.thresholdExecutor.submit(</span>
+            new ThresholdProducer(this.threshold, file, this.thresholdQueue, producerLatch));
+<span class="fc" id="L73">      }</span>
+<span class="fc" id="L74">      String thresholdOutputFilePath =</span>
+          this.thresholdOutputPath + DEFAULT_FILE_PREFIX + this.threshold + SUFFIX_SEPARATOR
+              + VALID_EXTENSION;
+<span class="fc" id="L77">      CountDownLatch consumerLatch = new CountDownLatch(THRESHOLD_CONSUMER_NUMBER);</span>
+<span class="fc" id="L78">      this.thresholdExecutor.submit(</span>
+          new ThresholdConsumer(thresholdOutputFilePath, this.thresholdQueue, consumerLatch));
+      try {
+<span class="fc" id="L81">        producerLatch.await();</span>
+<span class="fc" id="L82">        this.thresholdQueue.put(new String[]{});</span>
+<span class="fc" id="L83">        consumerLatch.await();</span>
+<span class="nc" id="L84">      } catch (InterruptedException e) {</span>
+<span class="nc" id="L85">        throw new RuntimeException(e);</span>
+<span class="fc" id="L86">      }</span>
+<span class="fc" id="L87">      this.thresholdExecutor.shutdown();</span>
+    }
+<span class="fc" id="L89">  }</span>
+
+  /**
+   * Find the extension for the given file
+   *
+   * @param fullName the file name
+   * @return the extension of the given file; if not found, the default extension will be returned
+   */
+  public String getFileExtension(String fullName) {
+<span class="fc bfc" id="L98" title="All 2 branches covered.">    if (fullName != null) {</span>
+<span class="fc" id="L99">      String fileName = new File(fullName).getName();</span>
+<span class="fc" id="L100">      int dotIndex = fileName.lastIndexOf(SUFFIX_SEPARATOR);</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">      return (dotIndex == INVALID_SEPARATOR_INDEX) ? DEFAULT_INVALID_FOLDER</span>
+<span class="fc" id="L102">          : fileName.substring(dotIndex + EXTENSION_OFFSET);</span>
+    }
+<span class="fc" id="L104">    return DEFAULT_INVALID_FOLDER;</span>
+  }
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L116">      return true;</span>
+    }
+<span class="fc bfc" id="L118" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L119">      return false;</span>
+    }
+<span class="fc" id="L121">    ThresholdProcessor that = (ThresholdProcessor) o;</span>
+<span class="fc bfc" id="L122" title="All 4 branches covered.">    return currentFolderOfSummaryFile.equals(that.currentFolderOfSummaryFile) &amp;&amp; threshold.equals(</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        that.threshold) &amp;&amp; thresholdOutputPath.equals(that.thresholdOutputPath);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L133">    return Objects.hash(currentFolderOfSummaryFile, threshold, thresholdOutputPath);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L143">    return &quot;ThresholdProcessor{&quot; +</span>
+        &quot;currentFolderOfSummaryFile='&quot; + currentFolderOfSummaryFile + '\'' +
+        &quot;, threshold=&quot; + threshold +
+        &quot;, thresholdOutputPath='&quot; + thresholdOutputPath + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

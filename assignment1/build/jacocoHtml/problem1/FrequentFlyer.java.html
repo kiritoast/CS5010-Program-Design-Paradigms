@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FrequentFlyer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">FrequentFlyer.java</span></div><h1>FrequentFlyer.java</h1><pre class="source lang-java linenums">package problem1;
+
+/**
+ * FrequentFlyer that extends user
+ */
+public class FrequentFlyer extends User{
+  private MileBalance mileBalance;
+
+  /**
+   *
+   * @param accountID which is a 12-character long String
+   * @param firstName string first name
+   * @param middleName string middle name
+   * @param lastName string last name
+   * @param email string email
+   * @param mileBalance object consisting of left miles
+   * @throws Exception if the user id is not 12 long string
+   */
+  public FrequentFlyer(String accountID, String firstName, String middleName, String lastName,
+      String email, MileBalance mileBalance) throws Exception {
+<span class="fc" id="L21">    super(accountID, firstName, middleName, lastName, email);</span>
+<span class="fc" id="L22">    this.mileBalance = mileBalance;</span>
+<span class="fc" id="L23">  }</span>
+
+  /**
+   *
+   * @return object mile balance that tells you how many miles left
+   */
+  public MileBalance getMileBalance() {
+<span class="fc" id="L30">    return mileBalance;</span>
+  }
+
+  /**
+   *
+   * @param deposit class deposit that allow transfer miles between two frequent flyer
+   * @throws Exception if the sender don't have enough miles
+   * after the call, the sender miles balance decease and the recipient increase mile balance
+   */
+  public void transferMiles(Deposit deposit) throws Exception{
+    //check balance
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    if(deposit.getAmount() &gt; this.mileBalance.getTotalMiles()){</span>
+<span class="fc" id="L42">      throw new Exception(&quot;you dont have enough miles!&quot;);</span>
+    }
+<span class="fc" id="L44">    int depositAmount = deposit.getAmount();</span>
+<span class="fc" id="L45">    FrequentFlyer recipient = deposit.getUser();</span>
+    // set recipient
+<span class="fc" id="L47">    recipient.mileBalance.setTotalMiles(recipient.getMileBalance().getTotalMiles() + depositAmount);</span>
+<span class="fc" id="L48">    recipient.mileBalance.setMilesExpiring(recipient.getMileBalance().getMilesExpiring() + depositAmount);</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">    if(recipient.mileBalance.getMilesExpiring() &lt; 0){recipient.mileBalance.setMilesExpiring(0);}</span>
+    // set giver
+<span class="fc" id="L51">    this.mileBalance.setTotalMiles(this.getMileBalance().getTotalMiles() - depositAmount);</span>
+<span class="fc" id="L52">    this.mileBalance.setMilesThisYear(this.getMileBalance().getMilesThisYear() - depositAmount);</span>
+<span class="fc" id="L53">    this.mileBalance.setMilesExpiring(this.getMileBalance().getMilesExpiring() - depositAmount);</span>
+<span class="fc" id="L54">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

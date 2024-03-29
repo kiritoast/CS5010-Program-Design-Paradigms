@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Boat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Boat.java</span></div><h1>Boat.java</h1><pre class="source lang-java linenums">package problem2;
+
+/**
+ * class Boat that inherient Vessel
+ */
+public class Boat extends Vessel{
+
+  private float length;
+  private int numberOfPassenger;
+  private PropulsionType type;
+
+  /**
+   *
+   * @param ID  boat ID
+   * @param manufacturingYear year of boat manufacture
+   * @param makeModel class make model
+   * @param MSRP Manufacturer Suggested Retail Price
+   * @param length boat length
+   * @param numberOfPassenger number of passenger
+   * @param type represented as an PropulsionType with possible value: Sail Power, Inboard Engine, Outboard Engine, Jet Propulsion.
+   */
+  public Boat(String ID, String manufacturingYear, MakeModel makeModel, double MSRP, float length,
+      int numberOfPassenger, PropulsionType type) {
+<span class="fc" id="L24">    super(ID, manufacturingYear, makeModel, MSRP);</span>
+<span class="fc" id="L25">    this.length = length;</span>
+<span class="fc" id="L26">    this.numberOfPassenger = numberOfPassenger;</span>
+<span class="fc" id="L27">    this.type = type;</span>
+<span class="fc" id="L28">  }</span>
+
+  /**
+   *
+   * @return the length of the boat
+   */
+  public float getLength() {
+<span class="fc" id="L35">    return length;</span>
+  }
+
+  /**
+   *
+   * @return the number of passenger
+   */
+  public int getNumberOfPassenger() {
+<span class="fc" id="L43">    return numberOfPassenger;</span>
+  }
+
+  /**
+   *
+   * @return return the type of boat
+   */
+  public PropulsionType getType() {
+<span class="fc" id="L51">    return type;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

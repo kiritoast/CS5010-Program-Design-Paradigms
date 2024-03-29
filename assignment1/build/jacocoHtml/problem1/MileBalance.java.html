@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MileBalance.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">MileBalance.java</span></div><h1>MileBalance.java</h1><pre class="source lang-java linenums">package problem1;
+
+/**
+ * class that contain total miles available, miles earned this year, miles expiring by
+ * the end of this calendar year
+ */
+public class MileBalance {
+  private int totalMiles;
+  private int milesThisYear;
+  private int milesExpiring;
+
+  /**
+   *
+   * @param totalMiles total miles available
+   * @param milesThisYear miles earned this year
+   * @param milesExpiring miles expiring by the end of this calendar year
+   */
+<span class="fc" id="L18">  public MileBalance(int totalMiles, int milesThisYear, int milesExpiring) {</span>
+<span class="fc" id="L19">    this.totalMiles = totalMiles;</span>
+<span class="fc" id="L20">    this.milesThisYear = milesThisYear;</span>
+<span class="fc" id="L21">    this.milesExpiring = milesExpiring;</span>
+<span class="fc" id="L22">  }</span>
+
+  /**
+   *
+   * @return total miles available
+   */
+  public int getTotalMiles() {
+<span class="fc" id="L29">    return totalMiles;</span>
+  }
+
+  /**
+   *
+   * @return miles earned this year
+   */
+  public int getMilesThisYear() {
+<span class="fc" id="L37">    return milesThisYear;</span>
+  }
+
+  /**
+   *
+   * @return miles expiring by the end of this calendar year
+   */
+  public int getMilesExpiring() {
+<span class="fc" id="L45">    return milesExpiring;</span>
+  }
+
+
+  /**
+   *
+   * @param totalMiles set total miles to parameter totalMiles
+   */
+  public void setTotalMiles(int totalMiles) {
+<span class="fc" id="L54">    this.totalMiles = totalMiles;</span>
+<span class="fc" id="L55">  }</span>
+
+  /**
+   *
+   * @param milesThisYear set miles earned this year to parameter milesThisYear
+   */
+  public void setMilesThisYear(int milesThisYear) {
+<span class="fc" id="L62">    this.milesThisYear = milesThisYear;</span>
+<span class="fc" id="L63">  }</span>
+
+  /**
+   *
+   * @param milesExpiring set miles left this year to parameter milesExpiring
+   */
+  public void setMilesExpiring(int milesExpiring) {
+<span class="fc" id="L70">    this.milesExpiring = milesExpiring;</span>
+<span class="fc" id="L71">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

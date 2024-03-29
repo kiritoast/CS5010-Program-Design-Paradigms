@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServerHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ServerHandler.java</span></div><h1>ServerHandler.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.util.Objects;
+
+/**
+ * Represents a runnable handler to process the message sent from server
+ */
+public class ServerHandler implements Runnable {
+
+  private final ClientMessageHandler clientMessageHandler;
+  private final DataInputStream dataInputStream;
+
+  /**
+   * Creates a server handler with the information of client message handler and the client input
+   * stream
+   *
+   * @param clientMessageHandler the client message handler
+   * @param dataInputStream      the client input stream
+   */
+<span class="fc" id="L22">  public ServerHandler(ClientMessageHandler clientMessageHandler, DataInputStream dataInputStream) {</span>
+<span class="fc" id="L23">    this.clientMessageHandler = clientMessageHandler;</span>
+<span class="fc" id="L24">    this.dataInputStream = dataInputStream;</span>
+<span class="fc" id="L25">  }</span>
+
+  @Override
+  public void run() {
+    try {
+      boolean isConnected;
+      do {
+<span class="fc" id="L32">        int messageIdentifier = dataInputStream.readInt();</span>
+<span class="fc" id="L33">        isConnected = clientMessageHandler.process(messageIdentifier, dataInputStream);</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">      } while (isConnected);</span>
+<span class="nc" id="L35">    } catch (IOException e) {</span>
+<span class="nc" id="L36">      throw new RuntimeException(e);</span>
+<span class="fc" id="L37">    }</span>
+<span class="fc" id="L38">  }</span>
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one. *
+   *
+   * @param o the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L49">      return true;</span>
+    }
+<span class="nc bnc" id="L51" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L52">      return false;</span>
+    }
+<span class="nc" id="L54">    ServerHandler that = (ServerHandler) o;</span>
+<span class="nc bnc" id="L55" title="All 4 branches missed.">    return clientMessageHandler.equals(that.clientMessageHandler) &amp;&amp; dataInputStream.equals(</span>
+        that.dataInputStream);
+  }
+
+  /**
+   * Returns a hash code value for the object. *
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L66">    return Objects.hash(clientMessageHandler, dataInputStream);</span>
+  }
+
+  /**
+   * Returns a string representation of the object. In general, the toString method returns a string
+   * that &quot;textually represents&quot; this object. *
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L77">    return &quot;ServerHandler{&quot; +</span>
+        &quot;clientMessageHandler=&quot; + clientMessageHandler +
+        &quot;, dataInputStream=&quot; + dataInputStream +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

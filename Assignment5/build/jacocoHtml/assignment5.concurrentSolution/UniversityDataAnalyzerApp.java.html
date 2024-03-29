@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UniversityDataAnalyzerApp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">UniversityDataAnalyzerApp.java</span></div><h1>UniversityDataAnalyzerApp.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.util.List;
+
+<span class="nc" id="L5">public class UniversityDataAnalyzerApp {</span>
+
+  private static final int COURSE_FILE_INDEX = 0;
+  private static final int STUDENT_FILE_INDEX = 1;
+  private static final int THRESHOLD_FILE_INDEX = 2;
+  private static final int VALID_NON_THRESHOLD_INPUT_NUMBER = 2;
+
+  public static void main(String[] args) {
+<span class="nc" id="L13">    ConcurrentArgValidator concurrentArgValidator = new ConcurrentArgValidator(args);</span>
+<span class="nc" id="L14">    List&lt;String&gt; argValList = concurrentArgValidator.validate();</span>
+
+    DataSetAnalyzer dataSetAnalyzer;
+
+<span class="nc bnc" id="L18" title="All 2 branches missed.">    if (argValList.size() == VALID_NON_THRESHOLD_INPUT_NUMBER) {</span>
+<span class="nc" id="L19">      dataSetAnalyzer = new DataSetAnalyzer(argValList.get(COURSE_FILE_INDEX),</span>
+<span class="nc" id="L20">          argValList.get(STUDENT_FILE_INDEX));</span>
+<span class="nc" id="L21">      dataSetAnalyzer.process();</span>
+    } else {
+<span class="nc" id="L23">      dataSetAnalyzer = new DataSetAnalyzer(argValList.get(COURSE_FILE_INDEX),</span>
+<span class="nc" id="L24">          argValList.get(STUDENT_FILE_INDEX), argValList.get(THRESHOLD_FILE_INDEX));</span>
+<span class="nc" id="L25">      dataSetAnalyzer.processThreshold();</span>
+    }
+<span class="nc" id="L27">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

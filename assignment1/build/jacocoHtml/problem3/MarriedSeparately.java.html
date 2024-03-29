@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MarriedSeparately.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">MarriedSeparately.java</span></div><h1>MarriedSeparately.java</h1><pre class="source lang-java linenums">package problem3;
+
+/**
+ * class that Married, filling separately
+ */
+public class MarriedSeparately extends GroupFiler{
+
+  /**
+   *
+   * @param taxID unique tax filer’s identifier
+   * @param contactInfo class contact info that store tax filer information
+   * @param lastYearEarning Last year’s earnings
+   * @param paidIncomeTax Total income tax already paid
+   * @param paidMortgageInterest Mortgage interest paid
+   * @param paidPropertyTax Property taxes
+   * @param paidStudentLoanTuition Student loan and tuition paid
+   * @param contributionsRetirementSaving Contributions made to a retirement savings account
+   * @param contributionHealthSaving Contributions made to a health savings account
+   * @param charitableDonationContribution Charitable donations and contributions
+   * @param numberDependents Number of dependents
+   * @param numberMinorChildren Number of minor children
+   * @param childcareExpenses Childcare expenses
+   * @param dependentCareExpenses Dependent-care expenses
+   */
+  public MarriedSeparately(String taxID, ContactInfo contactInfo, double lastYearEarning,
+      double paidIncomeTax, double paidMortgageInterest, double paidPropertyTax,
+      double paidStudentLoanTuition, double contributionsRetirementSaving,
+      double contributionHealthSaving, double charitableDonationContribution, int numberDependents,
+      int numberMinorChildren, double childcareExpenses, double dependentCareExpenses) {
+<span class="nc" id="L30">    super(taxID, contactInfo, lastYearEarning, paidIncomeTax, paidMortgageInterest, paidPropertyTax,</span>
+        paidStudentLoanTuition, contributionsRetirementSaving, contributionHealthSaving,
+        charitableDonationContribution, numberDependents, numberMinorChildren, childcareExpenses,
+        dependentCareExpenses);
+<span class="nc" id="L34">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

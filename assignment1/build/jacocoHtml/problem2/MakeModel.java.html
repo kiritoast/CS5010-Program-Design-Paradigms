@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MakeModel.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">MakeModel.java</span></div><h1>MakeModel.java</h1><pre class="source lang-java linenums">package problem2;
+
+import java.util.Objects;
+
+/**
+ * a custom class that keeps track of make and model
+ */
+public class MakeModel {
+  private String Make;
+  private String Model;
+
+  /**
+   *
+   * @param make vehicle make, represented as a String
+   * @param model vehicle model, represented as a String
+   */
+<span class="fc" id="L17">  public MakeModel(String make, String model) {</span>
+<span class="fc" id="L18">    Make = make;</span>
+<span class="fc" id="L19">    Model = model;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   *
+   * @return make
+   */
+  public String getMake() {
+<span class="fc" id="L27">    return Make;</span>
+  }
+
+  /**
+   *
+   * @return model
+   */
+  public String getModel() {
+<span class="fc" id="L35">    return Model;</span>
+  }
+
+  /**
+   *
+   * @param o  object and see if the same object
+   * @return return true for same, and false for not
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L46">      return true;</span>
+    }
+<span class="fc bfc" id="L48" title="All 2 branches covered.">    if (!(o instanceof MakeModel makeModel)) {</span>
+<span class="fc" id="L49">      return false;</span>
+    }
+<span class="pc bpc" id="L51" title="1 of 4 branches missed.">    return Objects.equals(getMake(), makeModel.getMake()) &amp;&amp; Objects.equals(</span>
+<span class="fc" id="L52">        getModel(), makeModel.getModel());</span>
+  }
+
+  /**
+   *
+   * @return the hashcode
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L61">    return Objects.hash(getMake(), getModel());</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

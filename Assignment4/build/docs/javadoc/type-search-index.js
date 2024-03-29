@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"assignment4.problem1","l":"InputProcessor"},{"p":"assignment4.problem1","l":"JsonReader"},{"p":"assignment4.problem1","l":"SentenceGenerator"},{"p":"assignment4.problem1","l":"SentenceGeneratorApp"}];updateSearchResults();

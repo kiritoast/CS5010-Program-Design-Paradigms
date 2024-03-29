@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProtocolHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ProtocolHandler.java</span></div><h1>ProtocolHandler.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import assignment4.problem1.SentenceGenerator;
+import java.util.Objects;
+
+/**
+ * The ProtocolHandler class represents the frame data handler and is implemented form the
+ * ChatRoomProtocol interface
+ */
+public class ProtocolHandler implements ChatRoomProtocol {
+
+  private final SentenceGenerator sentenceGenerator;
+  private static final int BLANK_SPACE_CHAR = 32;
+  private static final int START_STEP_QUERY_USER = 0;
+<span class="fc" id="L22">  private static final String GRAMMAR_FILE = &quot;Grammar&quot; + File.separator + &quot;poem_grammar.json&quot;;</span>
+
+  /**
+   * Create a protocol handler providing a sentence generator to generate the ransom insult
+   * message.
+   */
+<span class="fc" id="L28">  public ProtocolHandler() {</span>
+<span class="fc" id="L29">    this.sentenceGenerator = new SentenceGenerator(GRAMMAR_FILE);</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeConnectRequest(DataOutputStream dataOutputStream, MessageFormat messageFormat) {
+<span class="fc" id="L37">    writeSenderRequest(CONNECT_MESSAGE, dataOutputStream, messageFormat);</span>
+<span class="fc" id="L38">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readConnectRequest(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L46">      dataInputStream.readChar();</span>
+<span class="nc" id="L47">      dataInputStream.readInt();</span>
+<span class="nc" id="L48">      dataInputStream.readChar();</span>
+<span class="nc" id="L49">      String sender = dataInputStream.readUTF();</span>
+<span class="nc" id="L50">      return (new MessageFormat(null, null, null, sender, null));</span>
+<span class="nc" id="L51">    } catch (IOException e) {</span>
+<span class="nc" id="L52">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeConnectResponse(DataOutputStream dataOutputStream, MessageFormat messageFormat) {
+    try {
+<span class="fc" id="L62">      dataOutputStream.writeInt(CONNECT_RESPONSE);</span>
+<span class="fc" id="L63">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="fc" id="L64">      dataOutputStream.writeBoolean(messageFormat.isSuccess());</span>
+<span class="fc" id="L65">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="fc" id="L66">      dataOutputStream.writeInt(messageFormat.getMessage().length());</span>
+<span class="fc" id="L67">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="fc" id="L68">      dataOutputStream.writeUTF(messageFormat.getMessage());</span>
+<span class="fc" id="L69">      dataOutputStream.flush();</span>
+<span class="nc" id="L70">    } catch (IOException e) {</span>
+<span class="nc" id="L71">      throw new RuntimeException(e);</span>
+<span class="fc" id="L72">    }</span>
+<span class="fc" id="L73">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readConnectResponse(DataInputStream dataInputStream) {
+    try {
+<span class="fc" id="L81">      dataInputStream.readChar();</span>
+<span class="fc" id="L82">      Boolean isSuccess = dataInputStream.readBoolean();</span>
+<span class="fc" id="L83">      dataInputStream.readChar();</span>
+<span class="fc" id="L84">      dataInputStream.readInt();</span>
+<span class="fc" id="L85">      dataInputStream.readChar();</span>
+<span class="fc" id="L86">      String message = dataInputStream.readUTF();</span>
+<span class="fc" id="L87">      return (new MessageFormat(isSuccess, message, null, null, null));</span>
+<span class="nc" id="L88">    } catch (IOException e) {</span>
+<span class="nc" id="L89">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeDisconnectRequest(DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+<span class="nc" id="L99">    writeSenderRequest(DISCONNECT_MESSAGE, dataOutputStream, messageFormat);</span>
+<span class="nc" id="L100">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readDisconnectRequest(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L108">      dataInputStream.readChar();</span>
+<span class="nc" id="L109">      dataInputStream.readInt();</span>
+<span class="nc" id="L110">      dataInputStream.readChar();</span>
+<span class="nc" id="L111">      return (new MessageFormat(null, null, null, dataInputStream.readUTF(), null));</span>
+<span class="nc" id="L112">    } catch (IOException e) {</span>
+<span class="nc" id="L113">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeDisconnectResponse(DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+<span class="nc" id="L123">    writeConnectResponse(dataOutputStream, messageFormat);</span>
+<span class="nc" id="L124">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeQueryUsersRequest(DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+<span class="nc" id="L132">    writeSenderRequest(QUERY_CONNECTED_USERS, dataOutputStream, messageFormat);</span>
+<span class="nc" id="L133">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readQueryUsersRequest(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L141">      dataInputStream.readChar();</span>
+<span class="nc" id="L142">      dataInputStream.readInt();</span>
+<span class="nc" id="L143">      dataInputStream.readChar();</span>
+<span class="nc" id="L144">      return (new MessageFormat(null, null, null, dataInputStream.readUTF(), null));</span>
+<span class="nc" id="L145">    } catch (IOException e) {</span>
+<span class="nc" id="L146">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeQueryUsersResponse(DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+    try {
+<span class="nc" id="L157">      List&lt;String&gt; clients = messageFormat.getClients();</span>
+<span class="nc" id="L158">      dataOutputStream.writeInt(QUERY_USER_RESPONSE);</span>
+<span class="nc" id="L159">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L160">      dataOutputStream.writeInt(clients.size());</span>
+
+<span class="nc bnc" id="L162" title="All 2 branches missed.">      for (String client : clients) {</span>
+<span class="nc" id="L163">        dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L164">        dataOutputStream.writeInt(client.length());</span>
+<span class="nc" id="L165">        dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L166">        dataOutputStream.writeUTF(client);</span>
+<span class="nc" id="L167">      }</span>
+<span class="nc" id="L168">      dataOutputStream.flush();</span>
+<span class="nc" id="L169">    } catch (IOException e) {</span>
+<span class="nc" id="L170">      throw new RuntimeException(e);</span>
+<span class="nc" id="L171">    }</span>
+<span class="nc" id="L172">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readQueryUsersResponse(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L180">      List&lt;String&gt; clients = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L182">      dataInputStream.readChar();</span>
+<span class="nc" id="L183">      int count = dataInputStream.readInt();</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">      for (int i = START_STEP_QUERY_USER; i &lt; count; i++) {</span>
+<span class="nc" id="L185">        dataInputStream.readChar();</span>
+<span class="nc" id="L186">        dataInputStream.readInt();</span>
+<span class="nc" id="L187">        dataInputStream.readChar();</span>
+<span class="nc" id="L188">        clients.add(dataInputStream.readUTF());</span>
+      }
+<span class="nc" id="L190">      return (new MessageFormat(null, null, clients, null, null));</span>
+<span class="nc" id="L191">    } catch (IOException e) {</span>
+<span class="nc" id="L192">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeBroadcastMessage(DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+    try {
+<span class="nc" id="L203">      dataOutputStream.writeInt(BROADCAST_MESSAGE);</span>
+<span class="nc" id="L204">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L205">      dataOutputStream.writeInt(messageFormat.getSender().length());</span>
+<span class="nc" id="L206">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L207">      dataOutputStream.writeUTF(messageFormat.getSender());</span>
+<span class="nc" id="L208">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L209">      dataOutputStream.writeInt(messageFormat.getMessage().length());</span>
+<span class="nc" id="L210">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L211">      dataOutputStream.writeUTF(messageFormat.getMessage());</span>
+<span class="nc" id="L212">      dataOutputStream.flush();</span>
+<span class="nc" id="L213">    } catch (IOException e) {</span>
+<span class="nc" id="L214">      throw new RuntimeException(e);</span>
+<span class="nc" id="L215">    }</span>
+<span class="nc" id="L216">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readBroadcastMessage(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L224">      dataInputStream.readChar();</span>
+<span class="nc" id="L225">      dataInputStream.readInt();</span>
+<span class="nc" id="L226">      dataInputStream.readChar();</span>
+<span class="nc" id="L227">      String sender = dataInputStream.readUTF();</span>
+<span class="nc" id="L228">      dataInputStream.readChar();</span>
+<span class="nc" id="L229">      dataInputStream.readInt();</span>
+<span class="nc" id="L230">      dataInputStream.readChar();</span>
+<span class="nc" id="L231">      String message = dataInputStream.readUTF();</span>
+<span class="nc" id="L232">      return (new MessageFormat(null, message, null, sender, null));</span>
+<span class="nc" id="L233">    } catch (IOException e) {</span>
+<span class="nc" id="L234">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeDirectMessage(DataOutputStream dataOutputStream, MessageFormat messageFormat) {
+    try {
+<span class="nc" id="L244">      writeSenderRecipient(DIRECT_MESSAGE, dataOutputStream, messageFormat);</span>
+<span class="nc" id="L245">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L246">      dataOutputStream.writeInt(messageFormat.getMessage().length());</span>
+<span class="nc" id="L247">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L248">      dataOutputStream.writeUTF(messageFormat.getMessage());</span>
+<span class="nc" id="L249">      dataOutputStream.flush();</span>
+<span class="nc" id="L250">    } catch (IOException e) {</span>
+<span class="nc" id="L251">      throw new RuntimeException(e);</span>
+<span class="nc" id="L252">    }</span>
+<span class="nc" id="L253">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readDirectMessage(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L261">      dataInputStream.readChar();</span>
+<span class="nc" id="L262">      dataInputStream.readInt();</span>
+<span class="nc" id="L263">      dataInputStream.readChar();</span>
+<span class="nc" id="L264">      String sender = dataInputStream.readUTF();</span>
+<span class="nc" id="L265">      dataInputStream.readChar();</span>
+<span class="nc" id="L266">      dataInputStream.readInt();</span>
+<span class="nc" id="L267">      dataInputStream.readChar();</span>
+<span class="nc" id="L268">      String recipient = dataInputStream.readUTF();</span>
+<span class="nc" id="L269">      dataInputStream.readChar();</span>
+<span class="nc" id="L270">      dataInputStream.readInt();</span>
+<span class="nc" id="L271">      dataInputStream.readChar();</span>
+<span class="nc" id="L272">      return (new MessageFormat(null, dataInputStream.readUTF(), null, sender, recipient));</span>
+<span class="nc" id="L273">    } catch (IOException e) {</span>
+<span class="nc" id="L274">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeFailedMessage(DataOutputStream dataOutputStream, MessageFormat messageFormat) {
+    try {
+<span class="nc" id="L284">      dataOutputStream.writeInt(FAILED_MESSAGE);</span>
+<span class="nc" id="L285">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L286">      dataOutputStream.writeInt(messageFormat.getMessage().length());</span>
+<span class="nc" id="L287">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L288">      dataOutputStream.writeUTF(messageFormat.getMessage());</span>
+<span class="nc" id="L289">      dataOutputStream.flush();</span>
+<span class="nc" id="L290">    } catch (IOException e) {</span>
+<span class="nc" id="L291">      throw new RuntimeException(e);</span>
+<span class="nc" id="L292">    }</span>
+<span class="nc" id="L293">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readFailedMessage(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L301">      dataInputStream.readChar();</span>
+<span class="nc" id="L302">      dataInputStream.readInt();</span>
+<span class="nc" id="L303">      dataInputStream.readChar();</span>
+<span class="nc" id="L304">      String message = dataInputStream.readUTF();</span>
+<span class="nc" id="L305">      return (new MessageFormat(null, message, null, null, null));</span>
+<span class="nc" id="L306">    } catch (IOException e) {</span>
+<span class="nc" id="L307">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void writeInsultMessage(DataOutputStream dataOutputStream, MessageFormat messageFormat) {
+    try {
+<span class="nc" id="L317">      writeSenderRecipient(SEND_INSULT, dataOutputStream, messageFormat);</span>
+<span class="nc" id="L318">      dataOutputStream.flush();</span>
+<span class="nc" id="L319">    } catch (IOException e) {</span>
+<span class="nc" id="L320">      throw new RuntimeException(e);</span>
+<span class="nc" id="L321">    }</span>
+<span class="nc" id="L322">  }</span>
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public MessageFormat readInsultMessage(DataInputStream dataInputStream) {
+    try {
+<span class="nc" id="L330">      dataInputStream.readChar();</span>
+<span class="nc" id="L331">      dataInputStream.readInt();</span>
+<span class="nc" id="L332">      dataInputStream.readChar();</span>
+<span class="nc" id="L333">      String sender = dataInputStream.readUTF();</span>
+<span class="nc" id="L334">      dataInputStream.readChar();</span>
+<span class="nc" id="L335">      dataInputStream.readInt();</span>
+<span class="nc" id="L336">      dataInputStream.readChar();</span>
+<span class="nc" id="L337">      String message = this.sentenceGenerator.generate();</span>
+<span class="nc" id="L338">      return (new MessageFormat(null, message, null, sender, dataInputStream.readUTF()));</span>
+<span class="nc" id="L339">    } catch (IOException e) {</span>
+<span class="nc" id="L340">      throw new RuntimeException(e);</span>
+    }
+  }
+
+  /**
+   * Write the frame data containing sender information to the data output stream based on the
+   * message type
+   *
+   * @param messageIdentifier the message type
+   * @param dataOutputStream  the data output stream
+   * @param messageFormat     the frame data containing sender information
+   */
+  private void writeSenderRequest(int messageIdentifier, DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+    try {
+<span class="fc" id="L355">      dataOutputStream.writeInt(messageIdentifier);</span>
+<span class="fc" id="L356">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="fc" id="L357">      dataOutputStream.writeInt(messageFormat.getSender().length());</span>
+<span class="fc" id="L358">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="fc" id="L359">      dataOutputStream.writeUTF(messageFormat.getSender());</span>
+<span class="fc" id="L360">      dataOutputStream.flush();</span>
+<span class="nc" id="L361">    } catch (IOException e) {</span>
+<span class="nc" id="L362">      throw new RuntimeException(e);</span>
+<span class="fc" id="L363">    }</span>
+<span class="fc" id="L364">  }</span>
+
+  /**
+   * Write the frame data containing sender and recipient information to the data output stream
+   * based on the message type
+   *
+   * @param messageIdentifier the message type
+   * @param dataOutputStream  the data output stream
+   * @param messageFormat     the frame data containing sender and recipient information
+   */
+  private void writeSenderRecipient(int messageIdentifier, DataOutputStream dataOutputStream,
+      MessageFormat messageFormat) {
+    try {
+<span class="nc" id="L377">      dataOutputStream.writeInt(messageIdentifier);</span>
+<span class="nc" id="L378">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L379">      dataOutputStream.writeInt(messageFormat.getSender().length());</span>
+<span class="nc" id="L380">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L381">      dataOutputStream.writeUTF(messageFormat.getSender());</span>
+<span class="nc" id="L382">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L383">      dataOutputStream.writeInt(messageFormat.getRecipient().length());</span>
+<span class="nc" id="L384">      dataOutputStream.writeChar(BLANK_SPACE_CHAR);</span>
+<span class="nc" id="L385">      dataOutputStream.writeUTF(messageFormat.getRecipient());</span>
+<span class="nc" id="L386">      dataOutputStream.flush();</span>
+<span class="nc" id="L387">    } catch (IOException e) {</span>
+<span class="nc" id="L388">      throw new RuntimeException(e);</span>
+<span class="nc" id="L389">    }</span>
+<span class="nc" id="L390">  }</span>
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one. *
+   *
+   * @param o the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L400" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L401">      return true;</span>
+    }
+<span class="nc bnc" id="L403" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L404">      return false;</span>
+    }
+<span class="nc" id="L406">    ProtocolHandler that = (ProtocolHandler) o;</span>
+<span class="nc" id="L407">    return sentenceGenerator.equals(that.sentenceGenerator);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object. *
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L417">    return Objects.hash(sentenceGenerator);</span>
+  }
+
+  /**
+   * Returns a string representation of the object. In general, the toString method returns a string
+   * that &quot;textually represents&quot; this object. *
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L428">    return &quot;ProtocolHandler{&quot; +</span>
+        &quot;sentenceGenerator=&quot; + sentenceGenerator +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

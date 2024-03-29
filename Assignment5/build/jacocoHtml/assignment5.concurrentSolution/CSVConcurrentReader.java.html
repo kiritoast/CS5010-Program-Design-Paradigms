@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CSVConcurrentReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">CSVConcurrentReader.java</span></div><h1>CSVConcurrentReader.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+
+/**
+ * Represents the CSV reader to read the information in a CSV file into a concurrent map by using
+ * multiple parallel threads.
+ */
+public class CSVConcurrentReader {
+
+  private String filePath;
+  private BlockingQueue&lt;String[]&gt; readQueue;
+  private ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick;
+  /**
+   * The helper executor pool for the concurrent CSV reader
+   */
+  protected transient ExecutorService readerExecutor;
+  /**
+   * The default number of reader producer
+   */
+  private static final int READER_PRODUCER_NUMBER = 1;
+  /**
+   * The default number of reader consumer
+   */
+  public static final int READER_CONSUMER_NUMBER = 32;
+  private static final int INITIAL_INDEX = 0;
+
+  /**
+   * Create a new CSV concurrent reader given the source file path and the course click summary
+   * concurrent map
+   *
+   * @param filePath       the source file path
+   * @param courseAndClick the course click summary concurrent map
+   */
+  public CSVConcurrentReader(String filePath,
+<span class="fc" id="L42">      ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick) {</span>
+<span class="fc" id="L43">    this.filePath = filePath;</span>
+<span class="fc" id="L44">    this.readQueue = new LinkedBlockingQueue&lt;&gt;();</span>
+<span class="fc" id="L45">    this.courseAndClick = courseAndClick;</span>
+<span class="fc" id="L46">    this.readerExecutor = Executors.newFixedThreadPool(</span>
+        READER_PRODUCER_NUMBER + READER_CONSUMER_NUMBER);
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * read the information from source file into the concurrent map with the help of one producer
+   * threads and multiple consumer threads
+   */
+  public void readCSVFileToMap() {
+<span class="fc" id="L55">    CountDownLatch latch = new CountDownLatch(READER_PRODUCER_NUMBER + READER_CONSUMER_NUMBER);</span>
+
+<span class="fc" id="L57">    ReaderProducer readerProducerThread = new ReaderProducer(this.filePath, this.readQueue, latch);</span>
+
+<span class="fc" id="L59">    this.readerExecutor.submit(readerProducerThread);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">    for (int i = INITIAL_INDEX; i &lt; READER_CONSUMER_NUMBER; i++) {</span>
+<span class="fc" id="L61">      ReaderConsumer readerConsumerThread = new ReaderConsumer(this.courseAndClick, this.readQueue,</span>
+          latch);
+<span class="fc" id="L63">      this.readerExecutor.submit(readerConsumerThread);</span>
+    }
+
+    try {
+<span class="fc" id="L67">      latch.await();</span>
+<span class="nc" id="L68">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L69">      throw new RuntimeException(e);</span>
+<span class="fc" id="L70">    }</span>
+
+<span class="fc" id="L72">    this.readerExecutor.shutdown();</span>
+<span class="fc" id="L73">  }</span>
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L84">      return true;</span>
+    }
+<span class="fc bfc" id="L86" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L87">      return false;</span>
+    }
+<span class="fc" id="L89">    CSVConcurrentReader that = (CSVConcurrentReader) o;</span>
+<span class="fc bfc" id="L90" title="All 4 branches covered.">    return filePath.equals(that.filePath) &amp;&amp; courseAndClick.equals(that.courseAndClick);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L100">    return Objects.hash(filePath, courseAndClick);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L110">    return &quot;CSVConcurrentReader{&quot; + &quot;filePath='&quot; + filePath + '\'' + &quot;, courseAndClick=&quot;</span>
+        + courseAndClick + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

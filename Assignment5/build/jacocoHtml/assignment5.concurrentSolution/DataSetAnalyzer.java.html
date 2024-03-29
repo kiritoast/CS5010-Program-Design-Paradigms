@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataSetAnalyzer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">DataSetAnalyzer.java</span></div><h1>DataSetAnalyzer.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.io.File;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
+/**
+ * Represents the concurrent dataset analyzer class which helps to analyze the given data set and generate
+ * output
+ */
+public class DataSetAnalyzer {
+
+  private final String courseFilePath;
+  private final String studentFilePath;
+  private String summaryOutputDirectory;
+  private String thresholdOutputDirectory;
+  private String threshold;
+  private ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick;
+
+  private static final int FILE_START_OFFSET = 0;
+  private static final int FILE_END_OFFSET = 1;
+  private static final String SUMMARY_FOLDER = &quot;summary&quot;;
+  private static final String THRESHOLD_FOLDER = &quot;threshold&quot;;
+
+  /**
+   * Creates a new instance of concurrent dataset analyzer given the course file path and student file path
+   *
+   * @param courseFilePath  course file path
+   * @param studentFilePath student file path
+   */
+<span class="fc" id="L32">  public DataSetAnalyzer(String courseFilePath, String studentFilePath) {</span>
+<span class="fc" id="L33">    this.courseFilePath = courseFilePath;</span>
+<span class="fc" id="L34">    this.studentFilePath = studentFilePath;</span>
+<span class="fc" id="L35">    this.summaryOutputDirectory = deleteAndCreateDirectory(courseFilePath, SUMMARY_FOLDER);</span>
+<span class="fc" id="L36">  }</span>
+
+  /**
+   * Creates a new instance of concurrent dataset analyzer given the course file path, student file path and threshold
+   *
+   * @param courseFilePath  course file path
+   * @param studentFilePath student file path
+   * @param threshold the threshold used to identify valid course
+   */
+  public DataSetAnalyzer(String courseFilePath, String studentFilePath, String threshold) {
+<span class="fc" id="L46">    this(courseFilePath,studentFilePath);</span>
+<span class="fc" id="L47">    this.threshold = threshold;</span>
+<span class="fc" id="L48">    this.thresholdOutputDirectory = deleteAndCreateDirectory(courseFilePath, THRESHOLD_FOLDER);</span>
+<span class="fc" id="L49">  }</span>
+
+  /**
+   * Process the given set of files and generate output for non-threshold option
+   */
+  public void process() {
+<span class="fc" id="L55">    this.courseAndClick = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L56">    processCourseFile();</span>
+<span class="fc" id="L57">    processStudentFile();</span>
+<span class="fc" id="L58">    writeOutputFiles();</span>
+<span class="fc" id="L59">  }</span>
+
+  /**
+   * Read the course file, and initialize the concurrent map
+   */
+  private void processCourseFile() {
+<span class="fc" id="L65">    Thread courseFileReader = new Thread(</span>
+        new InitializeProcessor(this.courseFilePath, this.courseAndClick));
+<span class="fc" id="L67">    courseFileReader.start();</span>
+    try {
+<span class="fc" id="L69">      courseFileReader.join();</span>
+<span class="nc" id="L70">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L71">      throw new RuntimeException(e);</span>
+<span class="fc" id="L72">    }</span>
+<span class="fc" id="L73">  }</span>
+
+  /**
+   * Read the student fil, and set the concurrent map
+   */
+  private void processStudentFile() {
+<span class="fc" id="L79">    CSVConcurrentReader csvConcurrentReader = new CSVConcurrentReader(this.studentFilePath,</span>
+        this.courseAndClick);
+<span class="fc" id="L81">    csvConcurrentReader.readCSVFileToMap();</span>
+<span class="fc" id="L82">  }</span>
+
+  /**
+   * write the valid course information to the summary folder for each course
+   */
+  private void writeOutputFiles() {
+<span class="fc" id="L88">    CSVConcurrentWriter csvConcurrentWriter = new CSVConcurrentWriter(this.courseAndClick,</span>
+        this.summaryOutputDirectory);
+<span class="fc" id="L90">    csvConcurrentWriter.writeOutputFiles();</span>
+<span class="fc" id="L91">  }</span>
+
+  /**
+   * Process the given set of files and generate output for threshold option
+   */
+  public void processThreshold() {
+<span class="fc" id="L97">    process();</span>
+<span class="fc" id="L98">    outputThresholdFile();</span>
+<span class="fc" id="L99">  }</span>
+
+  /**
+   * Read all the summary files, and output the activity file
+   */
+  private void outputThresholdFile() {
+<span class="fc" id="L105">    ThresholdProcessor thresholdProcessor = new ThresholdProcessor(this.summaryOutputDirectory,</span>
+        this.thresholdOutputDirectory, this.threshold);
+<span class="fc" id="L107">    thresholdProcessor.filterBasedOnThreshold();</span>
+<span class="fc" id="L108">  }</span>
+
+  /**
+   * Delete all the subdirectories and files in current directory recursively
+   *
+   * @param directory the current directory
+   */
+  private static void deleteDirectory(File directory) {
+<span class="fc bfc" id="L116" title="All 2 branches covered.">    if(directory.isDirectory()) {</span>
+<span class="fc" id="L117">      File[] files = directory.listFiles();</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">      if(files != null) {</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        for(File file : files) {</span>
+<span class="fc" id="L120">          deleteDirectory(file);</span>
+        }
+      }
+    }
+<span class="fc" id="L124">    directory.delete();</span>
+<span class="fc" id="L125">  }</span>
+
+  /**
+   * Given a file path and directory name, delete and create the directory in the given file path
+   * @param inputFilePath input file path
+   * @param directoryName directory name
+   * @return path of newly created directory
+   */
+  public static String deleteAndCreateDirectory(String inputFilePath, String directoryName){
+<span class="fc" id="L134">    String currentDirectory = inputFilePath.substring(FILE_START_OFFSET,</span>
+<span class="fc" id="L135">        inputFilePath.lastIndexOf(File.separator) + FILE_END_OFFSET);</span>
+<span class="fc" id="L136">    String newDirectoryPath = currentDirectory + directoryName + File.separator;</span>
+
+<span class="fc" id="L138">    File newDirectory = new File(newDirectoryPath);</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">    if (newDirectory.exists()) {</span>
+<span class="fc" id="L140">      deleteDirectory(newDirectory);</span>
+    }
+<span class="fc" id="L142">    newDirectory.mkdirs();</span>
+
+<span class="fc" id="L144">    return newDirectoryPath;</span>
+  }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L151" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L152">      return true;</span>
+    }
+<span class="pc bpc" id="L154" title="1 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L155">      return false;</span>
+    }
+<span class="fc" id="L157">    DataSetAnalyzer that = (DataSetAnalyzer) o;</span>
+<span class="pc bpc" id="L158" title="2 of 4 branches missed.">    return Objects.equals(courseFilePath, that.courseFilePath) &amp;&amp; Objects.equals(</span>
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">        studentFilePath, that.studentFilePath) &amp;&amp; Objects.equals(summaryOutputDirectory,</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">        that.summaryOutputDirectory) &amp;&amp; Objects.equals(thresholdOutputDirectory,</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">        that.thresholdOutputDirectory) &amp;&amp; Objects.equals(threshold, that.threshold)</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(courseAndClick, that.courseAndClick);</span>
+  }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L169">    return Objects.hash(courseFilePath, studentFilePath, summaryOutputDirectory,</span>
+        thresholdOutputDirectory, threshold, courseAndClick);
+  }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L177">    return &quot;DataSetAnalyzer{&quot; +</span>
+        &quot;courseFilePath='&quot; + courseFilePath + '\'' +
+        &quot;, studentFilePath='&quot; + studentFilePath + '\'' +
+        &quot;, summaryOutputDirectory='&quot; + summaryOutputDirectory + '\'' +
+        &quot;, thresholdOutputDirectory='&quot; + thresholdOutputDirectory + '\'' +
+        &quot;, threshold='&quot; + threshold + '\'' +
+        &quot;, courseAndClick=&quot; + courseAndClick +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

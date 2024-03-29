@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChatServer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ChatServer.java</span></div><h1>ChatServer.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+/**
+ * Represents the server class in chat room application
+ */
+<span class="nc" id="L12">public class ChatServer {</span>
+  private static final int PORT_NUMBER = 3000;
+  private static final String SERVER_RUNNING_MESSAGE =
+      &quot;\nChatroom server is running on port number &quot; + PORT_NUMBER;
+  private static final String DUPLICATE_SERVER_MESSAGE = &quot;\nFailed to launch the chatroom server as another server is already running on the same port&quot;;
+
+  /**
+   * Method which helps to start a chat server and waits for clients to join the chat room
+   */
+  public void start() {
+<span class="nc" id="L22">    ExecutorService serverExecutor = Executors.newCachedThreadPool();</span>
+<span class="nc" id="L23">    ServerMessageHandler serverMessageHandler = new ServerMessageHandler();</span>
+<span class="nc" id="L24">    ServerSocket serverSocket = null;</span>
+
+    try {
+<span class="nc" id="L27">      serverSocket = new ServerSocket(PORT_NUMBER);</span>
+<span class="nc" id="L28">      logMessage(SERVER_RUNNING_MESSAGE);</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">      while (!serverSocket.isClosed()) {</span>
+<span class="nc" id="L31">        Socket clientSocket = serverSocket.accept();</span>
+<span class="nc" id="L32">        serverExecutor.submit(new ClientHandler(clientSocket, serverMessageHandler));</span>
+<span class="nc" id="L33">      }</span>
+<span class="nc" id="L34">    } catch (IOException e) {</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">      if (serverSocket == null) {</span>
+<span class="nc" id="L36">        logMessage(DUPLICATE_SERVER_MESSAGE);</span>
+<span class="nc" id="L37">        return;</span>
+      }
+<span class="nc" id="L39">      throw new RuntimeException(e);</span>
+    } finally {
+      try {
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (serverSocket != null) {</span>
+<span class="nc" id="L43">          serverSocket.close();</span>
+        }
+<span class="nc" id="L45">      } catch (IOException e) {</span>
+<span class="nc" id="L46">        throw new RuntimeException(e);</span>
+<span class="nc" id="L47">      }</span>
+    }
+<span class="nc" id="L49">  }</span>
+
+  /**
+   * This method helps to log the messages to console
+   * @param message message
+   */
+  private static void logMessage(String message) {
+<span class="nc" id="L56">    System.out.println(message);</span>
+<span class="nc" id="L57">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

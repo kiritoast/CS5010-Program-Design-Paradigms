@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClientHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ClientHandler.java</span></div><h1>ClientHandler.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.Objects;
+
+/**
+ * Represent the client handler class which helps to communicate with a client once server
+ * establishes connection
+ */
+public class ClientHandler implements Runnable {
+
+  private final Socket clientSocket;
+  private final ServerMessageHandler serverMessageHandler;
+
+  /**
+   * Creates a new instance of client handler class given the socket and server message handler
+   * details
+   *
+   * @param clientSocket         socket to communicate with the client
+   * @param serverMessageHandler helper class to process and respond to the server-client
+   *                             communication
+   */
+<span class="nc" id="L28">  public ClientHandler(Socket clientSocket, ServerMessageHandler serverMessageHandler) {</span>
+<span class="nc" id="L29">    this.clientSocket = clientSocket;</span>
+<span class="nc" id="L30">    this.serverMessageHandler = serverMessageHandler;</span>
+<span class="nc" id="L31">  }</span>
+
+  /**
+   * Method which helps to keep the server-client communication
+   */
+  @Override
+  public void run() {
+<span class="nc" id="L38">    DataInputStream dataInputStream = null;</span>
+<span class="nc" id="L39">    DataOutputStream dataOutputStream = null;</span>
+
+    try {
+<span class="nc" id="L42">      dataOutputStream = new DataOutputStream(</span>
+<span class="nc" id="L43">          new BufferedOutputStream(clientSocket.getOutputStream()));</span>
+<span class="nc" id="L44">      dataInputStream = new DataInputStream(new BufferedInputStream(clientSocket.getInputStream()));</span>
+
+      boolean isConnectionAlive;
+      do {
+<span class="nc" id="L48">        int messageIdentifier = dataInputStream.readInt();</span>
+<span class="nc" id="L49">        isConnectionAlive = serverMessageHandler.process(messageIdentifier, dataInputStream,</span>
+            dataOutputStream);
+<span class="nc bnc" id="L51" title="All 2 branches missed.">      } while (isConnectionAlive);</span>
+
+<span class="nc" id="L53">    } catch (IOException e) {</span>
+<span class="nc" id="L54">      serverMessageHandler.removeClientInformation(</span>
+          dataOutputStream);//when client terminates without proper communication, remove the client information
+<span class="nc" id="L56">      throw new RuntimeException(e);</span>
+    } finally {
+      try {
+<span class="nc" id="L59">        dataInputStream.close();</span>
+<span class="nc" id="L60">        dataOutputStream.close();</span>
+<span class="nc" id="L61">        clientSocket.close();</span>
+<span class="nc" id="L62">      } catch (IOException e) {</span>
+<span class="nc" id="L63">        throw new RuntimeException(e);</span>
+<span class="nc" id="L64">      }</span>
+    }
+<span class="nc" id="L66">  }</span>
+
+  /**
+   * This method is used to compare two instances of client handler class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L76" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L77">      return true;</span>
+    }
+<span class="nc bnc" id="L79" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L80">      return false;</span>
+    }
+<span class="nc" id="L82">    ClientHandler that = (ClientHandler) o;</span>
+<span class="nc bnc" id="L83" title="All 4 branches missed.">    return Objects.equals(clientSocket, that.clientSocket) &amp;&amp; Objects.equals(</span>
+        serverMessageHandler, that.serverMessageHandler);
+  }
+
+  /**
+   * This method is used to generate the hash code of client handler class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L94">    return Objects.hash(clientSocket, serverMessageHandler);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of client handler class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L104">    return &quot;ClientHandler{&quot; +</span>
+        &quot;clientSocket=&quot; + clientSocket +
+        &quot;, serverMessageHandler=&quot; + serverMessageHandler +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

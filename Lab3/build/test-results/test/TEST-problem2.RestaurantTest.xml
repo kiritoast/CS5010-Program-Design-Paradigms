@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.RestaurantTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-02-11T07:37:09" hostname="Jinmings-MacBook-Pro.local" time="0.004">
+  <properties/>
+  <testcase name="testToString()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="getAddress()" classname="problem2.RestaurantTest" time="0.001"/>
+  <testcase name="getMenu()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="getName()" classname="problem2.RestaurantTest" time="0.001"/>
+  <testcase name="testHashCode()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="setOpenOrClosed()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="testEquals()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="setAddress()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="setMenu()" classname="problem2.RestaurantTest" time="0.001"/>
+  <testcase name="setName()" classname="problem2.RestaurantTest" time="0.0"/>
+  <testcase name="isOpenOrClosed()" classname="problem2.RestaurantTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

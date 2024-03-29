@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaxFiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">TaxFiler.java</span></div><h1>TaxFiler.java</h1><pre class="source lang-java linenums">package problem3;
+
+/**
+ * abstract class for all tax filer
+ */
+public abstract class TaxFiler {
+
+  /**
+   * string that store unique tax id
+   */
+  protected String taxID;
+  /**
+   * class that store all user contact info
+   */
+  protected ContactInfo contactInfo;
+  /**
+   * double that stores last year earning
+   */
+  protected double lastYearEarning;
+  /**
+   * double that store paid income tax
+   */
+  protected double paidIncomeTax;
+  /**
+   * double that store paid mortgage interest
+   */
+  protected double paidMortgageInterest;
+  /**
+   * double that store paid property tax
+   */
+  protected double paidPropertyTax;
+  /**
+   * double that store paid student loan
+   */
+  protected double paidStudentLoanTuition;
+  /**
+   * number of contribution to retirement saving
+   */
+  protected double contributionsRetirementSaving;
+  /**
+   * number of contribution to health saving
+   */
+  protected double contributionHealthSaving;
+  /**
+   * charitableDonationContribution Charitable donations and contributions
+   */
+  protected double charitableDonationContribution;
+
+  /**
+   *
+   * @param taxID unique tax filer’s identifier
+   * @param contactInfo class contact info that store tax filer information
+   * @param lastYearEarning Last year’s earnings
+   * @param paidIncomeTax Total income tax already paid
+   * @param paidMortgageInterest Mortgage interest paid
+   * @param paidPropertyTax Property taxes
+   * @param paidStudentLoanTuition Student loan and tuition paid
+   * @param contributionsRetirementSaving Contributions made to a retirement savings account
+   * @param contributionHealthSaving Contributions made to a health savings account
+   * @param charitableDonationContribution Charitable donations and contributions
+   */
+  public TaxFiler(String taxID, ContactInfo contactInfo, double lastYearEarning,
+      double paidIncomeTax,
+      double paidMortgageInterest, double paidPropertyTax, double paidStudentLoanTuition,
+      double contributionsRetirementSaving, double contributionHealthSaving,
+<span class="fc" id="L66">      double charitableDonationContribution) {</span>
+<span class="fc" id="L67">    this.taxID = taxID;</span>
+<span class="fc" id="L68">    this.contactInfo = contactInfo;</span>
+<span class="fc" id="L69">    this.lastYearEarning = lastYearEarning;</span>
+<span class="fc" id="L70">    this.paidIncomeTax = paidIncomeTax;</span>
+<span class="fc" id="L71">    this.paidMortgageInterest = paidMortgageInterest;</span>
+<span class="fc" id="L72">    this.paidPropertyTax = paidPropertyTax;</span>
+<span class="fc" id="L73">    this.paidStudentLoanTuition = paidStudentLoanTuition;</span>
+<span class="fc" id="L74">    this.contributionsRetirementSaving = contributionsRetirementSaving;</span>
+<span class="fc" id="L75">    this.contributionHealthSaving = contributionHealthSaving;</span>
+<span class="fc" id="L76">    this.charitableDonationContribution = charitableDonationContribution;</span>
+<span class="fc" id="L77">  }</span>
+
+  /**
+   *
+   * @return Basic taxable income for all tax filer
+   */
+  protected Double calculateBasicTaxableIncome() {
+<span class="fc" id="L84">    return lastYearEarning - paidIncomeTax;</span>
+  }
+
+  /**
+   *
+   * @return abstract method Retirement and health savings deduction for all tax filer
+   */
+  protected abstract Double calculateRetirementAndHealthSavingsDeduction();
+
+  /**
+   *
+   * @return Mortgage interest and property deduction
+   */
+  protected Double calculateMortgageInterestAndPropertyDeduction(){
+<span class="pc bpc" id="L98" title="1 of 4 branches missed.">    if(lastYearEarning &lt; 250000.0 &amp;&amp; (paidMortgageInterest + paidPropertyTax) &gt; 12500.0){</span>
+<span class="nc" id="L99">      return 2500.0;</span>
+    }
+<span class="fc" id="L101">    return 0.00;</span>
+  }
+
+  /**
+   *
+   * @return abstract that calculate Tax amount for all
+   */
+  protected abstract Double calculateTaxes();
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

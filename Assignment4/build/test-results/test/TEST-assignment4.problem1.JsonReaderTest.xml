@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment4.problem1.JsonReaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-04-09T23:34:36" hostname="Jinmings-MacBook-Pro.local" time="0.033">
+  <properties/>
+  <testcase name="testEqualsDiffType()" classname="assignment4.problem1.JsonReaderTest" time="0.023"/>
+  <testcase name="readValue()" classname="assignment4.problem1.JsonReaderTest" time="0.001"/>
+  <testcase name="testToString()" classname="assignment4.problem1.JsonReaderTest" time="0.002"/>
+  <testcase name="testEqualsNull()" classname="assignment4.problem1.JsonReaderTest" time="0.001"/>
+  <testcase name="testEqualsSame()" classname="assignment4.problem1.JsonReaderTest" time="0.001"/>
+  <testcase name="readArrayValue()" classname="assignment4.problem1.JsonReaderTest" time="0.0"/>
+  <testcase name="testHashCode()" classname="assignment4.problem1.JsonReaderTest" time="0.0"/>
+  <testcase name="testEquals()" classname="assignment4.problem1.JsonReaderTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

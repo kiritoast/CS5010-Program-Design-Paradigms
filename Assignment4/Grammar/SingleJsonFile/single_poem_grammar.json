@@ -1,0 +1,16 @@
+{
+  "grammarTitle": "Single Poem Generator",
+  "grammarDesc": "A grammar that generates poems. ",
+  "start":[
+    "The <object> <verb> tonight."
+  ],
+  "Object": [
+    "waves"
+  ],
+  "verb": [
+    "sigh <adverb>"
+  ],
+  "adverb": [
+    "warily"
+  ]
+}

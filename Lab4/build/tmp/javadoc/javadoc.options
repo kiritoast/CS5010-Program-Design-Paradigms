@@ -1,0 +1,9 @@
+-classpath '/Users/jijim/Documents/5010/Student_jijiming/Lab4/build/classes/java/main:/Users/jijim/Documents/5010/Student_jijiming/Lab4/build/resources/main'
+-d '/Users/jijim/Documents/5010/Student_jijiming/Lab4/build/docs/javadoc'
+-doctitle 'Lab4 1.0 API'
+-notimestamp 
+-quiet 
+-windowtitle 'Lab4 1.0 API'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab4/src/main/java/lab4/problem1/Queue.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab4/src/main/java/lab4/problem1/Stack.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab4/src/main/java/lab4/problem2/PriorityQueue.java'

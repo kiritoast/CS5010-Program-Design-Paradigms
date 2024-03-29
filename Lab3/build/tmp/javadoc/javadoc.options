@@ -1,0 +1,14 @@
+-classpath '/Users/jijim/Documents/5010/Student_jijiming/Lab3/build/classes/java/main:/Users/jijim/Documents/5010/Student_jijiming/Lab3/build/resources/main'
+-d '/Users/jijim/Documents/5010/Student_jijiming/Lab3/build/docs/javadoc'
+-doctitle 'Lab3 1.0 API'
+-notimestamp 
+-quiet 
+-windowtitle 'Lab3 1.0 API'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem1/Athlete.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem1/Runner.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem1/BaseballPlayer.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem1/Name.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem2/Menu.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem2/Address.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem2/Restaurant.java'
+'/Users/jijim/Documents/5010/Student_jijiming/Lab3/src/main/java/problem3/Posn.java'

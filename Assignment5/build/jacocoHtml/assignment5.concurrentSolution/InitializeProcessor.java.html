@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InitializeProcessor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">InitializeProcessor.java</span></div><h1>InitializeProcessor.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import assignment5.sequentialSolution.CsvFileReader;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
+/**
+ * Represents the file processor to read the information in a CSV file to initialize a concurrent
+ * map.
+ */
+public class InitializeProcessor implements Runnable {
+
+  private ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick;
+  private String filePath;
+  private static final int MODULE_INDEX = 0;
+  private static final int PRESENTATION_INDEX = 1;
+  private static final String COURSE_SEPARATOR = &quot;_&quot;;
+
+  /**
+   * Creates a course file processor given the course file path, and the concurrent map
+   *
+   * @param filePath       the course file path
+   * @param courseAndClick the concurrent map
+   */
+  public InitializeProcessor(String filePath,
+<span class="fc" id="L27">      ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick) {</span>
+<span class="fc" id="L28">    this.filePath = filePath;</span>
+<span class="fc" id="L29">    this.courseAndClick = courseAndClick;</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * This method is invoked to read the information in the course file to initialize a concurrent
+   * map in which the key is the course, and the value is an empty concurrent map.
+   */
+  @Override
+  public void run() {
+<span class="fc" id="L38">    CsvFileReader csvFileReader = new CsvFileReader(this.filePath);</span>
+<span class="fc" id="L39">    csvFileReader.readData();</span>
+
+    String[] courseRecord;
+<span class="fc bfc" id="L42" title="All 2 branches covered.">    while ((courseRecord = csvFileReader.readData()) != null) {</span>
+<span class="fc" id="L43">      var courseKey =</span>
+          courseRecord[MODULE_INDEX] + COURSE_SEPARATOR + courseRecord[PRESENTATION_INDEX];
+<span class="fc" id="L45">      this.courseAndClick.put(courseKey, new ConcurrentHashMap&lt;&gt;());</span>
+<span class="fc" id="L46">    }</span>
+
+<span class="fc" id="L48">    csvFileReader.closeFile();</span>
+<span class="fc" id="L49">  }</span>
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L59" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L60">      return true;</span>
+    }
+<span class="fc bfc" id="L62" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L63">      return false;</span>
+    }
+<span class="fc" id="L65">    InitializeProcessor that = (InitializeProcessor) o;</span>
+<span class="fc bfc" id="L66" title="All 4 branches covered.">    return courseAndClick.equals(that.courseAndClick) &amp;&amp; filePath.equals(that.filePath);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L76">    return Objects.hash(courseAndClick, filePath);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L86">    return &quot;InitializeProcessor{&quot; +</span>
+        &quot;courseAndClick=&quot; + courseAndClick +
+        &quot;, filePath='&quot; + filePath + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

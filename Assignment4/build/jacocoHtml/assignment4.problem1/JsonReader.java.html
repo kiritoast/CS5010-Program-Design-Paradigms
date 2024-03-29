@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JsonReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment4</a> &gt; <a href="index.source.html" class="el_package">assignment4.problem1</a> &gt; <span class="el_source">JsonReader.java</span></div><h1>JsonReader.java</h1><pre class="source lang-java linenums">package assignment4.problem1;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Stream;
+import org.json.simple.*;
+import org.json.simple.parser.*;
+
+/**
+ * Represents the json reader which helps to read a json file
+ */
+public class JsonReader {
+
+  private JSONObject jsonObject;
+
+  /**
+   * Creates a new instance of json reader and parse the file content
+   *
+   * @param filePath file path
+   */
+<span class="fc" id="L26">  public JsonReader(String filePath) {</span>
+<span class="fc" id="L27">    FileReader fileReader = openFile(filePath);</span>
+<span class="fc" id="L28">    setJsonObject(fileReader);</span>
+<span class="fc" id="L29">    closeFile(fileReader);</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * Read the data from json object given the key
+   *
+   * @param key key value
+   * @return value corresponding to given key
+   */
+  public String readValue(String key) {
+<span class="fc" id="L39">    return (String) this.jsonObject.get(getCaseInsensitiveKey(key));</span>
+  }
+
+  /**
+   * Read the data array from json object given the key
+   *
+   * @param key key value
+   * @return array value corresponding to given key
+   */
+  public List&lt;String&gt; readArrayValue(String key) {
+<span class="fc" id="L49">    List&lt;String&gt; valueList = new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L51">    JSONArray values = (JSONArray) this.jsonObject.get(getCaseInsensitiveKey(key));</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">    if (values != null) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">      for (Object value : values) {</span>
+<span class="fc" id="L54">        valueList.add((String) value);</span>
+<span class="fc" id="L55">      }</span>
+    }
+
+<span class="fc" id="L58">    return (valueList);</span>
+  }
+
+  /**
+   * Open the file given the file path
+   *
+   * @param filePath file path
+   * @return file reader
+   */
+  private FileReader openFile(String filePath) {
+    FileReader fileReader;
+    try {
+<span class="fc" id="L70">      fileReader = new FileReader(filePath);</span>
+<span class="nc" id="L71">    } catch (FileNotFoundException e) {</span>
+<span class="nc" id="L72">      throw new RuntimeException(e);</span>
+<span class="fc" id="L73">    }</span>
+
+<span class="fc" id="L75">    return fileReader;</span>
+  }
+
+  /**
+   * Parse the file reader and store the json object
+   *
+   * @param fileReader file reader
+   */
+  private void setJsonObject(FileReader fileReader) {
+<span class="fc" id="L84">    JSONParser parser = new JSONParser();</span>
+    try {
+<span class="fc" id="L86">      this.jsonObject = (JSONObject) parser.parse(fileReader);</span>
+<span class="nc" id="L87">    } catch (IOException | ParseException e) {</span>
+<span class="nc" id="L88">      throw new RuntimeException(e);</span>
+<span class="fc" id="L89">    }</span>
+<span class="fc" id="L90">  }</span>
+
+  /**
+   * This method is used to find the case-insensitive version of given key
+   *
+   * @param key key value
+   * @return case-insensitive key
+   */
+  private Object getCaseInsensitiveKey(String key) {
+<span class="fc" id="L99">    Stream&lt;?&gt; stream = this.jsonObject.keySet().stream();</span>
+<span class="pc bpc" id="L100" title="1 of 4 branches missed.">    Optional&lt;?&gt; optional = stream.filter(e -&gt; e != null &amp;&amp; e.toString().equalsIgnoreCase(key))</span>
+<span class="fc" id="L101">        .findFirst();</span>
+
+<span class="fc" id="L103">    return optional.orElse(null);</span>
+  }
+
+  /**
+   * Close the file
+   *
+   * @param fileReader file reader
+   */
+  private void closeFile(FileReader fileReader) {
+    try {
+<span class="fc" id="L113">      fileReader.close();</span>
+<span class="nc" id="L114">    } catch (IOException e) {</span>
+<span class="nc" id="L115">      throw new RuntimeException(e);</span>
+<span class="fc" id="L116">    }</span>
+<span class="fc" id="L117">  }</span>
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L127" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L128">      return true;</span>
+    }
+<span class="fc bfc" id="L130" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L131">      return false;</span>
+    }
+<span class="fc" id="L133">    JsonReader that = (JsonReader) o;</span>
+<span class="fc" id="L134">    return Objects.equals(this.jsonObject, that.jsonObject);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L144">    return Objects.hash(this.jsonObject);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L154">    return &quot;JsonReader{&quot; +</span>
+        &quot;jsonObject=&quot; + this.jsonObject +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

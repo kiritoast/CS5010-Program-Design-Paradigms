@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="lab4.problem2.PriorityQueueTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-03-03T18:21:58" hostname="Jinmings-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="insert()" classname="lab4.problem2.PriorityQueueTest" time="0.001"/>
+  <testcase name="remove()" classname="lab4.problem2.PriorityQueueTest" time="0.001"/>
+  <testcase name="front()" classname="lab4.problem2.PriorityQueueTest" time="0.0"/>
+  <testcase name="isEmpty()" classname="lab4.problem2.PriorityQueueTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

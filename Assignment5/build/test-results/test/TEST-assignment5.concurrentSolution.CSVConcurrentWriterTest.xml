@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment5.concurrentSolution.CSVConcurrentWriterTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-04-10T23:32:13" hostname="Jinmings-MacBook-Pro.local" time="0.01">
+  <properties/>
+  <testcase name="testEqualsDiffVal()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.001"/>
+  <testcase name="writeOutputFilesVerifyHeader()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.002"/>
+  <testcase name="testToString()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.001"/>
+  <testcase name="writeOutputFilesVerifyData()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.001"/>
+  <testcase name="testEqualsDiff()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.0"/>
+  <testcase name="testEqualsNull()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.0"/>
+  <testcase name="writeOutputFilesFileGenerated()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.0"/>
+  <testcase name="testHashCode()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.0"/>
+  <testcase name="testEquals()" classname="assignment5.concurrentSolution.CSVConcurrentWriterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

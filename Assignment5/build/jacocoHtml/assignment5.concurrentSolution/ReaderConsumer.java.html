@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReaderConsumer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">ReaderConsumer.java</span></div><h1>ReaderConsumer.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CountDownLatch;
+
+/**
+ * Represents the CSV reader consumer with the information of the concurrent map, the buffer queue,
+ * and the helper latch.
+ */
+public class ReaderConsumer implements Runnable {
+
+  private ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick;
+  private BlockingQueue&lt;String[]&gt; readQueue;
+  private CountDownLatch latch;
+  private static final int MODULE_INDEX = 0;
+  private static final int INITIAL_COUNT = 0;
+  private static final int PRESENTATION_INDEX = 1;
+  private static final int DATE_INDEX = 4;
+  private static final int SUM_CLICK_INDEX = 5;
+  private static final String COURSE_SEPARATOR = &quot;_&quot;;
+
+  /**
+   * Creates a CSV reader consumer given the concurrent map, the buffer queue, and the helper latch
+   *
+   * @param courseAndClick the concurrent map
+   * @param readQueue      the buffer queue
+   * @param latch          the helper latch
+   */
+  public ReaderConsumer(ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick,
+<span class="fc" id="L33">      BlockingQueue&lt;String[]&gt; readQueue, CountDownLatch latch) {</span>
+<span class="fc" id="L34">    this.courseAndClick = courseAndClick;</span>
+<span class="fc" id="L35">    this.readQueue = readQueue;</span>
+<span class="fc" id="L36">    this.latch = latch;</span>
+<span class="fc" id="L37">  }</span>
+
+  /**
+   * This method is invoked to get the course information from the buffer queue, then store it to
+   * the concurrent map
+   */
+  @Override
+  public void run() {
+    while (true) {
+      try {
+<span class="fc" id="L47">        String[] studentRecord = this.readQueue.take();</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (Arrays.equals(studentRecord, new String[]{})) {</span>
+<span class="fc" id="L49">          break;</span>
+        }
+<span class="fc" id="L51">        String courseKey =</span>
+            studentRecord[MODULE_INDEX] + COURSE_SEPARATOR + studentRecord[PRESENTATION_INDEX];
+<span class="fc" id="L53">        ConcurrentMap&lt;String, Integer&gt; dateAndClick = this.courseAndClick.get(courseKey);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (dateAndClick != null) {</span>
+<span class="fc" id="L55">          synchronized (dateAndClick) {</span>
+<span class="fc" id="L56">            Integer newVal = dateAndClick.getOrDefault(studentRecord[DATE_INDEX], INITIAL_COUNT)</span>
+<span class="fc" id="L57">                + Integer.parseInt(studentRecord[SUM_CLICK_INDEX]);</span>
+<span class="fc" id="L58">            dateAndClick.put(studentRecord[DATE_INDEX], newVal);</span>
+<span class="fc" id="L59">          }</span>
+        }
+<span class="nc" id="L61">      } catch (InterruptedException e) {</span>
+<span class="nc" id="L62">        e.printStackTrace();</span>
+<span class="pc" id="L63">      }</span>
+    }
+<span class="fc" id="L65">    this.latch.countDown();</span>
+<span class="fc" id="L66">  }</span>
+
+  /**
+   * This method is used to compare two instances of json reader class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L77">      return true;</span>
+    }
+<span class="fc bfc" id="L79" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L80">      return false;</span>
+    }
+<span class="fc" id="L82">    ReaderConsumer that = (ReaderConsumer) o;</span>
+<span class="fc" id="L83">    return courseAndClick.equals(that.courseAndClick);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of json reader class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L93">    return Objects.hash(courseAndClick);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of json reader class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L103">    return &quot;ReaderConsumer{&quot; +</span>
+        &quot;courseAndClick=&quot; + courseAndClick +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

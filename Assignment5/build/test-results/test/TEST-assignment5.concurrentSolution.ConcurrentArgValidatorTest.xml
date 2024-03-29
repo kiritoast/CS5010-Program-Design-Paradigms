@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment5.concurrentSolution.ConcurrentArgValidatorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-04-10T23:32:13" hostname="Jinmings-MacBook-Pro.local" time="0.004">
+  <properties/>
+  <testcase name="validateStudentFile()" classname="assignment5.concurrentSolution.ConcurrentArgValidatorTest" time="0.001"/>
+  <testcase name="validateNullThreshold()" classname="assignment5.concurrentSolution.ConcurrentArgValidatorTest" time="0.001"/>
+  <testcase name="validateCourseFile()" classname="assignment5.concurrentSolution.ConcurrentArgValidatorTest" time="0.0"/>
+  <testcase name="validateNull()" classname="assignment5.concurrentSolution.ConcurrentArgValidatorTest" time="0.001"/>
+  <testcase name="validateFileNotFound()" classname="assignment5.concurrentSolution.ConcurrentArgValidatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

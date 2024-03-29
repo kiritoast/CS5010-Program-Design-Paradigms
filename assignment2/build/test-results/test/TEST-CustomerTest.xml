@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CustomerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-02-27T19:48:13" hostname="Jinmings-MacBook-Pro.local" time="0.026">
+  <properties/>
+  <testcase name="getAge()" classname="CustomerTest" time="0.014"/>
+  <testcase name="checkHouseholdQuantity()" classname="CustomerTest" time="0.001"/>
+  <testcase name="testAddItemToCart()" classname="CustomerTest" time="0.0"/>
+  <testcase name="getName()" classname="CustomerTest" time="0.001"/>
+  <testcase name="getShoppingCart()" classname="CustomerTest" time="0.0"/>
+  <testcase name="testHashCode()" classname="CustomerTest" time="0.0"/>
+  <testcase name="testEquals()" classname="CustomerTest" time="0.001"/>
+  <testcase name="checkOut()" classname="CustomerTest" time="0.002"/>
+  <testcase name="checkGroceryQuantity()" classname="CustomerTest" time="0.0"/>
+  <testcase name="addItemToCart()" classname="CustomerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

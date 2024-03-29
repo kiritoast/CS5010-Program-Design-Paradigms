@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CSVConcurrentWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">CSVConcurrentWriter.java</span></div><h1>CSVConcurrentWriter.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+/**
+ * Represents the writer class which helps to generate the output files by running on parallel
+ * threads
+ */
+public class CSVConcurrentWriter {
+
+  private ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick;
+  private String outputFileDirPath;
+  private ExecutorService writerProducerExecutor;
+
+  private static final String OUTPUT_EXTENSION = &quot;.csv&quot;;
+
+  /**
+   * Creates a new instance of csv concurrent writer given the course click summary map and output
+   * directory file path
+   *
+   * @param courseAndClick    map of course and click details
+   * @param outputFileDirPath output file directory path
+   */
+  public CSVConcurrentWriter(ConcurrentMap&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseAndClick,
+<span class="fc" id="L30">      String outputFileDirPath) {</span>
+<span class="fc" id="L31">    this.courseAndClick = courseAndClick;</span>
+<span class="fc" id="L32">    this.outputFileDirPath = outputFileDirPath;</span>
+<span class="fc" id="L33">    this.writerProducerExecutor = Executors.newCachedThreadPool();</span>
+<span class="fc" id="L34">  }</span>
+
+  /**
+   * This method helps to generate multiple threads which will create the output files and write the
+   * content
+   */
+  public void writeOutputFiles() {
+    try {
+<span class="fc" id="L42">      CountDownLatch latch = new CountDownLatch(this.courseAndClick.size());</span>
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">      for (Map.Entry&lt;String, ConcurrentMap&lt;String, Integer&gt;&gt; courseClick : this.courseAndClick.entrySet()) {</span>
+<span class="fc" id="L45">        String outputFilePath = this.outputFileDirPath + courseClick.getKey() + OUTPUT_EXTENSION;</span>
+<span class="fc" id="L46">        this.writerProducerExecutor.execute(</span>
+<span class="fc" id="L47">            new WriterProcessor(outputFilePath, courseClick.getValue(), latch));</span>
+<span class="fc" id="L48">      }</span>
+
+<span class="fc" id="L50">      latch.await();//wait until all threads are back</span>
+<span class="fc" id="L51">      this.writerProducerExecutor.shutdown();</span>
+<span class="nc" id="L52">    } catch (InterruptedException e) {</span>
+<span class="nc" id="L53">      throw new RuntimeException(e);</span>
+<span class="fc" id="L54">    }</span>
+<span class="fc" id="L55">  }</span>
+
+  /**
+   * Compares if the given instance of csv concurrent writer is same as the current one
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L66">      return true;</span>
+    }
+<span class="fc bfc" id="L68" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L69">      return false;</span>
+    }
+<span class="fc" id="L71">    CSVConcurrentWriter that = (CSVConcurrentWriter) o;</span>
+<span class="pc bpc" id="L72" title="3 of 4 branches missed.">    return Objects.equals(courseAndClick, that.courseAndClick) &amp;&amp; Objects.equals(</span>
+        outputFileDirPath, that.outputFileDirPath);
+  }
+
+  /**
+   * Generates a hashcode for the current instance of csv concurrent writer
+   *
+   * @return hashcode
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L83">    return Objects.hash(courseAndClick, outputFileDirPath);</span>
+  }
+
+  /**
+   * Generates the string representation of csv concurrent writer instance
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L93">    return &quot;CSVConcurrentWriter{&quot; +</span>
+        &quot;courseAndClick=&quot; + courseAndClick +
+        &quot;, outputFileDirPath='&quot; + outputFileDirPath + '\'' +
+        &quot;, writerProducerExecutor=&quot; + writerProducerExecutor +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

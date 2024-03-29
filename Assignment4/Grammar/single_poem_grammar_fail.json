@@ -1,0 +1,13 @@
+{
+  "grammarTitle": "Single Poem Generator Fail",
+  "grammarDesc": "A grammar that generates poems. ",
+  "start":[
+    "The <object> <verb> tonight."
+  ],
+  "object": [
+    "waves"
+  ],
+  "verb": [
+    "sigh <adverb>"
+  ]
+}

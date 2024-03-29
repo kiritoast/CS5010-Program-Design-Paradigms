@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UiHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">UiHandler.java</span></div><h1>UiHandler.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.DataOutputStream;
+import java.util.Objects;
+import java.util.Scanner;
+
+/**
+ * Represents a runnable handler to process the input command from client app
+ */
+public class UiHandler implements Runnable {
+
+  private final Scanner scanner;
+  private final UiInputHandler uiInputHandler;
+  private final DataOutputStream dataOutputStream;
+
+  private static final String HELPER_MSG = &quot;&quot;&quot;
+      \nWelcome to the chatroom, here are the list of available commands:
+      • ?: show the menu options
+      • logoff: sends a DISCONNECT_MESSAGE to the server
+      • who: sends a QUERY_CONNECTED_USERS to the server
+      • @user &lt;message&gt;: sends a DIRECT_MESSAGE to the specified user to the server
+      • @all &lt;message&gt;: sends a BROADCAST_MESSAGE to the server, to be sent to all users connected
+      • !user: sends a SEND_INSULT message to the server, to be sent to the specified user
+      &quot;&quot;&quot;;
+
+  /**
+   * Creates an input handler with the information of the console scanner, the UI message handler
+   * and the client output stream
+   *
+   * @param scanner          the console scanner
+   * @param uiInputHandler   the UI message handler
+   * @param dataOutputStream the client output stream
+   */
+  public UiHandler(Scanner scanner, UiInputHandler uiInputHandler,
+<span class="fc" id="L35">      DataOutputStream dataOutputStream) {</span>
+<span class="fc" id="L36">    this.scanner = scanner;</span>
+<span class="fc" id="L37">    this.uiInputHandler = uiInputHandler;</span>
+<span class="fc" id="L38">    this.dataOutputStream = dataOutputStream;</span>
+<span class="fc" id="L39">  }</span>
+
+  @Override
+  public void run() {
+    try {
+<span class="fc" id="L44">      logMessage(HELPER_MSG);</span>
+      boolean isConnected;
+      String input;
+<span class="nc" id="L47">      scanner.nextLine();//don't remove</span>
+      do {
+<span class="nc" id="L49">        input = scanner.nextLine();</span>
+<span class="nc" id="L50">        isConnected = uiInputHandler.process(input, dataOutputStream);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">      } while (isConnected);</span>
+<span class="fc" id="L52">    } catch (Exception e) {</span>
+<span class="fc" id="L53">      throw new RuntimeException(e);</span>
+<span class="nc" id="L54">    }</span>
+<span class="nc" id="L55">  }</span>
+
+  private static void logMessage(String message) {
+<span class="fc" id="L58">    System.out.println(message);</span>
+<span class="fc" id="L59">  }</span>
+
+  /**
+   * Indicates whether some other object is &quot;equal to&quot; this one. *
+   *
+   * @param o the reference object with which to compare.
+   * @return true if this object is the same as the obj argument; false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L69" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L70">      return true;</span>
+    }
+<span class="nc bnc" id="L72" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L73">      return false;</span>
+    }
+<span class="nc" id="L75">    UiHandler uiHandler = (UiHandler) o;</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">    return uiInputHandler.equals(uiHandler.uiInputHandler)</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        &amp;&amp; dataOutputStream.equals(uiHandler.dataOutputStream);</span>
+  }
+
+  /**
+   * Returns a hash code value for the object. *
+   *
+   * @return a hash code value for this object.
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L87">    return Objects.hash(uiInputHandler, dataOutputStream);</span>
+  }
+
+  /**
+   * Returns a string representation of the object. In general, the toString method returns a string
+   * that &quot;textually represents&quot; this object. *
+   *
+   * @return a string representation of the object.
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L98">    return &quot;UiHandler{&quot; +</span>
+        &quot;, uiInputHandler=&quot; + uiInputHandler +
+        &quot;, dataOutputStream=&quot; + dataOutputStream +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

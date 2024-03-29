@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Author.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Author.java</span></div><h1>Author.java</h1><pre class="source lang-java linenums">/**
+ * Represents an Author with their details--name, email and physical address *
+ *
+ * @author therapon
+ */
+public class Author {
+
+  private String name;
+  private String email;
+  private String address;
+
+  /**
+   * Creates a new author given the author's name, email and address as strings. *
+   *
+   * @param name    the author's name
+   * @param email   the author's email address
+   * @param address the authors physical address
+   */
+<span class="fc" id="L19">  public Author(String name, String email, String address) {</span>
+<span class="fc" id="L20">    this.name = name;</span>
+<span class="fc" id="L21">    this.email = email;</span>
+<span class="fc" id="L22">    this.address = address;</span>
+<span class="fc" id="L23">  }</span>
+
+  /**
+   * @return the name
+   */
+  public String getName() {
+<span class="fc" id="L29">    return this.name;</span>
+  }
+
+  /**
+   * @return the email
+   */
+  public String getEmail() {
+<span class="fc" id="L36">    return this.email;</span>
+  }
+
+  /**
+   * @return the address
+   */
+  public String getAddress() {
+<span class="fc" id="L43">    return this.address;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

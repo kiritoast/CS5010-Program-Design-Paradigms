@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConcurrentArgValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">ConcurrentArgValidator.java</span></div><h1>ConcurrentArgValidator.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import assignment5.sequentialSolution.ArgumentValidator;
+import java.util.List;
+
+/**
+ * Class Validator that validate for Argument that also save a threshold
+ */
+public class ConcurrentArgValidator extends ArgumentValidator {
+
+  public static final String THRESHOLD_NOT_A_NUMBER = &quot;Error: Threshold must be a number.&quot;;
+  private static final int THRESHOLD_INDEX = 1;
+  private static final int VALID_CONCURRENT_THRESHOLD_INPUT = 2;
+
+  /**
+   * Creates a new instance of argument validator class given the argument
+   *
+   * @param args argument passed
+   */
+  public ConcurrentArgValidator(String[] args) {
+<span class="fc" id="L21">    super(args);</span>
+<span class="fc" id="L22">  }</span>
+
+  /**
+   * process the argument and save into argument
+   *
+   * @return List of strings that store the argument contains class file and threshold
+   */
+  public List&lt;String&gt; validate() {
+<span class="fc" id="L30">    List&lt;String&gt; argValList = super.validate();</span>
+<span class="fc" id="L31">    validateThreshold(argValList);</span>
+<span class="fc" id="L32">    return argValList;</span>
+  }
+
+  /**
+   * test if the argument is null of valid length
+   *
+   * @return boolean true if valid
+   */
+  protected boolean isArgCountValid() {
+<span class="pc bpc" id="L41" title="1 of 6 branches missed.">    return (super.isArgCountValid() || (this.args != null</span>
+        &amp;&amp; this.args.length == VALID_CONCURRENT_THRESHOLD_INPUT));
+  }
+
+  /**
+   * validate if the threshold is a number and valid for the input
+   *
+   * @param argValList array list that stores infor about threshold
+   */
+  private void validateThreshold(List&lt;String&gt; argValList) {
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    if (this.args.length == VALID_CONCURRENT_THRESHOLD_INPUT) {</span>
+<span class="fc" id="L52">      String threshold = this.args[THRESHOLD_INDEX];</span>
+      try {
+<span class="fc" id="L54">        Integer.parseInt(threshold);</span>
+<span class="fc" id="L55">        argValList.add(this.args[THRESHOLD_INDEX]);</span>
+<span class="fc" id="L56">      } catch (NumberFormatException e) {</span>
+<span class="fc" id="L57">        throw new NumberFormatException(THRESHOLD_NOT_A_NUMBER);</span>
+<span class="fc" id="L58">      }</span>
+    }
+<span class="fc" id="L60">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

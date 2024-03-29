@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataSetAnalyzer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.sequentialSolution</a> &gt; <span class="el_source">DataSetAnalyzer.java</span></div><h1>DataSetAnalyzer.java</h1><pre class="source lang-java linenums">package assignment5.sequentialSolution;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+/**
+ * Represents the sequential dataset analyzer class which helps to analyze the given data set and
+ * generate output
+ */
+public class DataSetAnalyzer {
+
+  private final String courseFilePath;
+  private final String studentFilePath;
+  private String summaryOutputDirectory;
+  private static final String DATE_HEADER = &quot;date&quot;;
+  private static final String SUM_CLICK_HEADER = &quot;sum_click&quot;;
+  private static final String OUTPUT_EXTENSION = &quot;.csv&quot;;
+
+  private static final int MODULE_INDEX = 0;
+  private static final int INITIAL_COUNT = 0;
+  private static final int PRESENTATION_INDEX = 1;
+  private static final int DATE_INDEX = 4;
+  private static final int SUM_CLICK_INDEX = 5;
+  private static final String COURSE_SEPARATOR = &quot;_&quot;;
+  private static final String SUMMARY_FOLDER = &quot;summary&quot;;
+
+  /**
+   * Creates a new instance of sequential dataset analyzer given the course file path and student
+   * file path
+   *
+   * @param courseFilePath  course file path
+   * @param studentFilePath student file path
+   */
+<span class="nc" id="L35">  public DataSetAnalyzer(String courseFilePath, String studentFilePath) {</span>
+<span class="nc" id="L36">    this.courseFilePath = courseFilePath;</span>
+<span class="nc" id="L37">    this.studentFilePath = studentFilePath;</span>
+<span class="nc" id="L38">    this.summaryOutputDirectory = assignment5.concurrentSolution.DataSetAnalyzer.deleteAndCreateDirectory(</span>
+        courseFilePath, SUMMARY_FOLDER);
+<span class="nc" id="L40">  }</span>
+
+  /**
+   * Process the given set of files and generate output
+   */
+  public void process() {
+<span class="nc" id="L46">    Map&lt;String, Map&lt;String, Integer&gt;&gt; courseAndClick = processCourseFile();</span>
+<span class="nc" id="L47">    processStudentFile(courseAndClick);</span>
+<span class="nc" id="L48">    writeOutputFiles(courseAndClick);</span>
+<span class="nc" id="L49">  }</span>
+
+  /**
+   * Read the course file content and add the course name keys in hashmap
+   *
+   * @return map of course names
+   */
+  private Map&lt;String, Map&lt;String, Integer&gt;&gt; processCourseFile() {
+<span class="nc" id="L57">    Map&lt;String, Map&lt;String, Integer&gt;&gt; courseAndClick = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L58">    CsvFileReader csvFileReader = new CsvFileReader(this.courseFilePath);</span>
+<span class="nc" id="L59">    csvFileReader.readData();//skip the header</span>
+
+    String[] courseRecord;
+<span class="nc bnc" id="L62" title="All 2 branches missed.">    while ((courseRecord = csvFileReader.readData()) != null) {</span>
+<span class="nc" id="L63">      var courseKey =</span>
+          courseRecord[MODULE_INDEX] + COURSE_SEPARATOR + courseRecord[PRESENTATION_INDEX];
+<span class="nc" id="L65">      courseAndClick.put(courseKey, new HashMap&lt;&gt;());</span>
+<span class="nc" id="L66">    }</span>
+
+<span class="nc" id="L68">    csvFileReader.closeFile();</span>
+<span class="nc" id="L69">    return courseAndClick;</span>
+  }
+
+  /**
+   * go through the student file and keep adding the click and save it to the hashmap
+   *
+   * @param courseAndClick map of course name and sum click
+   */
+  private void processStudentFile(Map&lt;String, Map&lt;String, Integer&gt;&gt; courseAndClick) {
+<span class="nc" id="L78">    CsvFileReader csvFileReader = new CsvFileReader(this.studentFilePath);</span>
+<span class="nc" id="L79">    csvFileReader.readData();//skip the header</span>
+
+    String[] studentRecord;
+<span class="nc bnc" id="L82" title="All 2 branches missed.">    while ((studentRecord = csvFileReader.readData()) != null) {</span>
+<span class="nc" id="L83">      var courseKey =</span>
+          studentRecord[MODULE_INDEX] + COURSE_SEPARATOR + studentRecord[PRESENTATION_INDEX];
+
+<span class="nc" id="L86">      Map&lt;String, Integer&gt; dateAndClick = courseAndClick.getOrDefault(courseKey, new HashMap&lt;&gt;());</span>
+<span class="nc" id="L87">      Integer newVal =</span>
+<span class="nc" id="L88">          dateAndClick.getOrDefault(studentRecord[DATE_INDEX], INITIAL_COUNT) + Integer.parseInt(</span>
+              studentRecord[SUM_CLICK_INDEX]);
+<span class="nc" id="L90">      dateAndClick.put(studentRecord[DATE_INDEX], newVal);</span>
+<span class="nc" id="L91">      courseAndClick.put(courseKey, dateAndClick);</span>
+<span class="nc" id="L92">    }</span>
+<span class="nc" id="L93">  }</span>
+
+  /**
+   * go through the mao and create course files based on the key inside hashmap
+   *
+   * @param courseAndClick map of course name and sum click
+   */
+  private void writeOutputFiles(Map&lt;String, Map&lt;String, Integer&gt;&gt; courseAndClick) {
+<span class="nc" id="L101">    String[] outputHeader = new String[]{DATE_HEADER, SUM_CLICK_HEADER};</span>
+
+<span class="nc bnc" id="L103" title="All 2 branches missed.">    for (var courseClick : courseAndClick.entrySet()) {</span>
+<span class="nc" id="L104">      String filePath = this.summaryOutputDirectory + courseClick.getKey() + OUTPUT_EXTENSION;</span>
+<span class="nc" id="L105">      CsvFileWriter csvFileWriter = new CsvFileWriter(filePath);</span>
+<span class="nc" id="L106">      csvFileWriter.writeData(outputHeader);</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">      for (var dateClick : courseClick.getValue().entrySet()) {</span>
+<span class="nc" id="L109">        csvFileWriter.writeData(new String[]{dateClick.getKey(), dateClick.getValue().toString()});</span>
+<span class="nc" id="L110">      }</span>
+<span class="nc" id="L111">      csvFileWriter.closeFile();</span>
+<span class="nc" id="L112">    }</span>
+<span class="nc" id="L113">  }</span>
+
+  /**
+   * Compares if the given instance of dataset analyzer is same as the current one
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L123" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L124">      return true;</span>
+    }
+<span class="nc bnc" id="L126" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L127">      return false;</span>
+    }
+<span class="nc" id="L129">    DataSetAnalyzer that = (DataSetAnalyzer) o;</span>
+<span class="nc bnc" id="L130" title="All 4 branches missed.">    return Objects.equals(this.courseFilePath, that.courseFilePath) &amp;&amp; Objects.equals(</span>
+        this.studentFilePath, that.studentFilePath);
+  }
+
+  /**
+   * Generates a hashcode for the current instance of dataset analyzer
+   *
+   * @return hashcode
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L141">    return Objects.hash(this.courseFilePath, this.studentFilePath);</span>
+  }
+
+  /**
+   * Generates the string representation of dataset analyzer instance
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L151">    return &quot;DataSetAnalyzer{&quot; +</span>
+        &quot;courseFilePath='&quot; + this.courseFilePath + '\'' +
+        &quot;, studentFilePath='&quot; + this.studentFilePath + '\'' +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

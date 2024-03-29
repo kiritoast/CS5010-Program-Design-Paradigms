@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsedCar.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">UsedCar.java</span></div><h1>UsedCar.java</h1><pre class="source lang-java linenums">package problem2;
+
+/**
+ * subclass of car can see Mileage, numberOfPreviousOwner, numberOfPreviousAccident
+ */
+public class UsedCar extends Car {
+
+  private int Mileage;
+  private int numberOfPreviousOwner;
+  private int numberOfPreviousAccident;
+
+  /**
+   *
+   * @param ID unique identifier of a vehicle
+   * @param manufacturingYear year vehicle was manufactured
+   * @param makeModel represented as custom class MakeModel
+   * @param MSRP Manufacturer Suggested Retail Price
+   * @param mileage represented as an Integer
+   * @param numberOfPreviousOwner Number of previous owners, represented as an Integer
+   * @param numberOfPreviousAccident Number of minor traffic accidents the vehicle was involved, int
+   */
+  public UsedCar(String ID, String manufacturingYear, MakeModel makeModel, double MSRP, int mileage,
+      int numberOfPreviousOwner, int numberOfPreviousAccident) {
+<span class="fc" id="L24">    super(ID, manufacturingYear, makeModel, MSRP);</span>
+<span class="fc" id="L25">    Mileage = mileage;</span>
+<span class="fc" id="L26">    this.numberOfPreviousOwner = numberOfPreviousOwner;</span>
+<span class="fc" id="L27">    this.numberOfPreviousAccident = numberOfPreviousAccident;</span>
+<span class="fc" id="L28">  }</span>
+
+  /**
+   *
+   * @return the mileage the used car
+   */
+  public int getMileage() {
+<span class="fc" id="L35">    return Mileage;</span>
+  }
+
+  /**
+   *
+   * @return the number of previous owner
+   */
+  public int getNumberOfPreviousOwner() {
+<span class="fc" id="L43">    return numberOfPreviousOwner;</span>
+  }
+
+  /**
+   *
+   * @return the number of previous accident
+   */
+  public int getNumberOfPreviousAccident() {
+<span class="fc" id="L51">    return numberOfPreviousAccident;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.AthleteTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-02-11T07:37:09" hostname="Jinmings-MacBook-Pro.local" time="0.023">
+  <properties/>
+  <testcase name="testToString()" classname="problem1.AthleteTest" time="0.019"/>
+  <testcase name="getHeight()" classname="problem1.AthleteTest" time="0.001"/>
+  <testcase name="getLeague()" classname="problem1.AthleteTest" time="0.0"/>
+  <testcase name="testHashCode()" classname="problem1.AthleteTest" time="0.0"/>
+  <testcase name="getAthletesName()" classname="problem1.AthleteTest" time="0.0"/>
+  <testcase name="getWeight()" classname="problem1.AthleteTest" time="0.0"/>
+  <testcase name="testEquals()" classname="problem1.AthleteTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

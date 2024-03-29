@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArgumentValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.concurrentSolution</a> &gt; <span class="el_source">ArgumentValidator.java</span></div><h1>ArgumentValidator.java</h1><pre class="source lang-java linenums">package assignment5.concurrentSolution;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArgumentValidator {
+
+  private String[] args;
+  private String fileDirectory;
+
+  public static final String INVALID_ARGUMENT_ERROR = &quot;Error: This application is expecting parameter folder path to be passed. Please check the readme.md file for details.&quot;;
+  public static final String FILE_NOT_FOUND_ERROR = &quot;Error: File '%s' is not found in the given folder path '%s'.&quot;;
+  public static final String THRESHOLD_NOT_A_NUMBER = &quot;Error: Threshold must be a number.&quot;;
+
+  private static final String COURSE_FILE_NAME = &quot;courses.csv&quot;;
+  private static final String STUDENT_FILE_NAME = &quot;studentVle.csv&quot;;
+  private static final String EMPTY_STRING = &quot;&quot;;
+  private static final int ZERO = 0;
+  private static final int ONE = 1;
+
+
+<span class="fc" id="L23">  public ArgumentValidator(String[] args){</span>
+<span class="fc" id="L24">    this.args = args;</span>
+<span class="fc" id="L25">  }</span>
+
+  public List&lt;String&gt; validate(){
+<span class="fc" id="L28">    validateArguments();</span>
+<span class="fc" id="L29">    List&lt;String&gt; filePaths = validateFiles();</span>
+<span class="fc" id="L30">    return filePaths;</span>
+  }
+  
+  private void validateArguments(){//handle optional param threshold as well
+<span class="fc bfc" id="L34" title="All 2 branches covered.">    if (args == null ) {</span>
+<span class="fc" id="L35">      throw new RuntimeException(INVALID_ARGUMENT_ERROR);</span>
+    }
+<span class="fc bfc" id="L37" title="All 2 branches covered.">    this.fileDirectory = args[ZERO] + (args[ZERO].endsWith(File.separator) ? EMPTY_STRING : File.separator);</span>
+<span class="fc" id="L38">  }</span>
+
+  private List&lt;String&gt; validateFiles(){
+<span class="fc" id="L41">    List&lt;String&gt; filePaths = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L42">    filePaths.add(fileDirectory + COURSE_FILE_NAME);</span>
+<span class="fc" id="L43">    filePaths.add(fileDirectory + STUDENT_FILE_NAME);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">    for(String filePath : filePaths)</span>
+<span class="fc" id="L45">      validateFile(filePath);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">    if (args.length == 2){</span>
+<span class="fc" id="L47">      String threshold = args[ONE];</span>
+      try {
+<span class="fc" id="L49">        Integer.parseInt(threshold);</span>
+<span class="fc" id="L50">        filePaths.add(args[ONE]);</span>
+<span class="fc" id="L51">      } catch (NumberFormatException e) {</span>
+<span class="fc" id="L52">        throw new NumberFormatException(THRESHOLD_NOT_A_NUMBER);</span>
+<span class="fc" id="L53">      }</span>
+    }
+
+<span class="fc" id="L56">    return filePaths;</span>
+  }
+
+  private void validateFile(String filePath){
+<span class="fc" id="L60">    File file = new File(filePath);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if(!file.exists())</span>
+<span class="fc" id="L62">      throw new RuntimeException(String.format(FILE_NOT_FOUND_ERROR, filePath.substring(filePath.lastIndexOf(File.separator)+ONE),args[ZERO]));</span>
+<span class="fc" id="L63">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Name.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab3</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Name.java</span></div><h1>Name.java</h1><pre class="source lang-java linenums">import java.util.Objects;
+
+public class Name {
+  String firstName;
+  String middleName;
+  String lastName;
+
+  public String getFirstName() {
+<span class="nc" id="L9">    return firstName;</span>
+  }
+
+  public String getMiddleName() {
+<span class="nc" id="L13">    return middleName;</span>
+  }
+
+  public String getLastName() {
+<span class="nc" id="L17">    return lastName;</span>
+  }
+
+<span class="fc" id="L20">  public Name(String firstName, String middleName, String lastName) {</span>
+<span class="fc" id="L21">    this.firstName = firstName;</span>
+<span class="fc" id="L22">    this.middleName = middleName;</span>
+<span class="fc" id="L23">    this.lastName = lastName;</span>
+<span class="fc" id="L24">  }</span>
+
+  @Override
+  public String toString() {
+<span class="fc" id="L28">    return &quot;Name{&quot; +</span>
+        &quot;firstName='&quot; + firstName + '\'' +
+        &quot;, middleName='&quot; + middleName + '\'' +
+        &quot;, lastName='&quot; + lastName + '\'' +
+        '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="fc" id="L38">      return true;</span>
+    }
+<span class="nc bnc" id="L40" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L41">      return false;</span>
+    }
+<span class="nc" id="L43">    Name name = (Name) o;</span>
+<span class="nc bnc" id="L44" title="All 4 branches missed.">    return Objects.equals(firstName, name.firstName) &amp;&amp; Objects.equals(middleName,</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        name.middleName) &amp;&amp; Objects.equals(lastName, name.lastName);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L50">    return Objects.hash(firstName, middleName, lastName);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.RunnerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-02-11T07:37:09" hostname="Jinmings-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="getFavEvent()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="testToString()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="getBest5KTime()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="getHalfMarathon()" classname="problem1.RunnerTest" time="0.0"/>
+  <testcase name="testHashCode()" classname="problem1.RunnerTest" time="0.001"/>
+  <testcase name="testEquals()" classname="problem1.RunnerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

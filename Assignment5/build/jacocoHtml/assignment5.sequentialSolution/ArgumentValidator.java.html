@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArgumentValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment5</a> &gt; <a href="index.source.html" class="el_package">assignment5.sequentialSolution</a> &gt; <span class="el_source">ArgumentValidator.java</span></div><h1>ArgumentValidator.java</h1><pre class="source lang-java linenums">package assignment5.sequentialSolution;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Represent the argument validator class which helps to validate the given argument. It verifies
+ * whether a directory path is given and expected data files are present in that directory
+ */
+public class ArgumentValidator {
+
+  /**
+   * Set of arguments to be validated
+   */
+  protected final String[] args;
+  private String fileDirectory;
+
+  /**
+   * This error message is shown when user has not passed the argument correctly
+   */
+  public static final String INVALID_ARGUMENT_ERROR = &quot;Error: This application is expecting parameter folder path to be passed. Please check the readme.md file for details.&quot;;
+  /**
+   * This error message is shown if file is not present in the given directory path
+   */
+  public static final String FILE_NOT_FOUND_ERROR = &quot;Error: File '%s' is not found in the given folder path '%s'.&quot;;
+  private static final String COURSE_FILE_NAME = &quot;courses.csv&quot;;
+  private static final String STUDENT_FILE_NAME = &quot;studentVle.csv&quot;;
+  private static final String DEFAULT_FILE_PATH = &quot;&quot;;
+  private static final int INPUT_FOLDER_INDEX = 0;
+  private static final int FILE_PATH_OFFSET = 1;
+  private static final int VALID_SEQUENTIAL_INPUT_NUM = 1;
+
+  /**
+   * Creates a new instance of argument validator class given the argument
+   *
+   * @param args argument passed
+   */
+<span class="fc" id="L40">  public ArgumentValidator(String[] args) {</span>
+<span class="fc" id="L41">    this.args = args;</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * This method validates the given argument and confirms that file structure is present as
+   * expected
+   *
+   * @return file path of course file and student file
+   */
+  public List&lt;String&gt; validate() {
+<span class="fc" id="L51">    validateArguments();</span>
+<span class="fc" id="L52">    populateFileDirectory();</span>
+<span class="fc" id="L53">    return validateFiles();</span>
+  }
+
+  /**
+   * Determines whether an argument has been passed
+   */
+  private void validateArguments() {
+<span class="fc bfc" id="L60" title="All 2 branches covered.">    if (!isArgCountValid()) {</span>
+<span class="fc" id="L61">      throw new RuntimeException(INVALID_ARGUMENT_ERROR);</span>
+    }
+<span class="fc" id="L63">  }</span>
+
+  /**
+   * determine if the argument is not null or at certain length
+   *
+   * @return boolean see if argument is valid
+   */
+  protected boolean isArgCountValid() {
+<span class="fc bfc" id="L71" title="All 4 branches covered.">    return (this.args != null &amp;&amp; this.args.length == VALID_SEQUENTIAL_INPUT_NUM);</span>
+  }
+
+  /**
+   * generate the file directory for later create of directory
+   */
+  private void populateFileDirectory() {
+<span class="fc" id="L78">    this.fileDirectory =</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        this.args[INPUT_FOLDER_INDEX] + (this.args[INPUT_FOLDER_INDEX].endsWith(File.separator)</span>
+<span class="fc" id="L80">            ? DEFAULT_FILE_PATH : File.separator);</span>
+<span class="fc" id="L81">  }</span>
+
+  /**
+   * Determine whether the expected set of files are present in the given directory path
+   *
+   * @return file path of course and student file
+   */
+  private List&lt;String&gt; validateFiles() {
+<span class="fc" id="L89">    List&lt;String&gt; filePaths = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L90">    filePaths.add(this.fileDirectory + COURSE_FILE_NAME);</span>
+<span class="fc" id="L91">    filePaths.add(this.fileDirectory + STUDENT_FILE_NAME);</span>
+
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    for (String filePath : filePaths) {</span>
+<span class="fc" id="L94">      validateFile(filePath);</span>
+<span class="fc" id="L95">    }</span>
+
+<span class="fc" id="L97">    return filePaths;</span>
+  }
+
+  /**
+   * Determines whether a file exists given the file path
+   *
+   * @param filePath path of file
+   */
+  private void validateFile(String filePath) {
+<span class="fc" id="L106">    File file = new File(filePath);</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">    if (!file.exists()) {</span>
+<span class="fc" id="L108">      throw new RuntimeException(String.format(FILE_NOT_FOUND_ERROR,</span>
+<span class="fc" id="L109">          filePath.substring(filePath.lastIndexOf(File.separator) + FILE_PATH_OFFSET),</span>
+          this.args[INPUT_FOLDER_INDEX]));
+    }
+<span class="fc" id="L112">  }</span>
+
+  /**
+   * Determines whether the current instance of argument validator class is same as the given
+   * instance
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L123" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L124">      return true;</span>
+    }
+<span class="nc bnc" id="L126" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L127">      return false;</span>
+    }
+<span class="nc" id="L129">    ArgumentValidator that = (ArgumentValidator) o;</span>
+<span class="nc" id="L130">    return Arrays.equals(this.args, that.args);</span>
+  }
+
+  /**
+   * Generates a hashcode for the current argument validator instance
+   *
+   * @return hashcode
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L140">    return Arrays.hashCode(this.args);</span>
+  }
+
+  /**
+   * String representation of the current argument validator instance
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L150">    return &quot;ArgumentValidator{&quot; +</span>
+<span class="nc" id="L151">        &quot;args=&quot; + Arrays.toString(this.args) +</span>
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"Author","l":"Author(String, String, String)","u":"%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)"},{"p":"<Unnamed>","c":"Author","l":"getAddress()"},{"p":"<Unnamed>","c":"Author","l":"getEmail()"},{"p":"<Unnamed>","c":"Author","l":"getName()"}];updateSearchResults();

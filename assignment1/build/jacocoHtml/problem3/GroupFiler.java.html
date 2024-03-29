@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GroupFiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">GroupFiler.java</span></div><h1>GroupFiler.java</h1><pre class="source lang-java linenums">package problem3;
+
+/**
+ * group filer that extends from tax filer
+ */
+public class GroupFiler extends TaxFiler{
+
+  /**
+   * numberDependents Number of dependents
+   */
+  public int numberDependents;
+  /**
+   * numberMinorChildren Number of minor children
+   */
+  public int numberMinorChildren;
+  /**
+   * childcareExpenses Childcare expenses
+   */
+  public double childcareExpenses;
+  /**
+   * dependentCareExpenses Dependent-care expenses
+   */
+  public double dependentCareExpenses;
+
+  /**
+   *
+   * @param taxID unique tax filer’s identifier
+   * @param contactInfo class contact info that store tax filer information
+   * @param lastYearEarning Last year’s earnings
+   * @param paidIncomeTax Total income tax already paid
+   * @param paidMortgageInterest Mortgage interest paid
+   * @param paidPropertyTax Property taxes
+   * @param paidStudentLoanTuition Student loan and tuition paid
+   * @param contributionsRetirementSaving Contributions made to a retirement savings account
+   * @param contributionHealthSaving Contributions made to a health savings account
+   * @param charitableDonationContribution Charitable donations and contributions
+   * @param numberDependents Number of dependents
+   * @param numberMinorChildren Number of minor children
+   * @param childcareExpenses Childcare expenses
+   * @param dependentCareExpenses Dependent-care expenses
+   */
+  public GroupFiler(String taxID, ContactInfo contactInfo, double lastYearEarning,
+      double paidIncomeTax, double paidMortgageInterest, double paidPropertyTax,
+      double paidStudentLoanTuition, double contributionsRetirementSaving,
+      double contributionHealthSaving, double charitableDonationContribution, int numberDependents,
+      int numberMinorChildren, double childcareExpenses, double dependentCareExpenses) {
+<span class="fc" id="L47">    super(taxID, contactInfo, lastYearEarning, paidIncomeTax, paidMortgageInterest, paidPropertyTax,</span>
+        paidStudentLoanTuition, contributionsRetirementSaving, contributionHealthSaving,
+        charitableDonationContribution);
+<span class="fc" id="L50">    this.numberDependents = numberDependents;</span>
+<span class="fc" id="L51">    this.numberMinorChildren = numberMinorChildren;</span>
+<span class="fc" id="L52">    this.childcareExpenses = childcareExpenses;</span>
+<span class="fc" id="L53">    this.dependentCareExpenses = dependentCareExpenses;</span>
+<span class="fc" id="L54">  }</span>
+
+  /**
+   *
+   * @return Number of dependents
+   */
+  public int getNumberDependents() {
+<span class="nc" id="L61">    return numberDependents;</span>
+  }
+
+  /**
+   *
+   * @return Number of minor children
+   */
+  public int getNumberMinorChildren() {
+<span class="nc" id="L69">    return numberMinorChildren;</span>
+  }
+
+  /**
+   *
+   * @return Childcare expenses
+   */
+  public double getChildcareExpenses() {
+<span class="nc" id="L77">    return childcareExpenses;</span>
+  }
+
+  /**
+   *
+   * @return Dependent-care expenses
+   */
+  public double getDependentCareExpenses() {
+<span class="nc" id="L85">    return dependentCareExpenses;</span>
+  }
+
+  /**
+   *
+   * @return Retirement and health savings deduction
+   */
+  @Override
+  protected Double calculateRetirementAndHealthSavingsDeduction() {
+<span class="fc" id="L94">    double deduction = (contributionsRetirementSaving + contributionHealthSaving) * 0.65;</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">    if (deduction &lt; calculateBasicTaxableIncome()){</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">      if(deduction &gt; 17500.00){</span>
+<span class="nc" id="L97">        return 17500.00;</span>
+      }else{
+<span class="fc" id="L99">        return deduction;</span>
+      }
+    }else{
+<span class="nc" id="L102">      return calculateBasicTaxableIncome();</span>
+    }
+
+  }
+
+  /**
+   *
+   * @return the tax
+   */
+  @Override
+  public Double calculateTaxes() {
+<span class="fc" id="L113">    double taxableIncome = calculateBasicTaxableIncome()-calculateChildrenDeduction() -</span>
+<span class="fc" id="L114">        calculateMortgageInterestAndPropertyDeduction();</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    if(taxableIncome &lt; 90000 ){</span>
+<span class="fc" id="L116">      return taxableIncome * 0.145;</span>
+    }else{
+<span class="fc" id="L118">      return taxableIncome * 0.185;</span>
+    }
+  }
+
+  /**
+   *
+   * @return Childcare deduction
+   */
+  protected Double calculateChildrenDeduction(){
+<span class="fc bfc" id="L127" title="All 4 branches covered.">    if(calculateBasicTaxableIncome() &lt; 200000 &amp;&amp; childcareExpenses &gt; 5000){</span>
+<span class="fc" id="L128">      return 1250.00;</span>
+    }
+<span class="fc" id="L130">    return 0.00;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

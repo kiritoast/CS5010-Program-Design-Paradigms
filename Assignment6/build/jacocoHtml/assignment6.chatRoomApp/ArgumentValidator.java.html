@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArgumentValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ArgumentValidator.java</span></div><h1>ArgumentValidator.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * represent the class argument validate which helps validate the ip address and port.
+ */
+public class ArgumentValidator {
+
+  String[] argument;
+  /**
+   * Error message to be thrown when the length of the argument array is invalid.
+   */
+  private static final String INVALID_ARGS_EXCEPTION = &quot;There should be one argument of server IP and the second one as server port.&quot;;
+  private static final String DEFAULT_LOCAL_HOST = &quot;localhost&quot;;
+  /**
+   * Error message to be thrown when the provided server IP is not valid.
+   */
+  private static final String INVALID_IP_EXCEPTION = &quot;The input server IP is not valid.&quot;;
+  /**
+   * Error message to be thrown when the provided server port is not valid.
+   */
+  private static final String INVALID_PORT_EXCEPTION = &quot;The input server port is not valid.&quot;;
+  private static final int VALID_ARGS_NUM = 2;
+  private static final int IP_INDEX = 0;
+  private static final int PORT_INDEX = 1;
+  private static final String VALID_IP_PART_MATCHER = &quot;(\\d{1,2}|([01])\\d{2}|2[0-4]\\d|25[0-5])&quot;;
+  private static final String IP_SEPARATOR = &quot;\\.&quot;;
+  private static final int PORT_LOWER_LIMIT = 0;
+  private static final int PORT_UPPER_LIMIT = 65535;
+
+  /**
+   * Constructs a new ArgumentValidator instance with the given arguments to validate.
+   *
+   * @param argument an array of two String values representing the server IP address and port
+   *                 number.
+   */
+<span class="nc" id="L40">  public ArgumentValidator(String[] argument) {</span>
+<span class="nc" id="L41">    this.argument = argument;</span>
+<span class="nc" id="L42">  }</span>
+
+  /**
+   * Validates the server IP address and port number.
+   *
+   * @throws RuntimeException if the number of arguments is not valid, or if the server IP address
+   *                          or port number are not valid.
+   */
+  public void validate() {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">    if (argument.length != VALID_ARGS_NUM) {</span>
+<span class="nc" id="L52">      throw new RuntimeException(INVALID_ARGS_EXCEPTION);</span>
+    }
+<span class="nc" id="L54">    String serverIP = argument[IP_INDEX];</span>
+<span class="nc bnc" id="L55" title="All 4 branches missed.">    if (!isValidIPAddress(serverIP) &amp;&amp; !serverIP.equals(DEFAULT_LOCAL_HOST)) {</span>
+<span class="nc" id="L56">      throw new RuntimeException(INVALID_IP_EXCEPTION);</span>
+    }
+<span class="nc" id="L58">    String serverPort = argument[PORT_INDEX];</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">    if (!isValidPort(serverPort)) {</span>
+<span class="nc" id="L60">      throw new RuntimeException(INVALID_PORT_EXCEPTION);</span>
+    }
+<span class="nc" id="L62">  }</span>
+
+  /**
+   * Checks if the provided IP address is valid.
+   *
+   * @param ip the IP address to be checked
+   * @return true if the IP address is valid, false otherwise
+   */
+  private boolean isValidIPAddress(String ip) {
+<span class="nc" id="L71">    String zeroTo255 = VALID_IP_PART_MATCHER;</span>
+<span class="nc" id="L72">    String regex =</span>
+        zeroTo255 + IP_SEPARATOR + zeroTo255 + IP_SEPARATOR + zeroTo255 + IP_SEPARATOR + zeroTo255;
+<span class="nc" id="L74">    Pattern p = Pattern.compile(regex);</span>
+<span class="nc" id="L75">    Matcher m = p.matcher(ip);</span>
+<span class="nc" id="L76">    return m.matches();</span>
+  }
+
+  /**
+   * Checks if the provided port number is valid.
+   *
+   * @param serverPort the port number to be checked
+   * @return true if the port number
+   **/
+  private boolean isValidPort(String serverPort) {
+    int port;
+    try {
+<span class="nc" id="L88">      port = Integer.parseInt(serverPort);</span>
+<span class="nc" id="L89">    } catch (NumberFormatException nfe) {</span>
+<span class="nc" id="L90">      return false;</span>
+<span class="nc" id="L91">    }</span>
+<span class="nc bnc" id="L92" title="All 4 branches missed.">    return port &gt; PORT_LOWER_LIMIT &amp;&amp; port &lt; PORT_UPPER_LIMIT;</span>
+  }
+
+  /**
+   * This method is used to compare two instances of argument validator class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L103" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L104">      return true;</span>
+    }
+<span class="nc bnc" id="L106" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L107">      return false;</span>
+    }
+<span class="nc" id="L109">    ArgumentValidator that = (ArgumentValidator) o;</span>
+<span class="nc" id="L110">    return Arrays.equals(argument, that.argument);</span>
+  }
+
+  /**
+   * This method is used to generate the hash code of argument validator class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L120">    return Arrays.hashCode(argument);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of argument validator class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L130">    return &quot;ArgumentValidator{&quot; +</span>
+<span class="nc" id="L131">        &quot;argument=&quot; + Arrays.toString(argument) +</span>
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

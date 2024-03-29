@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.39.0" timestamp="2023-04-23T13:40:41.275">
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ArgumentValidator.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="12" endline="12" begincolumn="12" endcolumn="19" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="argument" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="12" endline="12" begincolumn="3" endcolumn="20" rule="CommentDefaultAccessModifier" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+To avoid mistakes add a comment at the beginning of the argument field if you want a default access modifier
+</violation>
+<violation beginline="12" endline="12" begincolumn="3" endcolumn="20" rule="DefaultPackage" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#defaultpackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="16" endline="16" begincolumn="31" endcolumn="52" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="INVALID_ARGS_EXCEPTION" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like INVALID_ARGS_EXCEPTION
+</violation>
+<violation beginline="17" endline="17" begincolumn="31" endcolumn="48" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="DEFAULT_LOCAL_HOST" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like DEFAULT_LOCAL_HOST
+</violation>
+<violation beginline="21" endline="21" begincolumn="31" endcolumn="50" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="INVALID_IP_EXCEPTION" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like INVALID_IP_EXCEPTION
+</violation>
+<violation beginline="25" endline="25" begincolumn="31" endcolumn="52" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="INVALID_PORT_EXCEPTION" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like INVALID_PORT_EXCEPTION
+</violation>
+<violation beginline="29" endline="29" begincolumn="31" endcolumn="51" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" variable="VALID_IP_PART_MATCHER" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like VALID_IP_PART_MATCHER
+</violation>
+<violation beginline="32" endline="32" begincolumn="47" endcolumn="51" rule="UseUnderscoresInNumericLiterals" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#useunderscoresinnumericliterals" priority="3">
+Number 65535 should separate every third digit with an underscore
+</violation>
+<violation beginline="40" endline="40" begincolumn="28" endcolumn="44" rule="UseVarargs" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ArgumentValidator" method="ArgumentValidator" variable="argument" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#usevarargs" priority="4">
+Consider using varargs for methods or constructors which take an array the last parameter.
+</violation>
+<violation beginline="40" endline="40" begincolumn="28" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="ArgumentValidator" variable="argument" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'argument' is not assigned and could be declared final
+</violation>
+<violation beginline="40" endline="40" begincolumn="28" endcolumn="44" rule="ArrayIsStoredDirectly" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ArgumentValidator" method="ArgumentValidator" variable="argument" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#arrayisstoreddirectly" priority="3">
+The user-supplied array 'argument' is stored directly.
+</violation>
+<violation beginline="54" endline="54" begincolumn="5" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="validate" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverIP' could be declared final
+</violation>
+<violation beginline="55" endline="55" begincolumn="41" endcolumn="75" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ArgumentValidator" method="validate" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="58" endline="58" begincolumn="5" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="validate" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverPort' could be declared final
+</violation>
+<violation beginline="70" endline="70" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="ip" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like ip
+</violation>
+<violation beginline="70" endline="70" begincolumn="36" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="ip" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'ip' is not assigned and could be declared final
+</violation>
+<violation beginline="71" endline="71" begincolumn="5" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'zeroTo255' could be declared final
+</violation>
+<violation beginline="72" endline="73" begincolumn="5" endcolumn="98" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'regex' could be declared final
+</violation>
+<violation beginline="74" endline="74" begincolumn="13" endcolumn="13" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="p" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like p
+</violation>
+<violation beginline="74" endline="74" begincolumn="5" endcolumn="38" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'p' could be declared final
+</violation>
+<violation beginline="75" endline="75" begincolumn="13" endcolumn="13" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="m" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like m
+</violation>
+<violation beginline="75" endline="75" begincolumn="5" endcolumn="29" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidIPAddress" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'm' could be declared final
+</violation>
+<violation beginline="85" endline="85" begincolumn="31" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidPort" variable="serverPort" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'serverPort' is not assigned and could be declared final
+</violation>
+<violation beginline="88" endline="93" begincolumn="7" endcolumn="41" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidPort" variable="port" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'port' (lines '88'-'93').
+</violation>
+<violation beginline="90" endline="90" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="isValidPort" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="102" endline="102" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="102" endline="102" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="104" endline="104" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="107" endline="107" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="109" endline="109" begincolumn="5" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ArgumentValidator" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ChatClient.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="17" endline="17" begincolumn="24" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="serverSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="18" endline="18" begincolumn="33" endcolumn="47" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="19" endline="19" begincolumn="34" endcolumn="49" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="20" endline="20" begincolumn="26" endcolumn="39" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="uiInputHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="21" endline="21" begincolumn="38" endcolumn="57" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" variable="clientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like clientMessageHandler
+</violation>
+<violation beginline="21" endline="21" begincolumn="38" endcolumn="57" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="clientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="22" endline="22" begincolumn="18" endcolumn="25" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="username" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="23" endline="23" begincolumn="19" endcolumn="25" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClient" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="34" endline="34" begincolumn="21" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="ChatClient" variable="socket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'socket' is not assigned and could be declared final
+</violation>
+<violation beginline="50" endline="50" begincolumn="7" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="start" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'isConnected' could be declared final
+</violation>
+<violation beginline="90" endline="90" begincolumn="5" endcolumn="53" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="requestConnection" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageIdentifier' could be declared final
+</violation>
+<violation beginline="91" endline="91" begincolumn="13" endcolumn="77" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="requestConnection" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="101" endline="101" begincolumn="5" endcolumn="95" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="invokeUiServerHandlers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverHandler' could be declared final
+</violation>
+<violation beginline="103" endline="103" begincolumn="5" endcolumn="91" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="invokeUiServerHandlers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'uiHandler' could be declared final
+</violation>
+<violation beginline="128" endline="128" begincolumn="34" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="logMessage" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="129" endline="129" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ChatClient" method="logMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="157" endline="157" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="157" endline="157" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="159" endline="159" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="162" endline="162" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="164" endline="164" begincolumn="5" endcolumn="36" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClient" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ChatClientApp.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="16" endline="16" begincolumn="30" endcolumn="49" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" variable="SERVER_NOT_AVAILABLE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like SERVER_NOT_AVAILABLE
+</violation>
+<violation beginline="23" endline="23" begincolumn="27" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="args" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'args' is not assigned and could be declared final
+</violation>
+<violation beginline="24" endline="24" begincolumn="12" endcolumn="23" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="serverSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Socket object are closed after use
+</violation>
+<violation beginline="24" endline="32" begincolumn="7" endcolumn="53" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="serverSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'serverSocket' (lines '24'-'32').
+</violation>
+<violation beginline="26" endline="26" begincolumn="7" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'argumentValidator' could be declared final
+</violation>
+<violation beginline="29" endline="29" begincolumn="7" endcolumn="38" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverIP' could be declared final
+</violation>
+<violation beginline="30" endline="30" begincolumn="7" endcolumn="57" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverPort' could be declared final
+</violation>
+<violation beginline="33" endline="33" begincolumn="7" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'chatClient' could be declared final
+</violation>
+<violation beginline="37" endline="37" begincolumn="9" endcolumn="26" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ChatClientApp" method="main" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ChatRoomProtocol.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatRoomProtocol" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="23" endline="23" begincolumn="7" endcolumn="24" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatRoomProtocol" variable="DISCONNECT_MESSAGE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like DISCONNECT_MESSAGE
+</violation>
+<violation beginline="27" endline="27" begincolumn="7" endcolumn="27" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatRoomProtocol" variable="QUERY_CONNECTED_USERS" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like QUERY_CONNECTED_USERS
+</violation>
+<violation beginline="31" endline="31" begincolumn="7" endcolumn="25" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatRoomProtocol" variable="QUERY_USER_RESPONSE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like QUERY_USER_RESPONSE
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ChatServer.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="12" endline="58" begincolumn="8" endcolumn="1" rule="AtLeastOneConstructor" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#atleastoneconstructor" priority="3">
+Each class should declare at least one constructor
+</violation>
+<violation beginline="14" endline="14" begincolumn="31" endcolumn="52" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" variable="SERVER_RUNNING_MESSAGE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like SERVER_RUNNING_MESSAGE
+</violation>
+<violation beginline="16" endline="16" begincolumn="31" endcolumn="54" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" variable="DUPLICATE_SERVER_MESSAGE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like DUPLICATE_SERVER_MESSAGE
+</violation>
+<violation beginline="22" endline="49" begincolumn="21" endcolumn="68" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="serverExecutor" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'serverExecutor' (lines '22'-'49').
+</violation>
+<violation beginline="22" endline="22" begincolumn="5" endcolumn="68" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverExecutor' could be declared final
+</violation>
+<violation beginline="23" endline="23" begincolumn="26" endcolumn="45" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="serverMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like serverMessageHandler
+</violation>
+<violation beginline="23" endline="49" begincolumn="26" endcolumn="74" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="serverMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'serverMessageHandler' (lines '23'-'49').
+</violation>
+<violation beginline="23" endline="23" begincolumn="5" endcolumn="74" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'serverMessageHandler' could be declared final
+</violation>
+<violation beginline="24" endline="27" begincolumn="7" endcolumn="50" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="serverSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'serverSocket' (lines '24'-'27').
+</violation>
+<violation beginline="26" endline="48" begincolumn="5" endcolumn="5" rule="UseTryWithResources" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ChatServer" method="start" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#usetrywithresources" priority="3">
+Consider using a try-with-resources statement instead of explicitly closing the resource
+</violation>
+<violation beginline="31" endline="31" begincolumn="16" endcolumn="27" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="clientSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this Socket object are closed after use
+</violation>
+<violation beginline="31" endline="31" begincolumn="9" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" method="start" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'clientSocket' could be declared final
+</violation>
+<violation beginline="40" endline="48" begincolumn="7" endcolumn="5" rule="DoNotThrowExceptionInFinally" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ChatServer" method="start" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#donotthrowexceptioninfinally" priority="4">
+A throw statement in a finally block makes the control flow hard to understand.
+</violation>
+<violation beginline="55" endline="55" begincolumn="34" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServer" method="logMessage" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="56" endline="56" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ChatServer" method="logMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ChatServerApp.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServerApp" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="13" endline="13" begincolumn="27" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServerApp" method="main" variable="args" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'args' is not assigned and could be declared final
+</violation>
+<violation beginline="14" endline="14" begincolumn="5" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ChatServerApp" method="main" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'chatServer' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ClientHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="17" endline="17" begincolumn="24" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ClientHandler" variable="clientSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="18" endline="18" begincolumn="38" endcolumn="57" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" variable="serverMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like serverMessageHandler
+</violation>
+<violation beginline="18" endline="18" begincolumn="38" endcolumn="57" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ClientHandler" variable="serverMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="28" endline="28" begincolumn="66" endcolumn="85" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="ClientHandler" variable="serverMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like serverMessageHandler
+</violation>
+<violation beginline="28" endline="28" begincolumn="24" endcolumn="42" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="ClientHandler" variable="clientSocket" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'clientSocket' is not assigned and could be declared final
+</violation>
+<violation beginline="28" endline="28" begincolumn="45" endcolumn="85" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="ClientHandler" variable="serverMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'serverMessageHandler' is not assigned and could be declared final
+</violation>
+<violation beginline="38" endline="44" begincolumn="7" endcolumn="99" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ClientHandler" method="run" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'dataInputStream' (lines '38'-'44').
+</violation>
+<violation beginline="39" endline="42" begincolumn="7" endcolumn="67" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ClientHandler" method="run" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'dataOutputStream' (lines '39'-'42').
+</violation>
+<violation beginline="41" endline="65" begincolumn="5" endcolumn="5" rule="UseTryWithResources" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ClientHandler" method="run" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#usetrywithresources" priority="3">
+Consider using a try-with-resources statement instead of explicitly closing the resource
+</violation>
+<violation beginline="48" endline="48" begincolumn="9" endcolumn="57" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="run" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageIdentifier' could be declared final
+</violation>
+<violation beginline="57" endline="65" begincolumn="7" endcolumn="5" rule="DoNotThrowExceptionInFinally" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ClientHandler" method="run" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#donotthrowexceptioninfinally" priority="4">
+A throw statement in a finally block makes the control flow hard to understand.
+</violation>
+<violation beginline="75" endline="75" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="75" endline="75" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="77" endline="77" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="80" endline="80" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="82" endline="82" begincolumn="5" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ClientMessageHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="15" endline="15" begincolumn="33" endcolumn="47" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ClientMessageHandler" variable="protocolHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="19" endline="19" begincolumn="30" endcolumn="49" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" variable="CLIENT_COUNT_MESSAGE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like CLIENT_COUNT_MESSAGE
+</violation>
+<violation beginline="23" endline="23" begincolumn="30" endcolumn="48" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" variable="CLIENT_NAME_MESSAGE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like CLIENT_NAME_MESSAGE
+</violation>
+<violation beginline="27" endline="27" begincolumn="30" endcolumn="52" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" variable="BROADCAST_MESSAGE_VALUE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like BROADCAST_MESSAGE_VALUE
+</violation>
+<violation beginline="31" endline="31" begincolumn="30" endcolumn="50" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" variable="DIRECT_INSULT_MESSAGE" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like DIRECT_INSULT_MESSAGE
+</violation>
+<violation beginline="39" endline="39" begincolumn="31" endcolumn="61" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="ClientMessageHandler" variable="protocolHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'protocolHandler' is not assigned and could be declared final
+</violation>
+<violation beginline="50" endline="50" begincolumn="49" endcolumn="79" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="50" endline="50" begincolumn="26" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="messageIdentifier" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageIdentifier' is not assigned and could be declared final
+</violation>
+<violation beginline="51" endline="83" begincolumn="5" endcolumn="5" rule="SwitchStmtsShouldHaveDefault" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#switchstmtsshouldhavedefault" priority="3">
+Switch statements should be exhaustive, add a default case (or missing enum branches)
+</violation>
+<violation beginline="53" endline="53" begincolumn="9" endcolumn="90" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="55" endline="55" begincolumn="9" endcolumn="44" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="55" endline="55" begincolumn="17" endcolumn="42" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="58" endline="58" begincolumn="9" endcolumn="93" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="59" endline="59" begincolumn="9" endcolumn="57" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'clients' could be declared final
+</violation>
+<violation beginline="61" endline="61" begincolumn="14" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'client' could be declared final
+</violation>
+<violation beginline="64" endline="64" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="67" endline="67" begincolumn="9" endcolumn="91" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="70" endline="70" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="73" endline="73" begincolumn="9" endcolumn="88" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="76" endline="76" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="79" endline="79" begincolumn="9" endcolumn="88" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="81" endline="81" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="92" endline="92" begincolumn="27" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="logMessage" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="93" endline="93" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="logMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="103" endline="103" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="103" endline="103" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="105" endline="105" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="108" endline="108" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="110" endline="110" begincolumn="5" endcolumn="56" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ClientMessageHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/MessageFormat.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="12" endline="12" begincolumn="19" endcolumn="25" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="MessageFormat" variable="success" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="27" endline="27" begincolumn="41" endcolumn="54" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="MessageFormat" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="27" endline="27" begincolumn="24" endcolumn="38" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="MessageFormat" variable="success" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'success' is not assigned and could be declared final
+</violation>
+<violation beginline="28" endline="28" begincolumn="7" endcolumn="26" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="MessageFormat" variable="clients" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'clients' is not assigned and could be declared final
+</violation>
+<violation beginline="28" endline="28" begincolumn="44" endcolumn="59" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="MessageFormat" variable="recipient" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'recipient' is not assigned and could be declared final
+</violation>
+<violation beginline="28" endline="28" begincolumn="29" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="MessageFormat" variable="sender" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'sender' is not assigned and could be declared final
+</violation>
+<violation beginline="86" endline="86" begincolumn="26" endcolumn="40" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="setSuccess" variable="success" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'success' is not assigned and could be declared final
+</violation>
+<violation beginline="95" endline="95" begincolumn="26" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="setMessage" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="104" endline="104" begincolumn="26" endcolumn="45" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="setClients" variable="clients" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'clients' is not assigned and could be declared final
+</violation>
+<violation beginline="113" endline="113" begincolumn="25" endcolumn="37" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="setSender" variable="sender" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'sender' is not assigned and could be declared final
+</violation>
+<violation beginline="122" endline="122" begincolumn="28" endcolumn="43" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="setRecipient" variable="recipient" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'recipient' is not assigned and could be declared final
+</violation>
+<violation beginline="133" endline="133" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="133" endline="133" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="135" endline="135" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="138" endline="138" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="140" endline="140" begincolumn="5" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="MessageFormat" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ProtocolHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="19" endline="19" begincolumn="35" endcolumn="51" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ProtocolHandler" variable="sentenceGenerator" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="21" endline="21" begincolumn="28" endcolumn="48" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" variable="START_STEP_QUERY_USER" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like START_STEP_QUERY_USER
+</violation>
+<violation beginline="36" endline="36" begincolumn="35" endcolumn="67" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeConnectRequest" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="36" endline="36" begincolumn="70" endcolumn="96" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeConnectRequest" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="44" endline="44" begincolumn="43" endcolumn="73" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectRequest" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="7" endcolumn="47" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectRequest" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'sender' could be declared final
+</violation>
+<violation beginline="50" endline="50" begincolumn="15" endcolumn="63" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectRequest" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="60" endline="60" begincolumn="36" endcolumn="68" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeConnectResponse" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="60" endline="60" begincolumn="71" endcolumn="97" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeConnectResponse" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="79" endline="79" begincolumn="44" endcolumn="74" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectResponse" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="82" endline="82" begincolumn="7" endcolumn="55" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectResponse" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'isSuccess' could be declared final
+</violation>
+<violation beginline="86" endline="86" begincolumn="7" endcolumn="48" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectResponse" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'message' could be declared final
+</violation>
+<violation beginline="87" endline="87" begincolumn="15" endcolumn="69" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readConnectResponse" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="97" endline="97" begincolumn="38" endcolumn="70" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeDisconnectRequest" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="98" endline="98" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeDisconnectRequest" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="106" endline="106" begincolumn="46" endcolumn="76" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readDisconnectRequest" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="111" endline="111" begincolumn="15" endcolumn="82" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readDisconnectRequest" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="121" endline="121" begincolumn="39" endcolumn="71" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeDisconnectResponse" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="122" endline="122" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeDisconnectResponse" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="130" endline="130" begincolumn="38" endcolumn="70" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeQueryUsersRequest" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="131" endline="131" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeQueryUsersRequest" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="139" endline="139" begincolumn="46" endcolumn="76" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readQueryUsersRequest" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="144" endline="144" begincolumn="15" endcolumn="82" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readQueryUsersRequest" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="154" endline="154" begincolumn="39" endcolumn="71" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeQueryUsersResponse" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="155" endline="155" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeQueryUsersResponse" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="157" endline="157" begincolumn="7" endcolumn="55" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeQueryUsersResponse" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'clients' could be declared final
+</violation>
+<violation beginline="162" endline="162" begincolumn="12" endcolumn="24" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeQueryUsersResponse" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'client' could be declared final
+</violation>
+<violation beginline="178" endline="178" begincolumn="47" endcolumn="77" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readQueryUsersResponse" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="180" endline="180" begincolumn="7" endcolumn="46" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readQueryUsersResponse" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'clients' could be declared final
+</violation>
+<violation beginline="183" endline="183" begincolumn="7" endcolumn="43" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readQueryUsersResponse" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'count' could be declared final
+</violation>
+<violation beginline="190" endline="190" begincolumn="15" endcolumn="64" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readQueryUsersResponse" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="200" endline="200" begincolumn="37" endcolumn="69" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeBroadcastMessage" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="201" endline="201" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeBroadcastMessage" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="222" endline="222" begincolumn="45" endcolumn="75" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readBroadcastMessage" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="227" endline="227" begincolumn="7" endcolumn="47" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readBroadcastMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'sender' could be declared final
+</violation>
+<violation beginline="231" endline="231" begincolumn="7" endcolumn="48" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readBroadcastMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'message' could be declared final
+</violation>
+<violation beginline="232" endline="232" begincolumn="15" endcolumn="66" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readBroadcastMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="242" endline="242" begincolumn="34" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeDirectMessage" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="242" endline="242" begincolumn="69" endcolumn="95" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeDirectMessage" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="259" endline="259" begincolumn="42" endcolumn="72" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readDirectMessage" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="264" endline="264" begincolumn="7" endcolumn="47" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readDirectMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'sender' could be declared final
+</violation>
+<violation beginline="268" endline="268" begincolumn="7" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readDirectMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'recipient' could be declared final
+</violation>
+<violation beginline="272" endline="272" begincolumn="15" endcolumn="89" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readDirectMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="282" endline="282" begincolumn="34" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeFailedMessage" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="282" endline="282" begincolumn="69" endcolumn="95" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeFailedMessage" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="299" endline="299" begincolumn="42" endcolumn="72" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readFailedMessage" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="304" endline="304" begincolumn="7" endcolumn="48" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readFailedMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'message' could be declared final
+</violation>
+<violation beginline="305" endline="305" begincolumn="15" endcolumn="64" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readFailedMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="315" endline="315" begincolumn="34" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeInsultMessage" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="315" endline="315" begincolumn="69" endcolumn="95" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeInsultMessage" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="328" endline="328" begincolumn="42" endcolumn="72" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readInsultMessage" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="333" endline="333" begincolumn="7" endcolumn="47" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readInsultMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'sender' could be declared final
+</violation>
+<violation beginline="337" endline="337" begincolumn="7" endcolumn="56" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readInsultMessage" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'message' could be declared final
+</violation>
+<violation beginline="338" endline="338" begincolumn="15" endcolumn="87" rule="UselessParentheses" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="readInsultMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+Useless parentheses.
+</violation>
+<violation beginline="352" endline="352" begincolumn="58" endcolumn="90" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeSenderRequest" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="352" endline="352" begincolumn="35" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeSenderRequest" variable="messageIdentifier" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageIdentifier' is not assigned and could be declared final
+</violation>
+<violation beginline="353" endline="353" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeSenderRequest" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="374" endline="374" begincolumn="60" endcolumn="92" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeSenderRecipient" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="374" endline="374" begincolumn="37" endcolumn="57" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeSenderRecipient" variable="messageIdentifier" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageIdentifier' is not assigned and could be declared final
+</violation>
+<violation beginline="375" endline="375" begincolumn="7" endcolumn="33" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="writeSenderRecipient" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="399" endline="399" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="399" endline="399" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="401" endline="401" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="404" endline="404" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="406" endline="406" begincolumn="5" endcolumn="46" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ProtocolHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ServerHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="12" endline="12" begincolumn="38" endcolumn="57" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" variable="clientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like clientMessageHandler
+</violation>
+<violation beginline="12" endline="12" begincolumn="38" endcolumn="57" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerHandler" variable="clientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="13" endline="13" begincolumn="33" endcolumn="47" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerHandler" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="22" endline="22" begincolumn="45" endcolumn="64" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="ServerHandler" variable="clientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like clientMessageHandler
+</violation>
+<violation beginline="22" endline="22" begincolumn="24" endcolumn="64" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="ServerHandler" variable="clientMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'clientMessageHandler' is not assigned and could be declared final
+</violation>
+<violation beginline="22" endline="22" begincolumn="67" endcolumn="97" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="ServerHandler" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="32" endline="32" begincolumn="9" endcolumn="57" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="run" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageIdentifier' could be declared final
+</violation>
+<violation beginline="47" endline="47" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="47" endline="47" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="52" endline="52" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="54" endline="54" begincolumn="5" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/ServerMessageHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="28" rule="UnnecessaryImport" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.util.Dictionary'
+</violation>
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="28" rule="UnusedImports" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ServerMessageHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
+Unused import 'java.util.Dictionary'
+</violation>
+<violation beginline="21" endline="21" begincolumn="33" endcolumn="47" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="protocolHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="24" endline="24" begincolumn="31" endcolumn="52" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="DUPLICATE_USERNAME_MSG" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like DUPLICATE_USERNAME_MSG
+</violation>
+<violation beginline="25" endline="25" begincolumn="31" endcolumn="50" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="CONNECTED_RETURN_MSG" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like CONNECTED_RETURN_MSG
+</violation>
+<violation beginline="26" endline="26" begincolumn="31" endcolumn="53" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="DISCONNECTED_RETURN_MSG" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like DISCONNECTED_RETURN_MSG
+</violation>
+<violation beginline="27" endline="27" begincolumn="31" endcolumn="53" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="NONE_RECIPIENT_FAIL_MSG" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like NONE_RECIPIENT_FAIL_MSG
+</violation>
+<violation beginline="28" endline="28" begincolumn="31" endcolumn="60" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="SENDER_RECIPIENT_SAME_FAIL_MSG" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like SENDER_RECIPIENT_SAME_FAIL_MSG
+</violation>
+<violation beginline="29" endline="29" begincolumn="31" endcolumn="48" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="NO_OTHERS_FAIL_MSG" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like NO_OTHERS_FAIL_MSG
+</violation>
+<violation beginline="30" endline="30" begincolumn="28" endcolumn="51" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" variable="VALID_MEMBER_NUM_TO_SEND" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like VALID_MEMBER_NUM_TO_SEND
+</violation>
+<violation beginline="53" endline="53" begincolumn="49" endcolumn="79" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="dataInputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataInputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="53" endline="53" begincolumn="26" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="messageIdentifier" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageIdentifier' is not assigned and could be declared final
+</violation>
+<violation beginline="54" endline="54" begincolumn="7" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="55" endline="87" begincolumn="5" endcolumn="5" rule="SwitchStmtsShouldHaveDefault" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#switchstmtsshouldhavedefault" priority="3">
+Switch statements should be exhaustive, add a default case (or missing enum branches)
+</violation>
+<violation beginline="57" endline="57" begincolumn="9" endcolumn="89" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="60" endline="60" begincolumn="9" endcolumn="41" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="63" endline="63" begincolumn="9" endcolumn="92" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="66" endline="66" begincolumn="9" endcolumn="42" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="69" endline="69" begincolumn="9" endcolumn="92" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="72" endline="72" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="75" endline="75" begincolumn="9" endcolumn="91" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="76" endline="76" begincolumn="9" endcolumn="68" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="79" endline="79" begincolumn="9" endcolumn="88" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="81" endline="81" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="84" endline="84" begincolumn="9" endcolumn="88" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="85" endline="85" begincolumn="9" endcolumn="65" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="97" endline="97" begincolumn="39" endcolumn="71" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="removeClientInformation" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="98" endline="99" begincolumn="5" endcolumn="79" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="removeClientInformation" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'clientEntry' could be declared final
+</violation>
+<violation beginline="119" endline="119" begincolumn="44" endcolumn="70" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="120" endline="120" begincolumn="5" endcolumn="45" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'sender' could be declared final
+</violation>
+<violation beginline="121" endline="121" begincolumn="5" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'recipient' could be declared final
+</violation>
+<violation beginline="122" endline="122" begincolumn="22" endcolumn="39" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="senderOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like senderOutputStream
+</violation>
+<violation beginline="122" endline="122" begincolumn="22" endcolumn="39" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="senderOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this DataOutputStream object are closed after use
+</violation>
+<violation beginline="122" endline="135" begincolumn="22" endcolumn="69" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="senderOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'senderOutputStream' (lines '122'-'135').
+</violation>
+<violation beginline="122" endline="122" begincolumn="5" endcolumn="69" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'senderOutputStream' could be declared final
+</violation>
+<violation beginline="123" endline="123" begincolumn="22" endcolumn="44" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="otherClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like otherClientOutputStream
+</violation>
+<violation beginline="123" endline="123" begincolumn="22" endcolumn="44" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="otherClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this DataOutputStream object are closed after use
+</violation>
+<violation beginline="123" endline="123" begincolumn="5" endcolumn="77" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'otherClientOutputStream' could be declared final
+</violation>
+<violation beginline="125" endline="126" begincolumn="7" endcolumn="15" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'failMessage' could be declared final
+</violation>
+<violation beginline="129" endline="130" begincolumn="7" endcolumn="21" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToSpecificClient" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'failMessage' could be declared final
+</violation>
+<violation beginline="146" endline="146" begincolumn="70" endcolumn="80" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="flag" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'flag' is not assigned and could be declared final
+</violation>
+<violation beginline="146" endline="146" begincolumn="41" endcolumn="67" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="147" endline="147" begincolumn="5" endcolumn="45" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'sender' could be declared final
+</violation>
+<violation beginline="148" endline="148" begincolumn="5" endcolumn="51" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'recipient' could be declared final
+</violation>
+<violation beginline="149" endline="149" begincolumn="22" endcolumn="39" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="senderOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like senderOutputStream
+</violation>
+<violation beginline="149" endline="149" begincolumn="22" endcolumn="39" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="senderOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this DataOutputStream object are closed after use
+</violation>
+<violation beginline="149" endline="185" begincolumn="22" endcolumn="69" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="senderOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'senderOutputStream' (lines '149'-'185').
+</violation>
+<violation beginline="149" endline="149" begincolumn="5" endcolumn="69" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'senderOutputStream' could be declared final
+</violation>
+<violation beginline="150" endline="150" begincolumn="22" endcolumn="44" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="otherClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like otherClientOutputStream
+</violation>
+<violation beginline="150" endline="150" begincolumn="22" endcolumn="44" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="otherClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this DataOutputStream object are closed after use
+</violation>
+<violation beginline="150" endline="185" begincolumn="22" endcolumn="77" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="otherClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'otherClientOutputStream' (lines '150'-'185').
+</violation>
+<violation beginline="150" endline="150" begincolumn="5" endcolumn="77" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'otherClientOutputStream' could be declared final
+</violation>
+<violation beginline="154" endline="155" begincolumn="9" endcolumn="17" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'failMessage' could be declared final
+</violation>
+<violation beginline="157" endline="157" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="161" endline="162" begincolumn="9" endcolumn="17" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'failMessage' could be declared final
+</violation>
+<violation beginline="164" endline="164" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="166" endline="167" begincolumn="9" endcolumn="23" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'failMessage' could be declared final
+</violation>
+<violation beginline="169" endline="169" begincolumn="9" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="172" endline="172" begincolumn="10" endcolumn="61" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'otherClientEntry' could be declared final
+</violation>
+<violation beginline="174" endline="174" begincolumn="26" endcolumn="52" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="recipientClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like recipientClientOutputStream
+</violation>
+<violation beginline="174" endline="174" begincolumn="26" endcolumn="52" rule="CloseResource" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="recipientClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#closeresource" priority="3">
+Ensure that resources like this DataOutputStream object are closed after use
+</violation>
+<violation beginline="174" endline="174" begincolumn="26" endcolumn="82" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="recipientClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'recipientClientOutputStream' (lines '174'-'174').
+</violation>
+<violation beginline="174" endline="185" begincolumn="26" endcolumn="82" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="recipientClientOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'recipientClientOutputStream' (lines '174'-'185').
+</violation>
+<violation beginline="174" endline="174" begincolumn="9" endcolumn="82" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'recipientClientOutputStream' could be declared final
+</violation>
+<violation beginline="176" endline="176" begincolumn="15" endcolumn="41" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="178" endline="178" begincolumn="22" endcolumn="45" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="sendMessageToAllUsers" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="193" endline="193" begincolumn="41" endcolumn="67" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="validateClientConnection" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="194" endline="194" begincolumn="7" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="validateClientConnection" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="195" endline="205" begincolumn="7" endcolumn="25" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="validateClientConnection" variable="responseFlag" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'responseFlag' (lines '195'-'205').
+</violation>
+<violation beginline="217" endline="217" begincolumn="39" endcolumn="65" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="removeClientConnection" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="228" endline="228" begincolumn="38" endcolumn="64" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="populateActiveClients" variable="messageFormat" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'messageFormat' is not assigned and could be declared final
+</violation>
+<violation beginline="229" endline="231" begincolumn="5" endcolumn="17" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="populateActiveClients" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'activeClients' could be declared final
+</violation>
+<violation beginline="242" endline="242" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="242" endline="242" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="244" endline="244" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="247" endline="247" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="249" endline="249" begincolumn="5" endcolumn="56" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="ServerMessageHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/UiHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="12" endline="12" begincolumn="25" endcolumn="31" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiHandler" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="13" endline="13" begincolumn="32" endcolumn="45" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiHandler" variable="uiInputHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="14" endline="14" begincolumn="34" endcolumn="49" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiHandler" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="34" endline="34" begincolumn="20" endcolumn="34" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="UiHandler" variable="scanner" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'scanner' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="37" endcolumn="65" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="UiHandler" variable="uiInputHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'uiInputHandler' is not assigned and could be declared final
+</violation>
+<violation beginline="35" endline="35" begincolumn="7" endcolumn="39" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="UiHandler" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="57" endline="57" begincolumn="34" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="logMessage" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="58" endline="58" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiHandler" method="logMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="68" endline="68" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="68" endline="68" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="70" endline="70" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="73" endline="73" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="75" endline="75" begincolumn="5" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'uiHandler' could be declared final
+</violation>
+</file>
+<file name="/Users/jijim/Documents/5010/group/Group_jijiming_resmohan_zephyrqiu/Assignment6/src/main/java/assignment6/chatRoomApp/UiInputHandler.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="12" endline="12" begincolumn="33" endcolumn="47" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiInputHandler" variable="protocolHandler" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="13" endline="13" begincolumn="24" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiInputHandler" variable="clientName" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="14" endline="14" begincolumn="28" endcolumn="55" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="SPACE_INDEX_AFTER_MSG_HEADER" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like SPACE_INDEX_AFTER_MSG_HEADER
+</violation>
+<violation beginline="29" endline="29" begincolumn="31" endcolumn="51" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="USER_QUERY_MSG_HEADER" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like USER_QUERY_MSG_HEADER
+</violation>
+<violation beginline="35" endline="35" begincolumn="31" endcolumn="56" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="INVALID_MSG_SIZE_EXCEPTION" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like INVALID_MSG_SIZE_EXCEPTION
+</violation>
+<violation beginline="36" endline="36" begincolumn="31" endcolumn="50" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="BROADCAST_MSG_HEADER" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like BROADCAST_MSG_HEADER
+</violation>
+<violation beginline="38" endline="38" begincolumn="28" endcolumn="49" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="RECIPIENT_START_OFFSET" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like RECIPIENT_START_OFFSET
+</violation>
+<violation beginline="43" endline="43" begincolumn="31" endcolumn="51" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="INVALID_MSG_EXCEPTION" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like INVALID_MSG_EXCEPTION
+</violation>
+<violation beginline="44" endline="44" begincolumn="28" endcolumn="45" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="FIRST_SUBSTR_INDEX" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like FIRST_SUBSTR_INDEX
+</violation>
+<violation beginline="46" endline="46" begincolumn="28" endcolumn="45" rule="LongVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" variable="NEXT_SUBSTR_OFFSET" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+Avoid excessively long variable names like NEXT_SUBSTR_OFFSET
+</violation>
+<violation beginline="54" endline="54" begincolumn="25" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="UiInputHandler" variable="clientName" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'clientName' is not assigned and could be declared final
+</violation>
+<violation beginline="64" endline="64" begincolumn="26" endcolumn="58" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="initialize" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="65" endline="65" begincolumn="5" endcolumn="87" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="initialize" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="76" endline="76" begincolumn="40" endcolumn="72" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="dataOutputStream" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'dataOutputStream' is not assigned and could be declared final
+</violation>
+<violation beginline="77" endline="77" begincolumn="5" endcolumn="9" rule="AvoidReassigningParameters" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'input'
+</violation>
+<violation beginline="78" endline="113" begincolumn="9" endcolumn="89" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="firstSpace" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'firstSpace' (lines '78'-'113').
+</violation>
+<violation beginline="78" endline="78" begincolumn="5" endcolumn="89" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'firstSpace' could be declared final
+</violation>
+<violation beginline="79" endline="113" begincolumn="12" endcolumn="70" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="identifier" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'identifier' (lines '79'-'113').
+</violation>
+<violation beginline="79" endline="79" begincolumn="5" endcolumn="70" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'identifier' could be declared final
+</violation>
+<violation beginline="81" endline="81" begincolumn="9" endcolumn="37" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="83" endline="83" begincolumn="16" endcolumn="46" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="84" endline="84" begincolumn="7" endcolumn="89" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="86" endline="86" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="87" endline="87" begincolumn="16" endcolumn="50" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="88" endline="88" begincolumn="7" endcolumn="89" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="92" endline="92" begincolumn="9" endcolumn="26" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="93" endline="93" begincolumn="18" endcolumn="56" rule="LiteralsFirstInComparisons" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#literalsfirstincomparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="94" endline="94" begincolumn="9" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'message' could be declared final
+</violation>
+<violation beginline="95" endline="95" begincolumn="9" endcolumn="94" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="98" endline="98" begincolumn="9" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'message' could be declared final
+</violation>
+<violation beginline="99" endline="99" begincolumn="9" endcolumn="78" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'recipient' could be declared final
+</violation>
+<violation beginline="100" endline="101" begincolumn="9" endcolumn="22" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="106" endline="106" begincolumn="7" endcolumn="64" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'recipient' could be declared final
+</violation>
+<violation beginline="107" endline="107" begincolumn="7" endcolumn="94" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="process" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'messageFormat' could be declared final
+</violation>
+<violation beginline="120" endline="120" begincolumn="34" endcolumn="47" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="logMessage" variable="message" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'message' is not assigned and could be declared final
+</violation>
+<violation beginline="121" endline="121" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="logMessage" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="133" endline="133" begincolumn="68" endcolumn="68" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="ordinalIndexOf" variable="n" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like n
+</violation>
+<violation beginline="133" endline="133" begincolumn="37" endcolumn="46" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="ordinalIndexOf" variable="str" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'str' is not assigned and could be declared final
+</violation>
+<violation beginline="133" endline="133" begincolumn="49" endcolumn="61" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="ordinalIndexOf" variable="substr" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'substr' is not assigned and could be declared final
+</violation>
+<violation beginline="135" endline="135" begincolumn="12" endcolumn="62" rule="AssignmentInOperand" ruleset="Error Prone" package="assignment6.chatRoomApp" class="UiInputHandler" method="ordinalIndexOf" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#assignmentinoperand" priority="3">
+Avoid assignments in operands
+</violation>
+<violation beginline="135" endline="135" begincolumn="14" endcolumn="14" rule="AvoidReassigningParameters" ruleset="Best Practices" package="assignment6.chatRoomApp" class="UiInputHandler" method="ordinalIndexOf" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_bestpractices.html#avoidreassigningparameters" priority="2">
+Avoid reassigning parameters such as 'n'
+</violation>
+<violation beginline="148" endline="148" begincolumn="32" endcolumn="32" rule="ShortVariable" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="148" endline="148" begincolumn="25" endcolumn="32" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'o' is not assigned and could be declared final
+</violation>
+<violation beginline="150" endline="150" begincolumn="7" endcolumn="18" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="153" endline="153" begincolumn="7" endcolumn="19" rule="OnlyOneReturn" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="equals" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="155" endline="155" begincolumn="5" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="assignment6.chatRoomApp" class="UiInputHandler" method="equals" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'that' could be declared final
+</violation>
+</file>
+</pmd>

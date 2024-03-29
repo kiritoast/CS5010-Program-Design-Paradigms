@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SentenceGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment4</a> &gt; <a href="index.source.html" class="el_package">assignment4.problem1</a> &gt; <span class="el_source">SentenceGenerator.java</span></div><h1>SentenceGenerator.java</h1><pre class="source lang-java linenums">package assignment4.problem1;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * Represents the sentence generator which helps to generate sentence from the given grammar
+ */
+public class SentenceGenerator {
+
+  private JsonReader jsonReader;
+
+  private static final String START = &quot;start&quot;;
+  private static final String NON_TERMINAL_PATTERN = &quot;&lt;(.*?)&gt;&quot;;
+  private static final String FORMAT_SPACE_PATTERN = &quot;\\s+&quot;;
+  private static final String FORMAT_SEPARATOR_PATTERN = &quot;(\\w)(\\s+)([.,;!?])&quot;;
+  private static final String FORMAT_SINGLE_PATTERN = &quot;(\\s)('s\\s)&quot;;
+  private static final String SINGLE_SPACE = &quot; &quot;;
+  private static final String GROUP_TWO = &quot;$2&quot;;
+  private static final String GROUP_ONE_THREE = &quot;$1$3&quot;;
+  private static final int ZERO = 0;
+  private static final int ONE = 1;
+  /**
+   * This message is used to inform the end user that sentence generation failed due to an undefined
+   * non-terminal
+   */
+  public static final String NOT_EXISTING_MESSAGE = &quot;Program couldn't generate a message as non-terminal '%s' is not defined.&quot;;
+
+  /**
+   * Creates a new instance of sentence generator given the file path of file
+   *
+   * @param filePath file path
+   */
+<span class="nc" id="L37">  public SentenceGenerator(String filePath) {</span>
+<span class="nc" id="L38">    this.jsonReader = new JsonReader(filePath);</span>
+<span class="nc" id="L39">  }</span>
+
+  /**
+   * Generates a new set of sentences
+   *
+   * @return generated sentence
+   */
+  public String generate() {
+    try {
+<span class="nc" id="L48">      String start = getRandomString(START);</span>
+<span class="nc" id="L49">      String sentence = generateSentence(start);</span>
+<span class="nc" id="L50">      sentence = formatSentence(sentence);</span>
+<span class="nc" id="L51">      return sentence;</span>
+<span class="nc" id="L52">    } catch (RuntimeException exception) {</span>
+<span class="nc" id="L53">      return exception.getMessage();//if message generation fails due to undefined non-terminal, this block returns that message</span>
+    }
+  }
+
+  /**
+   * Generates a sentence from the given input
+   *
+   * @param input start of the sentence
+   * @return final generated sentence
+   */
+  private String generateSentence(String input) {
+<span class="nc" id="L64">    Pattern pattern = Pattern.compile(NON_TERMINAL_PATTERN);</span>
+<span class="nc" id="L65">    Matcher matcher = pattern.matcher(input);</span>
+
+<span class="nc bnc" id="L67" title="All 2 branches missed.">    if (matcher.find()) {</span>
+<span class="nc" id="L68">      String nonTerminal = matcher.group(ONE);</span>
+<span class="nc" id="L69">      input = input.replace(matcher.group(ZERO), getRandomString(nonTerminal));</span>
+<span class="nc" id="L70">      input = generateSentence(input);</span>
+    }
+
+<span class="nc" id="L73">    return input;</span>
+  }
+
+  /**
+   * Gives a string randomly from the set of strings stored under the given key
+   *
+   * @param key key in the json file
+   * @return randomly selected string
+   */
+  private String getRandomString(String key) {
+<span class="nc" id="L83">    List&lt;String&gt; valueList = this.jsonReader.readArrayValue(key);</span>
+
+<span class="nc bnc" id="L85" title="All 2 branches missed.">    if (valueList.size() == ZERO) {</span>
+<span class="nc" id="L86">      throw new RuntimeException(String.format(NOT_EXISTING_MESSAGE,</span>
+          key)); //message generation failed as the given key is not defined
+    }
+
+<span class="nc" id="L90">    return getRandomString(valueList);</span>
+  }
+
+  /**
+   * Gives a string randomly from the list of strings
+   *
+   * @param valueList list of strings
+   * @return randomly selected string
+   */
+  private String getRandomString(List&lt;String&gt; valueList) {
+<span class="nc" id="L100">    int index = getRandomNumber(valueList.size());</span>
+<span class="nc" id="L101">    return valueList.get(index);</span>
+  }
+
+  /**
+   * Generate a random number
+   *
+   * @param upperBound upper boundary of the generated number
+   * @return random number
+   */
+  private int getRandomNumber(int upperBound) {
+<span class="nc" id="L111">    Random random = new Random();</span>
+<span class="nc" id="L112">    return random.nextInt(upperBound);</span>
+  }
+
+  /**
+   * Format the generated sentence to make it more readable
+   *
+   * @param sentence generated sentence
+   * @return formatted sentence
+   */
+  private String formatSentence(String sentence) {
+    // format multiple space pattern
+<span class="nc" id="L123">    sentence = sentence.replaceAll(FORMAT_SPACE_PATTERN, SINGLE_SPACE);</span>
+    //format separator lines like -&gt; no space should be allowed before separators like comma, full stop etc.
+<span class="nc" id="L125">    sentence = sentence.replaceAll(FORMAT_SEPARATOR_PATTERN, GROUP_ONE_THREE);</span>
+    //to handle words like -&gt; Rousseau 's
+<span class="nc" id="L127">    sentence = sentence.replaceAll(FORMAT_SINGLE_PATTERN, GROUP_TWO);</span>
+<span class="nc" id="L128">    return sentence;</span>
+  }
+
+  /**
+   * This method is used to compare two instances of sentence generator class
+   *
+   * @param o instance to be compared
+   * @return true or false
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L139" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L140">      return true;</span>
+    }
+<span class="nc bnc" id="L142" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L143">      return false;</span>
+    }
+<span class="nc" id="L145">    SentenceGenerator that = (SentenceGenerator) o;</span>
+<span class="nc" id="L146">    return Objects.equals(this.jsonReader, that.jsonReader);</span>
+  }
+
+  /**
+   * This method is used to generate the hashcode of sentence generator class
+   *
+   * @return hash code
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L156">    return Objects.hash(this.jsonReader);</span>
+  }
+
+  /**
+   * This method is used to generate the string representation of sentence generator class
+   *
+   * @return string representation
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L166">    return &quot;SentenceGenerator{&quot; +</span>
+        &quot;jsonReader=&quot; + this.jsonReader +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

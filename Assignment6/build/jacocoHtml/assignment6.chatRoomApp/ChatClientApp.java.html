@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChatClientApp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment6</a> &gt; <a href="index.source.html" class="el_package">assignment6.chatRoomApp</a> &gt; <span class="el_source">ChatClientApp.java</span></div><h1>ChatClientApp.java</h1><pre class="source lang-java linenums">package assignment6.chatRoomApp;
+
+import java.io.IOException;
+import java.net.Socket;
+
+/**
+ * Represents the chat room client that helps run the chatroom
+ */
+<span class="nc" id="L9">public class ChatClientApp {</span>
+
+  private static final int IP_INDEX = 0;
+  private static final int PORT_INDEX = 1;
+  /**
+   * Message to notify that chat room server is not up and running
+   */
+  public static final String SERVER_NOT_AVAILABLE = &quot;\nFailed to launch the client as chatroom server is not up&quot;;
+
+  /**
+   * main method to the client
+   *
+   * @param args take ip and server port
+   */
+  public static void main(String[] args) {
+<span class="nc" id="L24">    Socket serverSocket = null;</span>
+    try {
+<span class="nc" id="L26">      ArgumentValidator argumentValidator = new ArgumentValidator(args);</span>
+<span class="nc" id="L27">      argumentValidator.validate();</span>
+
+<span class="nc" id="L29">      String serverIP = args[IP_INDEX];</span>
+<span class="nc" id="L30">      int serverPort = Integer.parseInt(args[PORT_INDEX]);</span>
+
+<span class="nc" id="L32">      serverSocket = new Socket(serverIP, serverPort);</span>
+<span class="nc" id="L33">      ChatClient chatClient = new ChatClient(serverSocket);</span>
+<span class="nc" id="L34">      chatClient.start();</span>
+<span class="nc" id="L35">    } catch (IOException e) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">      if (serverSocket == null) {</span>
+<span class="nc" id="L37">        System.out.println(SERVER_NOT_AVAILABLE);</span>
+<span class="nc" id="L38">        return;</span>
+      }
+<span class="nc" id="L40">      throw new RuntimeException(e);</span>
+<span class="nc" id="L41">    }</span>
+<span class="nc" id="L42">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

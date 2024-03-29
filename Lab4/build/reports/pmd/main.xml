@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.39.0" timestamp="2023-03-03T11:21:58.643">
+<file name="/Users/jijim/Documents/5010/Student_jijiming/Lab4/src/main/java/lab4/problem2/PriorityQueue.java">
+<violation beginline="14" endline="14" begincolumn="19" endcolumn="22" rule="BeanMembersShouldSerialize" ruleset="Error Prone" package="lab4.problem2" class="PriorityQueue" variable="heap" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#beanmembersshouldserialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="27" endline="27" begincolumn="24" endcolumn="24" rule="ShortVariable" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="insert" variable="e" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#shortvariable" priority="3">
+Avoid variables with short names like e
+</violation>
+<violation beginline="27" endline="27" begincolumn="22" endcolumn="24" rule="MethodArgumentCouldBeFinal" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="insert" variable="e" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal" priority="3">
+Parameter 'e' is not assigned and could be declared final
+</violation>
+<violation beginline="31" endline="31" begincolumn="7" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="insert" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'parentIndex' could be declared final
+</violation>
+<violation beginline="50" endline="50" begincolumn="5" endcolumn="26" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="remove" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'result' could be declared final
+</violation>
+<violation beginline="51" endline="51" begincolumn="24" endcolumn="24" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="lab4.problem2" class="PriorityQueue" method="remove" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="53" endline="53" begincolumn="7" endcolumn="20" rule="OnlyOneReturn" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="remove" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="56" endline="76" begincolumn="9" endcolumn="17" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="lab4.problem2" class="PriorityQueue" method="remove" variable="index" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'index' (lines '56'-'76').
+</violation>
+<violation beginline="58" endline="58" begincolumn="7" endcolumn="40" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="remove" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'leftChildIndex' could be declared final
+</violation>
+<violation beginline="59" endline="76" begincolumn="11" endcolumn="41" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="lab4.problem2" class="PriorityQueue" method="remove" variable="rightChildIndex" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'rightChildIndex' (lines '59'-'76').
+</violation>
+<violation beginline="59" endline="59" begincolumn="7" endcolumn="41" rule="LocalVariableCouldBeFinal" ruleset="Code Style" package="lab4.problem2" class="PriorityQueue" method="remove" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal" priority="3">
+Local variable 'rightChildIndex' could be declared final
+</violation>
+<violation beginline="63" endline="65" begincolumn="9" endcolumn="34" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="lab4.problem2" class="PriorityQueue" method="remove" variable="minIndex" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DD'-anomaly for variable 'minIndex' (lines '63'-'65').
+</violation>
+<violation beginline="69" endline="76" begincolumn="9" endcolumn="24" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="lab4.problem2" class="PriorityQueue" method="remove" variable="index" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'index' (lines '69'-'76').
+</violation>
+</file>
+</pmd>

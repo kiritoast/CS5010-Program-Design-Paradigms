@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FlyerChecker.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">hm1</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">FlyerChecker.java</span></div><h1>FlyerChecker.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.HashMap;
+
+/**
+ * class the check if the name is unique
+ */
+public class FlyerChecker {
+  private HashMap &lt;String, FrequentFlyer&gt; map;
+
+  /**
+   *
+   * @param map that stores the account id and the FrequentFlyer
+   */
+<span class="fc" id="L15">  public FlyerChecker(HashMap&lt;String, FrequentFlyer&gt; map) {</span>
+<span class="fc" id="L16">    this.map = map;</span>
+<span class="fc" id="L17">  }</span>
+
+  /**
+   *
+   * @param accountID unique account ID, which is a 12-character long String
+   * @param frequentFlyer A frequent flyer class
+   * @return true if he exists in the system and match the name, false if not
+   */
+  public boolean checkFlyerExist(String accountID, FrequentFlyer frequentFlyer){
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    if(map.containsKey(accountID)){</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">      return map.get(accountID).getFirstName().equals(frequentFlyer.getFirstName())</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">          &amp;&amp; map.get(accountID).getMiddleName().equals(frequentFlyer.getMiddleName())</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">          &amp;&amp; map.get(accountID).getLastName().equals(frequentFlyer.getLastName());</span>
+    }else{
+<span class="fc" id="L31">      return false;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

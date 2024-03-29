@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.AddressTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2023-02-11T07:37:09" hostname="Jinmings-MacBook-Pro.local" time="0.007">
+  <properties/>
+  <testcase name="setZipCode()" classname="problem2.AddressTest" time="0.001"/>
+  <testcase name="testToString()" classname="problem2.AddressTest" time="0.0"/>
+  <testcase name="getStreetAndNumber()" classname="problem2.AddressTest" time="0.001"/>
+  <testcase name="setCountry()" classname="problem2.AddressTest" time="0.0"/>
+  <testcase name="getCity()" classname="problem2.AddressTest" time="0.001"/>
+  <testcase name="setStreetAndNumber()" classname="problem2.AddressTest" time="0.0"/>
+  <testcase name="getZipCode()" classname="problem2.AddressTest" time="0.001"/>
+  <testcase name="testHashCode()" classname="problem2.AddressTest" time="0.001"/>
+  <testcase name="testEquals()" classname="problem2.AddressTest" time="0.0"/>
+  <testcase name="setState()" classname="problem2.AddressTest" time="0.001"/>
+  <testcase name="getState()" classname="problem2.AddressTest" time="0.0"/>
+  <testcase name="setCity()" classname="problem2.AddressTest" time="0.0"/>
+  <testcase name="getCountry()" classname="problem2.AddressTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

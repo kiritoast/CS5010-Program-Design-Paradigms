@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>assignment4.problem1</OriginalElement>
+  <nodes>
+    <node x="-112.0" y="224.0">assignment4.problem1.SentenceGenerator</node>
+    <node x="-105.0" y="-14.0">assignment4.problem1.JsonReader</node>
+    <node x="-97.5" y="784.0">assignment4.problem1.SentenceGeneratorApp</node>
+    <node x="-102.5" y="460.0">assignment4.problem1.InputProcessor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="assignment4.problem1.SentenceGenerator" target="assignment4.problem1.JsonReader" relationship="TO_ONE">
+      <point x="70.5" y="-93.0" />
+      <point x="99.5" y="199.0" />
+      <point x="96.0" y="199.0" />
+      <point x="67.0" y="94.0" />
+    </edge>
+    <edge source="assignment4.problem1.InputProcessor" target="assignment4.problem1.SentenceGenerator" relationship="TO_ONE">
+      <point x="65.75" y="-137.0" />
+      <point x="94.75" y="435.0" />
+      <point x="99.5" y="435.0" />
+      <point x="70.5" y="93.0" />
+    </edge>
+    <edge source="assignment4.problem1.InputProcessor" target="assignment4.problem1.SentenceGenerator" relationship="CREATE">
+      <point x="-65.75" y="-137.0" />
+      <point x="-36.75" y="435.0" />
+      <point x="-41.5" y="435.0" />
+      <point x="-70.5" y="93.0" />
+    </edge>
+    <edge source="assignment4.problem1.SentenceGenerator" target="assignment4.problem1.JsonReader" relationship="CREATE">
+      <point x="-70.5" y="-93.0" />
+      <point x="-41.5" y="199.0" />
+      <point x="-38.0" y="199.0" />
+      <point x="-67.0" y="94.0" />
+    </edge>
+    <edge source="assignment4.problem1.SentenceGeneratorApp" target="assignment4.problem1.InputProcessor" relationship="CREATE">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="137.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8024017467248908" showDependencies="true" x="611.0326530612246" y="438.3918367346939" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
