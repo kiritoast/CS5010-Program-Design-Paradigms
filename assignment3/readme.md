@@ -22,7 +22,6 @@ To run this program, follow these steps:
 
 ## 3. Example Configuration
 An example configuration is shown below:
-
 <code>
    --letter
    --letter-template
