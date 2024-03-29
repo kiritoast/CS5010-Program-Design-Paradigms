@@ -30,7 +30,8 @@ An example configuration is shown below:
    --output-dir
    test_output/dr
    --csv-file
-   src/main/resources/insurance-company-members.csv</code>
+   src/main/resources/insurance-company-members.csv
+</code>
 
 This configuration will use the letter template from the specified path, take the CSV file from the specified path, and output the generated files to the specified directory.
 
