@@ -1,4 +1,4 @@
-# Assignment 2 Readme
+# Assignment 2
 
 1. [UML Design](#uml-design)
 2. [Problem 1 - Representing Products and Keeping Track of Stock](#problem-1---representing-products-and-keeping-track-of-stock)
