@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>assignment5.concurrentSolution</OriginalElement>
+  <nodes>
+    <node x="394.0" y="399.0">assignment5.concurrentSolution.ThresholdProcessor</node>
+    <node x="439.75" y="1032.0">assignment5.concurrentSolution.ConcurrentArgValidator</node>
+    <node x="1272.75" y="487.0">assignment5.concurrentSolution.CSVConcurrentReader</node>
+    <node x="2012.0" y="509.0">assignment5.concurrentSolution.CSVConcurrentWriter</node>
+    <node x="657.25" y="1401.0">assignment5.concurrentSolution.UniversityDataAnalyzerApp</node>
+    <node x="101.0" y="-14.0">assignment5.concurrentSolution.ThresholdProducer</node>
+    <node x="-126.0" y="498.0">assignment5.concurrentSolution.InitializeProcessor</node>
+    <node x="2044.5" y="41.0">assignment5.concurrentSolution.WriterProcessor</node>
+    <node x="793.75" y="900.0">assignment5.concurrentSolution.DataSetAnalyzer</node>
+    <node x="553.0" y="19.0">assignment5.concurrentSolution.ThresholdConsumer</node>
+    <node x="1545.0" y="63.0">assignment5.concurrentSolution.ReaderProducer</node>
+    <node x="1025.0" y="-3.0">assignment5.concurrentSolution.ReaderConsumer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="assignment5.concurrentSolution.DataSetAnalyzer" target="assignment5.concurrentSolution.CSVConcurrentReader" relationship="CREATE">
+      <point x="0.0" y="-225.5" />
+      <point x="1043.75" y="875.0" />
+      <point x="1522.75" y="875.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.UniversityDataAnalyzerApp" target="assignment5.concurrentSolution.DataSetAnalyzer" relationship="CREATE">
+      <point x="0.0" y="-82.5" />
+      <point x="825.25" y="1376.0" />
+      <point x="1043.75" y="1376.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.CSVConcurrentReader" target="assignment5.concurrentSolution.ReaderProducer" relationship="CREATE">
+      <point x="0.0" y="-137.5" />
+      <point x="1522.75" y="374.0" />
+      <point x="1770.5" y="374.0" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.ThresholdProcessor" target="assignment5.concurrentSolution.ThresholdProducer" relationship="CREATE">
+      <point x="0.0" y="-225.5" />
+      <point x="548.0" y="374.0" />
+      <point x="317.0" y="374.0" />
+      <point x="0.0" y="181.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.ThresholdProcessor" target="assignment5.concurrentSolution.ThresholdConsumer" relationship="CREATE">
+      <point x="0.0" y="-225.5" />
+      <point x="548.0" y="374.0" />
+      <point x="779.0" y="374.0" />
+      <point x="0.0" y="148.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.CSVConcurrentReader" target="assignment5.concurrentSolution.ReaderConsumer" relationship="CREATE">
+      <point x="0.0" y="-137.5" />
+      <point x="1522.75" y="374.0" />
+      <point x="1275.0" y="374.0" />
+      <point x="0.0" y="170.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.DataSetAnalyzer" target="assignment5.concurrentSolution.CSVConcurrentWriter" relationship="CREATE">
+      <point x="0.0" y="-225.5" />
+      <point x="1043.75" y="875.0" />
+      <point x="2262.0" y="875.0" />
+      <point x="0.0" y="115.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.UniversityDataAnalyzerApp" target="assignment5.concurrentSolution.ConcurrentArgValidator" relationship="CREATE">
+      <point x="0.0" y="-82.5" />
+      <point x="825.25" y="1376.0" />
+      <point x="606.75" y="1376.0" />
+      <point x="0.0" y="93.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.CSVConcurrentWriter" target="assignment5.concurrentSolution.WriterProcessor" relationship="CREATE">
+      <point x="0.0" y="-115.5" />
+      <point x="0.0" y="126.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.DataSetAnalyzer" target="assignment5.concurrentSolution.InitializeProcessor" relationship="CREATE">
+      <point x="0.0" y="-225.5" />
+      <point x="1043.75" y="875.0" />
+      <point x="124.0" y="875.0" />
+      <point x="0.0" y="126.5" />
+    </edge>
+    <edge source="assignment5.concurrentSolution.DataSetAnalyzer" target="assignment5.concurrentSolution.ThresholdProcessor" relationship="CREATE">
+      <point x="0.0" y="-225.5" />
+      <point x="1043.75" y="875.0" />
+      <point x="548.0" y="875.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.31875" showDependencies="true" x="1203.0" y="996.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

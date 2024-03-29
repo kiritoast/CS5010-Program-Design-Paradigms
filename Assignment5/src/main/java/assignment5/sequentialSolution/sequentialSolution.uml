@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>assignment5.sequentialSolution</OriginalElement>
+  <nodes>
+    <node x="365.75" y="-14.0">assignment5.sequentialSolution.CsvFileReader</node>
+    <node x="-126.0" y="256.0">assignment5.sequentialSolution.ArgumentValidator</node>
+    <node x="62.0" y="680.0">assignment5.sequentialSolution.UniversityDataAnalyzerApp</node>
+    <node x="150.75" y="8.5">assignment5.sequentialSolution.CsvFileWriter</node>
+    <node x="165.0" y="223.0">assignment5.sequentialSolution.DataSetAnalyzer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="assignment5.sequentialSolution.UniversityDataAnalyzerApp" target="assignment5.sequentialSolution.DataSetAnalyzer" relationship="CREATE">
+      <point x="0.0" y="-60.5" />
+      <point x="-179.0" y="203.5" />
+    </edge>
+    <edge source="assignment5.sequentialSolution.UniversityDataAnalyzerApp" target="assignment5.sequentialSolution.ArgumentValidator" relationship="CREATE">
+      <point x="-51.0" y="-60.5" />
+      <point x="128.0" y="170.5" />
+    </edge>
+    <edge source="assignment5.sequentialSolution.DataSetAnalyzer" target="assignment5.sequentialSolution.CsvFileWriter" relationship="CREATE">
+      <point x="-119.25" y="-203.5" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="assignment5.sequentialSolution.DataSetAnalyzer" target="assignment5.sequentialSolution.CsvFileReader" relationship="CREATE">
+      <point x="119.25" y="-203.5" />
+      <point x="0.0" y="93.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.1269461077844312" showDependencies="true" x="446.712008501594" y="319.1817215727949" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

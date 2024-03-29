@@ -1,4 +1,4 @@
-**CS 5010 Course Overview:**
+# 2022 Spring CS 5010 Repository NEU
 
 CS 5010 serves as the introductory course for students in Northeastern's MS program, aiming to achieve two primary objectives. Firstly, it equips students with foundational skills in program design, encompassing problem analysis, test suite development, and utilization of various program design paradigms. Secondly, the course fosters an understanding of programming as a collaborative endeavor, emphasizing teamwork, code presentation to review panels, and adaptation to evolving code bases.
 
@@ -20,3 +20,5 @@ Upon completion of CS 5010, students will have developed the following competenc
 - Exploring existing documentation to effectively describe and utilize libraries and frameworks
 
 Through these objectives and learning outcomes, CS 5010 aims to equip students with the necessary skills and knowledge to excel in the field of software development.
+
+[a link](https://github.khoury.northeastern.edu/cs5010seaS23/Group_jijiming_resmohan_zephyrqiu/blob/main/Assignment5/readme.md)
