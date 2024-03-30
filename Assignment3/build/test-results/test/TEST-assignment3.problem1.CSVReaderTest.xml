@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment3.problem1.CSVReaderTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-03-14T05:27:55" hostname="Jinmings-MacBook-Pro.local" time="0.125">
+  <properties/>
+  <testcase name="length()" classname="assignment3.problem1.CSVReaderTest" time="0.036"/>
+  <testcase name="testHashCode()" classname="assignment3.problem1.CSVReaderTest" time="0.036"/>
+  <testcase name="testEquals()" classname="assignment3.problem1.CSVReaderTest" time="0.035"/>
+  <testcase name="getUserInfo()" classname="assignment3.problem1.CSVReaderTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

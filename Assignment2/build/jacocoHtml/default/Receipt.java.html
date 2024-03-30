@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Receipt.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment2</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Receipt.java</span></div><h1>Receipt.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * receipt that generate at the end of purchase
+ */
+public class Receipt {
+  private double totalPrice;
+  private ArrayList&lt;Product&gt; productReceived;
+  private ArrayList&lt;Product&gt; productOutOfStock;
+  private ArrayList&lt;Product&gt; productRemoved;
+
+  /**
+   *
+   * @param totalPrice total price that customer spent
+   * @param productReceived total product that customer received
+   * @param productOutOfStock all products that were out of stock
+   * @param productRemoved all products that removed
+   */
+  public Receipt(double totalPrice, ArrayList&lt;Product&gt; productReceived,
+<span class="fc" id="L21">      ArrayList&lt;Product&gt; productOutOfStock, ArrayList&lt;Product&gt; productRemoved) {</span>
+<span class="fc" id="L22">    this.totalPrice = totalPrice;</span>
+<span class="fc" id="L23">    this.productReceived = productReceived;</span>
+<span class="fc" id="L24">    this.productOutOfStock = productOutOfStock;</span>
+<span class="fc" id="L25">    this.productRemoved = productRemoved;</span>
+<span class="fc" id="L26">  }</span>
+
+  /**
+   *
+   * @return total priced customer spend
+   */
+  public double getTotalPrice() {
+<span class="fc" id="L33">    return totalPrice;</span>
+  }
+
+  /**
+   *
+   * @return total product that customer received
+   */
+  public ArrayList&lt;Product&gt; getProductReceived() {
+<span class="fc" id="L41">    return productReceived;</span>
+  }
+
+  /**
+   *
+   * @return all products that were out of stock
+   */
+  public ArrayList&lt;Product&gt; getProductOutOfStock() {
+<span class="fc" id="L49">    return productOutOfStock;</span>
+  }
+
+  /**
+   *
+   * @return all products that removed
+   */
+  public ArrayList&lt;Product&gt; getProductRemoved() {
+<span class="fc" id="L57">    return productRemoved;</span>
+  }
+  /**
+   * {@inheritDoc}
+   */
+
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L66">      return true;</span>
+    }
+<span class="fc bfc" id="L68" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L69">      return false;</span>
+    }
+<span class="fc" id="L71">    Receipt receipt = (Receipt) o;</span>
+<span class="pc bpc" id="L72" title="1 of 4 branches missed.">    return Double.compare(receipt.totalPrice, totalPrice) == 0 &amp;&amp; Objects.equals(</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        productReceived, receipt.productReceived) &amp;&amp; Objects.equals(productOutOfStock,</span>
+<span class="pc bnc" id="L74" title="All 2 branches missed.">        receipt.productOutOfStock) &amp;&amp; Objects.equals(productRemoved,</span>
+        receipt.productRemoved);
+  }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L82">    return Objects.hash(totalPrice, productReceived, productOutOfStock, productRemoved);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

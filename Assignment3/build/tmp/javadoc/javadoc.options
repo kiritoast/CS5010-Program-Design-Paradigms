@@ -1,0 +1,11 @@
+-classpath '/Users/jijim/Documents/5010/Student_jijiming/assignment3/build/classes/java/main:/Users/jijim/Documents/5010/Student_jijiming/assignment3/build/resources/main'
+-d '/Users/jijim/Documents/5010/Student_jijiming/assignment3/build/docs/javadoc'
+-doctitle 'assignment3 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'assignment3 1.0-SNAPSHOT API'
+'/Users/jijim/Documents/5010/Student_jijiming/assignment3/src/main/java/assignment3/problem1/ArgumentParser.java'
+'/Users/jijim/Documents/5010/Student_jijiming/assignment3/src/main/java/assignment3/problem1/CSVReader.java'
+'/Users/jijim/Documents/5010/Student_jijiming/assignment3/src/main/java/assignment3/problem1/Main.java'
+'/Users/jijim/Documents/5010/Student_jijiming/assignment3/src/main/java/assignment3/problem1/FileGenerator.java'
+'/Users/jijim/Documents/5010/Student_jijiming/assignment3/src/main/java/assignment3/problem1/TemplateReader.java'

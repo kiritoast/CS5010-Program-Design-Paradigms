@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CSVReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment3</a> &gt; <a href="index.source.html" class="el_package">assignment3.problem1</a> &gt; <span class="el_source">CSVReader.java</span></div><h1>CSVReader.java</h1><pre class="source lang-java linenums">package assignment3.problem1;
+
+import java.io.*;
+import java.util.*;
+
+/**
+ * Class csv reader that take a csv file and recode the data into arraylist of strings
+ *
+ */
+public class CSVReader {
+
+  private String csvPath;
+  private List&lt;String&gt; dataHeader;
+  private List&lt;List&lt;String&gt;&gt; data;
+
+  /**
+   * constructor of the csv reader, turn data into two arraylist
+   * @param csvPath where the csv stores
+   * @throws FileNotFoundException file not found exception
+   */
+
+<span class="fc" id="L22">  public CSVReader(String csvPath) throws FileNotFoundException {</span>
+<span class="fc" id="L23">    this.csvPath = csvPath;</span>
+<span class="fc" id="L24">    this.data = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">    this.dataHeader = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">    Scanner scanner = new Scanner(new File(csvPath));</span>
+<span class="fc" id="L27">    boolean isHeader = true;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    while (scanner.hasNext()) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">      if (isHeader) {</span>
+<span class="fc" id="L30">        isHeader = false;</span>
+<span class="fc" id="L31">        this.dataHeader = parseLine(scanner.nextLine());</span>
+      } else {
+<span class="fc" id="L33">        List&lt;String&gt; currentLine = parseLine(scanner.nextLine());</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (currentLine.size() == this.dataHeader.size()) {</span>
+<span class="fc" id="L35">          this.data.add(currentLine);</span>
+        }
+<span class="fc" id="L37">      }</span>
+    }
+<span class="fc" id="L39">    scanner.close();</span>
+<span class="fc" id="L40">  }</span>
+
+  /**
+   *  get the length for the data, shows how many total users.
+   * @return size for data array
+   */
+  public int length(){
+<span class="fc" id="L47">    return this.data.size();</span>
+}
+
+  /**
+   *
+   * @param line each csv line that needs to be parser
+   * @return arraylist for data inside each row
+   */
+  private List&lt;String&gt; parseLine(String line) {
+<span class="fc" id="L56">    return Arrays.stream(line.split(&quot;,(?=([^\&quot;]*\&quot;[^\&quot;]*\&quot;)*[^\&quot;]*$)&quot;))</span>
+<span class="fc" id="L57">        .map((str) -&gt; str.replace(&quot;\&quot;&quot;, &quot;&quot;))</span>
+<span class="fc" id="L58">        .toList();</span>
+  }
+
+  /**
+   * get one user information in the form of hashmap, key is datahead and value is data
+   * @param userNumber index for which user need to be tested
+   * @return hashmap for user info
+   */
+  public HashMap&lt;String, String&gt; getUserInfo(int userNumber){
+<span class="fc" id="L67">    HashMap&lt;String, String&gt; user = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L68">    Iterator&lt;String&gt; itDataHeader = this.dataHeader.iterator();</span>
+<span class="fc" id="L69">    Iterator&lt;String&gt; itData = data.get(userNumber).iterator();</span>
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">    while (itDataHeader.hasNext() &amp;&amp; itData.hasNext()) {</span>
+<span class="fc" id="L71">      user.put(itDataHeader.next(), itData.next());</span>
+    }
+<span class="fc" id="L73">    return user;</span>
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L82">      return true;</span>
+    }
+<span class="fc bfc" id="L84" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L85">      return false;</span>
+    }
+<span class="fc" id="L87">    CSVReader csvReader = (CSVReader) o;</span>
+<span class="pc bpc" id="L88" title="1 of 4 branches missed.">    return Objects.equals(csvPath, csvReader.csvPath) &amp;&amp; Objects.equals(</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        dataHeader, csvReader.dataHeader) &amp;&amp; Objects.equals(data, csvReader.data);</span>
+  }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L96">    return Objects.hash(csvPath, dataHeader, data);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

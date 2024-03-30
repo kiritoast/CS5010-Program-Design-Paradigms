@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment3.problem1.FileGeneratorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-03-14T05:27:56" hostname="Jinmings-MacBook-Pro.local" time="0.112">
+  <properties/>
+  <testcase name="outputFiles()" classname="assignment3.problem1.FileGeneratorTest" time="0.077"/>
+  <testcase name="generateOneFile()" classname="assignment3.problem1.FileGeneratorTest" time="0.015"/>
+  <testcase name="testHashCode()" classname="assignment3.problem1.FileGeneratorTest" time="0.01"/>
+  <testcase name="testEquals()" classname="assignment3.problem1.FileGeneratorTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

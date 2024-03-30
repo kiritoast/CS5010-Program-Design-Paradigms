@@ -23,18 +23,18 @@ Through these objectives and learning outcomes, CS 5010 aims to equip students w
 
 ## Assignment List
 
-### [Assignment 1](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/assignment1)
+### [Assignment 1](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/Assignment1)
 
 - Frequent Flyer Management System
 - Vehicle Management System
 - Tax Calculator System
 
-### [Assignment 2](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/assignment2)
+### [Assignment 2](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/Assignment2)
 - Inventory Management that organize inventory
 - Online Ordering and Fulfillment that enable online ordering with in-store pickup for customer
 - Implement shopping carts and process orders by updating stock, handling substitutions, and generating receipts.
 
-### [Assignment 3](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/assignment3)
+### [Assignment 3](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/Assignment3)
 This project is designed to take a CSV file containing customer information and generate email or letter files based on provided templates
 
 ### [Assignment 4](https://github.com/kiritoast/CS5010-Program-Design-Paradigms/tree/main/Assignment4)
