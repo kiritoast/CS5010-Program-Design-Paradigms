@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GroceryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-02-27T19:48:13" hostname="Jinmings-MacBook-Pro.local" time="0.001">
-  <properties/>
-  <testcase name="testHashCode()" classname="GroceryTest" time="0.001"/>
-  <testcase name="getWeight()" classname="GroceryTest" time="0.0"/>
-  <testcase name="testEquals()" classname="GroceryTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

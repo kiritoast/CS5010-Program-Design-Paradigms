@@ -1,1 +1,0 @@
-I am writing this to test template for test[[email]]is for the persona [[first_name]]and [[last_name]]. Best wishes.
