@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment3</a> &gt; <a href="index.source.html" class="el_package">assignment3.problem1</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package assignment3.problem1;
+
+import java.io.IOException;
+import java.util.HashMap;
+
+/**
+ * main function that generate messages depends on templates that could be either
+ * letter or eamil. The data is given from a csv file. it will also ouput the file to
+ * the given directory. The user give commands to provided template type, file path.
+ */
+<span class="nc" id="L11">public class Main {</span>
+  private static final String EMAIL_TEMPLATE_OPTION = &quot;--email-template&quot;;
+  private static final String LETTER_OPTION = &quot;--letter&quot;;
+  private static final String LETTER_TEMPLATE_OPTION = &quot;--letter-template&quot;;
+  private static final String CSV_FILE_OPTION = &quot;--csv-file&quot;;
+  private static final String PATH_PREFIX = &quot;/Users/jijim/Documents/5010/Student_jijiming/assignment3/&quot;;
+
+  /**
+   * main function to call to create a file based on the given form
+   * @param args arguments that given by the user
+   * @throws IOException exception will be thrown
+   */
+  public static void main(String[] args) throws IOException {
+    try{
+<span class="fc" id="L25">      System.out.println(args);</span>
+<span class="fc" id="L26">      ArgumentParser parser = new ArgumentParser(args);</span>
+<span class="fc" id="L27">      HashMap&lt;String, String&gt; arguments = parser.getArguments();</span>
+
+<span class="fc" id="L29">      String csvPath = arguments.get(CSV_FILE_OPTION);</span>
+<span class="fc" id="L30">      CSVReader csvReader = new CSVReader(PATH_PREFIX+csvPath);</span>
+
+      // test if its letter or email
+<span class="fc" id="L33">      String tempPath = PATH_PREFIX;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">      if(arguments.get(LETTER_OPTION) == &quot;true&quot;){</span>
+<span class="fc" id="L35">        tempPath = arguments.get(LETTER_TEMPLATE_OPTION);</span>
+      }else{
+<span class="fc" id="L37">        tempPath = arguments.get(EMAIL_TEMPLATE_OPTION);</span>
+      }
+<span class="fc" id="L39">      TemplateReader tem = new TemplateReader(PATH_PREFIX + tempPath);</span>
+<span class="fc" id="L40">      FileGenerator fileGenerator = new FileGenerator(csvReader,tem,arguments);</span>
+<span class="fc" id="L41">      fileGenerator.outputFiles();</span>
+
+<span class="fc" id="L43">    } catch (Exception e) {</span>
+<span class="fc" id="L44">      System.err.println(e.getMessage());</span>
+<span class="fc" id="L45">      printUsage();</span>
+<span class="fc" id="L46">    }</span>
+
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * print correct usage when the argument is wrong
+   */
+  private static void printUsage() {
+<span class="fc" id="L54">    System.out.println(&quot;Usage:&quot;);</span>
+<span class="fc" id="L55">    System.out.println(&quot;--email                        only generate email messages&quot;);</span>
+<span class="fc" id="L56">    System.out.println(&quot;--email-template &lt;file&gt;       accept a filename that holds the email template.&quot;);</span>
+<span class="fc" id="L57">    System.out.println(&quot;--letter                       only generate letters&quot;);</span>
+<span class="fc" id="L58">    System.out.println(&quot;--letter-template &lt;file&gt;      accept a filename that holds the letter template.&quot;);</span>
+<span class="fc" id="L59">    System.out.println(&quot;--output-dir &lt;path&gt;           accept the name of a folder, all output is placed in this folder&quot;);</span>
+<span class="fc" id="L60">    System.out.println(&quot;--csv-file &lt;path&gt;             accept the name of the csv file to process&quot;);</span>
+<span class="fc" id="L61">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

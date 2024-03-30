@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Inventory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment2</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Inventory.java</span></div><h1>Inventory.java</h1><pre class="source lang-java linenums">import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * inventory class that store both grocery stock and household stock
+ */
+public class Inventory {
+  private ArrayList&lt;StockItem&gt; groceryStock;
+  private ArrayList&lt;StockItem&gt; householdStock;
+
+  /**
+   *
+   * @param groceryStock array list that store grocery
+   * @param householdStock array list that store household
+   */
+<span class="fc" id="L17">  public Inventory(ArrayList&lt;StockItem&gt; groceryStock, ArrayList&lt;StockItem&gt; householdStock) {</span>
+<span class="fc" id="L18">    this.groceryStock = groceryStock;</span>
+<span class="fc" id="L19">    this.householdStock = householdStock;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * substitue item if one item is not enough
+   * @param product product that need to be substitutes
+   * @return the product that can be substitutes
+   */
+  public Product substitute(Product product){
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    if(product instanceof Grocery){</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">      for(StockItem stockItem: groceryStock){</span>
+<span class="fc" id="L30">        Product substituteProduct = stockItem.getProduct();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if(product.getClass().equals(substituteProduct.getClass())){</span>
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">          if(stockItem.getQuantity() &gt; 0 &amp;&amp; substituteProduct.getPrice() &lt;= product.getPrice()</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">              &amp;&amp; ((Grocery) substituteProduct).getWeight() &gt;= ((Grocery) product).getWeight() ){</span>
+<span class="fc" id="L34">            return substituteProduct;</span>
+          }
+        }
+<span class="fc" id="L37">      }</span>
+    }
+<span class="fc bfc" id="L39" title="All 2 branches covered.">    if(product instanceof Household){</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">      for(StockItem stockItem: householdStock){</span>
+<span class="fc" id="L41">        Product substituteProduct = stockItem.getProduct();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if(product.getClass().equals(substituteProduct.getClass())){</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">          if(substituteProduct.getPrice() &lt;= product.getPrice() &amp;&amp;</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">              ((Household) product).getUnits() &lt; ((Household) substituteProduct).getUnits()){</span>
+<span class="nc" id="L45">            return substituteProduct;</span>
+          }
+        }
+<span class="fc" id="L48">      }</span>
+    }
+<span class="fc" id="L50">    return null;</span>
+  }
+
+
+  /**
+   * adding stockitem to the appropriate list
+   * @param stockItem item that need to be added
+   * @return if the stock has been added to inventory
+   */
+  public boolean addStock(StockItem stockItem){
+<span class="fc bfc" id="L60" title="All 2 branches covered.">    if(stockItem.getProduct() instanceof Grocery){</span>
+<span class="fc" id="L61">      groceryStock.add(stockItem);</span>
+<span class="fc" id="L62">      return true;</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">    }else if(stockItem.getProduct() instanceof Household){</span>
+<span class="nc" id="L64">      householdStock.add(stockItem);</span>
+<span class="nc" id="L65">      return true;</span>
+    }else{
+<span class="fc" id="L67">      return false;</span>
+    }
+  }
+
+  /**
+   * return the total price of inventory
+   * @return total price
+   */
+  public double getTotalPrice(){
+<span class="fc" id="L76">    double totalPrice = 0.0;</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">    for(StockItem stockItem: groceryStock){</span>
+<span class="fc" id="L78">      totalPrice += stockItem.getProduct().getPrice();</span>
+<span class="fc" id="L79">    }</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">    for(StockItem stockItem: householdStock){</span>
+<span class="fc" id="L81">      totalPrice += stockItem.getProduct().getPrice();</span>
+<span class="fc" id="L82">    }</span>
+<span class="fc" id="L83">    return totalPrice;</span>
+  }
+
+  /**
+   *
+   * @return the grocery stock
+   */
+  public ArrayList&lt;StockItem&gt; getGroceryStock() {
+<span class="fc" id="L91">    return groceryStock;</span>
+  }
+
+  /**
+   *
+   * @return the household stock
+   */
+  public ArrayList&lt;StockItem&gt; getHouseholdStock() {
+<span class="fc" id="L99">    return householdStock;</span>
+  }
+  /**
+   * {@inheritDoc}
+   */
+
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L107" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L108">      return true;</span>
+    }
+<span class="fc bfc" id="L110" title="All 4 branches covered.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L111">      return false;</span>
+    }
+<span class="fc" id="L113">    Inventory inventory = (Inventory) o;</span>
+<span class="pc bpc" id="L114" title="2 of 4 branches missed.">    return Objects.equals(groceryStock, inventory.groceryStock) &amp;&amp; Objects.equals(</span>
+        householdStock, inventory.householdStock);
+  }
+  /**
+   * {@inheritDoc}
+   */
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L123">    return Objects.hash(groceryStock, householdStock);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
